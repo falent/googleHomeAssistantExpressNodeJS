@@ -1,0 +1,29 @@
+{
+  "name": "simple-skill-example-for-google-home",
+  "description": "Examples of DialogFlow  intents.",
+  "version": "0.0.1",
+  "private": true,
+  "license": "Apache Version 2.0",
+  "author": "Tomasz Krajewski",
+  "engines": {
+    "node": "~6.11.1"
+  },
+  "scripts": {
+    "lint": "eslint --fix \"**/*.js\"",
+    "test": "npm run lint",
+    "start": "firebase serve --only functions",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "dependencies": {
+    "actions-on-google": "^2.0.0",
+    "express": "^4.16.3",
+    "firebase-admin": "^5.11.0",
+    "firebase-functions": "^1.0.0",
+    "request": "^2.88.0"
+  },
+  "devDependencies": {
+    "eslint": "^4.19.0",
+    "eslint-config-google": "^0.9.1"
+  }
+}
