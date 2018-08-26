@@ -6,7 +6,7 @@ const { dialogflow } = require('actions-on-google');
 
 const app = dialogflow();
 
-
+const sayMyNameIntent = require('./intents/sayMyName');
 const getWeather = require('./intents/getWeather');
 
 
@@ -20,7 +20,8 @@ function addIntents(...args) {
 }
 
 addIntents(
-    getWeather
+    getWeather,
+    sayMyNameIntent
 );
 
 app.intent('welcomeIntent', (conv) => {
@@ -30,6 +31,8 @@ app.intent('welcomeIntent', (conv) => {
 
 
 
-express().use(bodyParser.json(), app).listen(5000);
+var port = process.env.PORT || 5000;
+
+express().use(bodyParser.json(), app).listen(port);
 
 

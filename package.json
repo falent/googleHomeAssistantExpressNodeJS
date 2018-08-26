@@ -8,8 +8,11 @@
   "engines": {
     "node": "~6.11.1"
   },
+  "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "heroku-deploy": "git checkout atomic-development && git add ./ && git commit -m \"development increment\" && git push heroku atomic-development:master --force && heroku logs --tail",
+    "serve": "node index.js"
   },
   "dependencies": {
     "actions-on-google": "^2.0.0",
