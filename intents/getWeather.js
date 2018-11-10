@@ -1,6 +1,6 @@
 var request = require("request");
 var weather;
-var yourApiKey = '';
+var yourApiKey = '2039319014ca4cd39f13ce904a855bf2';
 
 function initialize(city) {
     // Setting URL and headers for request
@@ -66,7 +66,7 @@ module.exports = {
               outputwind += " There is a tornado. Do you really want to go?"
 
 
-        conv.ask("In the next hour in "+myCity+". The temperature is "+temperature+" celcius degree, Rain "+Number((rain).toFixed(1))+ " millimetre. Wind "+Number((windSpeed).toFixed(1))+" km/h "+outputwind+". "+description+" "+advice+" Do you want something more from me?");
+        conv.ask("Intzht6ztrztrztrztrztr the next hour in "+myCity+". The temperature is "+temperature+" celcius degree, Rain "+Number((rain).toFixed(1))+ " millimetre. Wind "+Number((windSpeed).toFixed(1))+" km/h "+outputwind+". "+description+" "+advice+" Do you want something more from me?");
 
       }, function(err) {
           console.log(err);
@@ -75,6 +75,3 @@ module.exports = {
   }
 
 };
-
-
-
