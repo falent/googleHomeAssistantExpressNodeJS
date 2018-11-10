@@ -10,9 +10,8 @@ COPY package.json /skill/package.json
 RUN mkdir -p /skill/
 WORKDIR /skill/
 RUN npm install
+WORKDIR /skill/
+RUN cat entrypoint.sh | tr -d '\r' > entrypointNew.sh
+RUN chmod +x /skill/entrypointNew.sh
 
-
-RUN wget https://raw.githubusercontent.com/falent/googleHomeAssistantExpressNodeJS/master/entrypoint.sh /skill/
-RUN chmod +x /skill/entrypoint.sh
-
-ENTRYPOINT ["sh","/skill/entrypoint.sh"]
+ENTRYPOINT ["sh","/skill/entrypointNew.sh"]
