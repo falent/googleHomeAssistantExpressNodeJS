@@ -23,7 +23,7 @@ addIntents(
     getWeather,
     sayMyNameIntent
 );
-
+console.log("sdd");
 app.intent('welcomeIntent', (conv) => {
     conv.ask('Welcome to Bike weather forcast! For what city should I tell you a weather for the next hour?');
 });

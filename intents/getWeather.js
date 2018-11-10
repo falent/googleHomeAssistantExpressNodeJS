@@ -1,6 +1,6 @@
 var request = require("request");
 var weather;
-var yourApiKey = '2039319014ca4cd39f13ce904a855bf2';
+var yourApiKey = '2039319014ca4cd39f13ce904a855bf2' ;
 
 function initialize(city) {
     // Setting URL and headers for request

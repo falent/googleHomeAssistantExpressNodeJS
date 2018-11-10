@@ -3,4 +3,4 @@
 sleep 10s
 cd /skill
 npm install
-nodemon 
+nodemon -L 
