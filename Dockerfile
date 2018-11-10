@@ -1,7 +1,7 @@
 FROM node:slim
 
 RUN apt-get update && apt-get install -y \
-    dos2unix
+    wget
 
 RUN npm install -g nodemon@1.14.7
 
@@ -11,12 +11,8 @@ RUN mkdir -p /skill/
 WORKDIR /skill/
 RUN npm install
 
-EXPOSE 8000
-EXPOSE 27017
 
-COPY entrypoint.sh /skill
-<<<<<<< HEAD
-RUN dos2unix /skill/entrypoint.sh
+RUN wget https://raw.githubusercontent.com/falent/googleHomeAssistantExpressNodeJS/master/entrypoint.sh /skill/
 RUN chmod +x /skill/entrypoint.sh
 
 ENTRYPOINT ["sh","/skill/entrypoint.sh"]
