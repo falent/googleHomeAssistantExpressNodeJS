@@ -15,6 +15,7 @@ EXPOSE 8000
 EXPOSE 27017
 
 COPY entrypoint.sh /skill
+<<<<<<< HEAD
 RUN dos2unix /skill/entrypoint.sh
 RUN chmod +x /skill/entrypoint.sh
 
