@@ -6,7 +6,7 @@ const { dialogflow } = require('actions-on-google');
 
 const app = dialogflow();
 
-const sayMyNameIntent = require('./intents/sayMyName');
+const sayMyNameIntent = require('./intents/nameIntent');
 const getWeather = require('./intents/getWeather');
 
 

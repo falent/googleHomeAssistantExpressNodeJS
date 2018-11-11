@@ -1,7 +1,7 @@
 
 module.exports = {
 
-    'sayMyNameIntent': (conv, parametr) => {
+    'nameIntent': (conv, parametr) => {
 
 
       var par2 = conv['parameters']['given-name'];
