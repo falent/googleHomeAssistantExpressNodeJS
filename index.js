@@ -23,7 +23,7 @@ addIntents(
     getWeather,
     sayMyNameIntent
 );
-console.log("sdd");
+console.log("sdddd");
 app.intent('welcomeIntent', (conv) => {
     conv.ask('Welcome to Bike weather forcast! For what city should I tell you a weather for the next hour?');
 });
@@ -32,7 +32,7 @@ app.intent('welcomeIntent', (conv) => {
 
 
 var port = process.env.PORT || 5000;
-
+console.log("Everything works. Im listining on "+port+" port");
 express().use(bodyParser.json(), app).listen(port);
 
 

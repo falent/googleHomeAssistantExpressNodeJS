@@ -1,6 +1,6 @@
 #!/bin/sh
 
-sleep 10s
+sleep 2s
 cd /skill
 npm install
 nodemon -L 
