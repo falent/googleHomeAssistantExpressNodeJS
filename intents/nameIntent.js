@@ -10,10 +10,11 @@ module.exports = {
 
       console.log('that is parametr' + '\n'+JSON.stringify(parametr));
       var myName = parametr["given-name"];
+      console.log("Hey this is log, nice to see you here");
       console.log(myName)
 
 
-        conv.ask("Hello " + myName +". You can also get my name as here "+par2+"For what city do you want to get weather, "+myName);
+        conv.ask("Hello " + myName + " For what city do you want to get weather, my dear "+myName);
 
       }
 };
