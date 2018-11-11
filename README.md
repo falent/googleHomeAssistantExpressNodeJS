@@ -1,3 +1,4 @@
+
 # How to build your first google home skill?
 
 In this short tutorial we will show you how to write a very simple google home skill and develop it on your local machine. We are going to use Docker to avoid any additional installations and ensure that all of us starts with the same code and the same environment (less problems for all of us. Besides it is time for all who don't know how docker works to get it know ;) Don't worry although we use docker you will edit your code only locally because we implemented a mount option.
@@ -31,23 +32,23 @@ At the next page choose "skip".
 In actions invocation define the invocation name for your skill. 
 [![](https://thecattlecrew.files.wordpress.com/2018/08/googlehome2.png?w=840&h=593)](https://thecattlecrew.files.wordpress.com/2018/08/googlehome2.png)
 
-Congratulatioou created your first project, but the simulator is not active yet, because there is no voice logic behind it. That means there are no interactions defined between google assistant and the user for  your skill. To create the interaction logic go to dialogflow.
+Congratulations, you created your first project, but the simulator is not active yet, because there is no voice logic behind it. That means there are no interactions defined between google assistant and the user for  your skill. To create the interaction logic go to dialogflow.
 
 [![](https://thecattlecrew.files.wordpress.com/2018/08/googlehome3.png?w=840&h=789)](https://thecattlecrew.files.wordpress.com/2018/08/googlehome3.png)
 
 ## DialogFlow
-Dialogflow (formerly Api.ai, Speaktoit) is a Google-owned developer of human–computer interaction technologies based on natural language conversations. **// why do we need it** Translations of human voice calls into json objects which is calling you code. In dialogfloow you define possible inputs from the user say intents. and you can define answers to user intents in  dialogflow. In alternative to using code.  
+Dialogflow (formerly Api.ai, Speaktoit) is a Google-owned developer of human–computer interaction technologies based on natural language conversations. We need it to translate human voice calls into JSON objects that can be consumed by  our backend code and backwards to tranlate the responses from our backend to Voice Phrases.   
 
 ## How it works?
 
 ![](https://lh3.googleusercontent.com/q0bK_PoG8wyoozW-uUUNT7FUi4BlBb2C-yqBRIm_Pi7Nby3bD4rLvy1vXsr4mVuVrzhUrOuloOI "Google Assistant route")
 
 ### 2. DialogFlow
-You need to open in the next step DialogFlow interface:  [https://console.dialogflow.com](https://console.dialogflow.com) 
+n the next step open the Dialoglow interface:  [https://console.dialogflow.com](https://console.dialogflow.com) 
 
 #### II.1
 
-Create a new agent where you configure your interaction model for your skill.** Please keep in mind to import your created project (GOOGLE PROJECT) from google actions to DialogFlow**. The name how you call your agent in dialogflow is irrelevant
+Create a new agent where you configure your interaction model for your skill.** Please keep in mind to import your created project (GOOGLE PROJECT) from google actions to DialogFlow**. The name how you call your agent in ialogflow is irrelevant
 
 [![](https://thecattlecrew.files.wordpress.com/2018/08/googlehome4.png?w=840&h=346)](https://thecattlecrew.files.wordpress.com/2018/08/googlehome4.png)
 
@@ -55,17 +56,13 @@ Create a new agent where you configure your interaction model for your skill.** 
 
 
 
-#### II.2
-Add your first intent. Intents are users intentions that they want to talk with assistant. You can imagine Intent like a trigger function for your code. 
-
-
-An intent is composed of events, contexts, training phrases, entities and responses. We define these composites in the following. 
-Click on  Intent and then on the default welocme intent to look at its components and to edit it.  Training phrases are phrases that trigger an event of your voice assitant. For example Hey would trigger the welcome event.  In responses you can define static answers for your questions. 
+#### II.2 Add your first intent
+Intents are anticipated user intentions about what users might want to talk with the voice assistant in an action. For a weather action possible intents would be questions about the temperature or precipitation. Intents are triggered by predefined utterances and key words from the user. Possible questions about the weather could be "Will it rain today?" or a keyword might be "temperature". Utterances like these are defined as training phrases in an intent of your action.  To  see how its configured click on Intentions in Dialogflow. Select the default welcome intent. Here you have listed several training phrases that invoke the welcome intent. Under Responses you see what the google assistant could  answer to the user utterances. that triggered the welcome intent 
 
 [![](https://thecattlecrew.files.wordpress.com/2018/08/googlehome5.png?w=840&h=199)](https://thecattlecrew.files.wordpress.com/2018/08/googlehome5.png)
 
 #### II.3
-If you want use your own code for „welcomeIntent“ you need enable one option on the buttom of your intent.
+If you want to use your own code for an intent you need to enable one option on the buttom of your intent.
 
 Swip „Enable webhook call for this intent“ and click „save“  button
 
@@ -171,7 +168,38 @@ Now you can test your app clicking on the buttom "Test" link.
 
 Please remember that if you use on your computer at least 2 google accounts that the one you are logged to DialogFlow will be the first one you are logged in or to be secure that everything works stay logged in the browser only with a one account.
 
+# How to test your skill?
 
+1. Open your DialogFlow interface with your skill and go to integrations --> Google Assistant. When pop up window is opened go choose "TEST"
+
+![enter image description here](https://lh3.googleusercontent.com/f0SmNm1IG10wCkpkOprvIu7Bp0Oz4ZXDZplxpV1ptFzWI5kK_XNh1GddmtkIRqrciL_jLs4YLas)
+You will be taken to Google Actions simulator.
+
+Just click on you suggested input. In my case it is "Talk to Tomasz skill". In your case will be "Talk to {your defined in google actions skill invocation name}"
+
+![enter image description here](https://lh3.googleusercontent.com/d1lgHJtXF6o8LOA77GKGP5QQrXvde0DFrc7noDSDUcuWxrc59Sri9UPxWoVBKIP98_VIOQy-QrI)
+Your skill will answer:
+*Okay. Let's get the test version of tomasz skill.Hi! What is your name?*
+We defined only one traning phrase in a dialogFlow. It was "my name is {your name}"
+
+![enter image description here](https://lh3.googleusercontent.com/WAfnxThlWu4emdK-Qec_4gdiVJmQGqIEvCWdXxt5aOyEdfO77jpisZBEP5k7j6Z80So5ZRW0vrc)
+So lets answer our assistant and write into input in our simulator:
+*My name is Thomas
+
+If you configured everything propertly...
+
+you will get a such output:
+*Hello Thomas For what city do you want to get weather, my dear Thomas*
+
+In your ngrok container will come a query:
+![enter image description here](https://lh3.googleusercontent.com/cTrEJQ-2FDM8jYkAgrLYtUH0pEeBRVPH1lzEWsHJfcdFAbEfx1FGVyliuAmO-vC8QlbTAnznYdA)
+and in your google assistant container you will see first logs
+
+![enter image description here](https://lh3.googleusercontent.com/zbdLvOCCRUeWIcRCBnVlOdGbGc5FNw_RTm9DzI-ZOPE4CNAATp_jfaKigyLccg3FkBUW_TlwIqs)
+Now if you have alreadyWAfnxThlWu4emdK-Qec_4gdiVJmQGqIEvCWdXxt5aOyEdfO77jpisZBEP5k7j6Z80So5ZRW0vrc)
+"TcTrEJQ-2FDM8jYkAgrLYtUH0pEeBRVPH1lzEWsHJfcdFAbEfx1FGVyliuAmO-vC8QlbTAnznYdA)
+ google home device try to test it with it saying:
+Ok google, talk to {your defined in google actions skill invocation name}
 
 # Instructions for a quick deployment to Heroku
 
