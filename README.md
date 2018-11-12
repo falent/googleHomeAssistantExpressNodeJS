@@ -37,7 +37,7 @@ Congratulations, you created your first project, but the simulator is not active
 [![](https://thecattlecrew.files.wordpress.com/2018/08/googlehome3.png?w=840&h=789)](https://thecattlecrew.files.wordpress.com/2018/08/googlehome3.png)
 
 ## DialogFlow
-Dialogflow (formerly Api.ai, Speaktoit) is a Google-owned developer of human–computer interaction technologies based on natural language conversations. We need it to translate human voice calls into JSON objects that can be consumed by  our backend code and backwards to tranlate the responses from our backend to Voice Phrases.   
+Dialogflow (formerly Api.ai, Speaktoit) is a Google-owned developer of human–computer interaction technologies based on natural language conversations. We need it to translate human voice calls into JSON objects that can be consumed by  our backend code and backwards to tranlate the responses from our backend to Voice Phrases.
 
 ## How it works?
 
@@ -97,7 +97,7 @@ Install [Docker CE (Community Edition)](https://docs.docker.com/engine/installat
 
 `$ sudo docker run hello-world`
 
-### 4. Docker Containers 
+### 4. Docker Containers
 
 Open a first terminal tab and clone my git repository from Github. Please do all steps in that order which is described here :) I used my previous solution from Alexa developing. Dont be scared that we use docker images which names are "alexa"
 
@@ -137,7 +137,7 @@ Open a first terminal tab and clone my git repository from Github. Please do all
   
 
 ### Restart (in case of new module installations)
-Our solution based on nodemon which is kind of watcher and reload your skill everytime you made code changes. You save a lot time because of that ;) However it can happen that you wish to add more modules to your skill. In that case you ust no remove and restart your container. Npm modules are installed only at the start of your container.
+Our solution is based on nodemon which is kind of watcher and it reloads your skill everytime you made code changes. You save a lot time because of that ;) However it can happen that you wish to add more npm modules https://www.npmjs.com/ to your skill. In that case you need to restart your container. Npm modules are installed only at the start of your container.
 
 #### Linux
 `$ sudo docker restart myAssistant && sudo docker container logs  --follow  myAssistant`
@@ -192,10 +192,12 @@ you will get a such output:
 *Hello Thomas For what city do you want to get weather, my dear Thomas*
 
 In your ngrok container will come a query:
+
 ![enter image description here](https://lh3.googleusercontent.com/cTrEJQ-2FDM8jYkAgrLYtUH0pEeBRVPH1lzEWsHJfcdFAbEfx1FGVyliuAmO-vC8QlbTAnznYdA)
 and in your google assistant container you will see first logs
 
 ![enter image description here](https://lh3.googleusercontent.com/zbdLvOCCRUeWIcRCBnVlOdGbGc5FNw_RTm9DzI-ZOPE4CNAATp_jfaKigyLccg3FkBUW_TlwIqs)
+
 Now if you have alreadyWAfnxThlWu4emdK-Qec_4gdiVJmQGqIEvCWdXxt5aOyEdfO77jpisZBEP5k7j6Z80So5ZRW0vrc)
 "TcTrEJQ-2FDM8jYkAgrLYtUH0pEeBRVPH1lzEWsHJfcdFAbEfx1FGVyliuAmO-vC8QlbTAnznYdA)
  google home device try to test it with it saying:

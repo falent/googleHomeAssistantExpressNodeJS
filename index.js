@@ -2,7 +2,8 @@
 
 const express = require('express');
 const bodyParser = require('body-parser');
-const { dialogflow } = require('actions-on-google');
+const { dialogflow,   Permission,
+  Suggestions, } = require('actions-on-google');
 
 const app = dialogflow();
 
@@ -24,8 +25,13 @@ addIntents(
     sayMyNameIntent
 );
 
+
+
 app.intent('welcomeIntent', (conv) => {
-    conv.ask('Welcome to Bike weather forcast! For what city should I tell you a weather for the next hour?');
+  conv.ask(new Permission({
+    context: 'Hi there, to get to know you better',
+    permissions: 'NAME'
+  }));
 });
 
 
