@@ -19,7 +19,7 @@ https://accounts.google.com/signup/v2/webcreateaccount?hl=en-GB&flowName=GlifWeb
 We will use dialogFlow and google actions to configure our interaction model and publish it for google assistant.
 
 ### I. Google Actions
-An action is a voics programm (voice skill) that extends the functionality of the Google Assistant. In the web interface you create a project that bundles all your actions.Each action in the google actions directory has an invocation name. With the invocation name users can start your action. In our case we created a weather action (skill) and we can start it by saying "Hey google, talk to my bike buddy". After that google will call your fulfillment to start a conversation with the user. The fulfilment is based upon your deployed web application  or it is in total configured with the google web interfaces google actions and dialogflow. The interactions are transformed from audio to text and backward till a conversation between the user and google assistant reaches its end.
+An action is a voice programm (voice skill) that extends the functionality of the Google Assistant. In the web interface  you create a project that bundles all your actions.Each action in the google actions directory has an invocation name. With the invocation name users can start your action. In our case we created a weather action (skill) and we can start it by saying "Hey google, talk to my bike buddy". After that google will call your fulfillment to start a conversation with the user. The fulfilment is based upon your deployed web application  or it is in total configured with the google web interfaces google actions and dialogflow. The interactions are transformed from audio to text and backward till a conversation between the user and google assistant reaches its end.
 
 ![https://codelabs.developers.google.com/codelabs/actions-1/img/dbd725edb3a93e79.png](https://codelabs.developers.google.com/codelabs/actions-1/img/dbd725edb3a93e79.png)
 Source: https://codelabs.developers.google.com/codelabs/actions-1/img/dbd725edb3a93e79.png
@@ -50,11 +50,11 @@ Dialogflow (formerly Api.ai, Speaktoit) is a Google-owned developer of human–c
 ### 2. DialogFlow
 n the next step open the Dialoglow interface:  [https://console.dialogflow.com](https://console.dialogflow.com) 
 
-#### II.1
+#### II.1  //TO DO 
 
-Create a new agent where you configure your interaction model for your skill.** Please keep in mind to import your created project (GOOGLE PROJECT) from google actions to DialogFlow**. The name how you call your agent in dialogflow is irrelevant
+Create a new agent where you configure your interaction model for your skill. ** Please keep in mind to import your created project (GOOGLE PROJECT) from google actions to DialogFlow**. The name how you call your agent in dialogflow is irrelevant
 
-[![](https://thecattlecrew.files.wordpress.com/2018/08/googlehome4.png?w=840&h=346)](https://thecattlecrew.files.wordpress.com/2018/08/googlehome4.png)
+![](https://lh3.googleusercontent.com/So8pgbym02Gu8W1noyXNd5Bk5L_pFs-yNf497XxvusvyUvhNz5UPbcb3KFoWvT8W-Y-HmXuGPFXDFKK8O-ifYahPz2fCifPUvd7hd-s3FVp-7ld5dgqRv9S-9BEUAgLa0T2eQA-6h_MJxlzDmoz-8LUHffgedaDrJ009ge-QoK1TdO5FEKrM_x69AmFEiiPV_MSOYJaKpXAEvhgIfS6ivtU6y6sm5-rNqwxbzgEi7Njibo2ZJ_h47Bt0IpMNxI4JSZzlkNhibdTt7LWQELwl3AaU_jpYUDzkZ1SXeNEMQTnpDSugcutVJcJ7qkifwKc0y9muN0C6-gmg7G8RP1f8thv3glb9zLUdvpo8qyhpS8Fyja1NkIE130jnI1noM9qFk0PgWI8B0kptfyY9n8gg_XfcrmNiEteiq48D-2DJX_Thjnt0CdsvHnQsxfLETjx0l8-HJyJEuf4u-ixVVM7ukAMmPkI-QLlytJquji2nZNFvB44uT2THiYa-W-OHbyn3YSlCMXtDaOryekauJwfiCRhIp-eWSFhMjaBNFiFiJT826WPxJee_Rd8QVh4_D2atFjItFK7dXmmeF0u-qWMzrq7c9EdnhKh48Hx-ZlbZL0_n9T3MEOufFuXV25Le0UR7a71KeSlwN2iNORjyvvnjL0kpP3d_qLwadcLsTiHEKkpsTC-r5Wy0peuERMz6-X5naCXp4J1Fi3_l7mD0PILI1bCJxCMZJXT0e71U=w1440-h468-no)
 
 [https://console.dialogflow.com/api-client/#/newAgent](https://console.dialogflow.com/api-client/#/newAgent)
 
@@ -126,30 +126,36 @@ Open a first terminal tab and clone my git repository from Github. Please do all
 
 #### Windows
 
-1. Clone our repository
+1. Please add a setting to your git that shell scripts wont be change by windows formattig.
+`git config core.autocrlf true`
+2. Clone our repository
 `git clone https://github.com/falent/googleHomeAssistantExpressNodeJS.git  ~/Desktop/Template/Google_Assistant_universal_skill_template `
 
-2. Go to the cloned git repository:
+3. Go to the cloned git repository:
 `cd C:\Users\%username%\Documents\googleHomeAssistantExpressNodeJS`
 
-3. Create a new Docker network:
+4. Create a new Docker network:
 `docker network create myNetwork`
 
-4. Run the _ngrok_ Docker container in your terminal **and do not close this tab!**
-`docker run --rm -it  --network myNetwork wernight/ngrok ngrok http myAssistant:5000``
+5. Run the _ngrok_ Docker container in your terminal **and do not close this tab!**
+`docker run --rm -it  --network myNetwork wernight/ngrok ngrok http myAssistant:5000`
 
-5. Open a new tab and run an _Google Assistant_ Docker container:
+6. Open a new tab and run an _Google Assistant_ Docker container:
  `docker run -v /C/Users/%username%/Documents/googleHomeAssistantExpressNodeJS:/skill -it --network myNetwork --name myAssistant falent/google_home_assistant_express_node_js_server:1`
-  
 
-### Restart (in case of new module installations)
+you should see a such output:
+![enter image description here](https://lh3.googleusercontent.com/xVXS5bsbK-fIsMRuzS2EDV6qYV0P6kQOsKMFH3wjFoUWNVg_Jcis3pnt6-53lsA-xIasibcBHTFOY-WlRqhkOII7wS46HatZE6ZSy9ZHD8b8hdh8CnBwjcN1Kj-xJ-ZPkCeou4jxEjKreZgA-2pqO-lr-ai6kFG0CMy6P-Vk4VQA7Z8JQwOysl-XaNFnt33K02BRCFmUi2XUwtKpeWzcfM67teNCKfmbOhmeH1kFS0iFjUpC62Daonbm4kRDkphTmBZx0c5pgDpP46h3DsP4RotPEWJaFw6HTM2y0Oh8I1Cjix32cMaZosLVX8lxaieOjf6FDEYKFDUGRQ3Lsa4wOkoWNGiFH2wqJf4xfNa0TrPzbZPJF-8cw6yexCkBxSERXX64wM8hOhqTXAPjXYYk0Qt7wWOZx9UtVQLFRM2ymVEulb73mKVf5RDlJf6ZeWVeyfAh517V36C6zcevjFLTy628-GLZc8nf7WNnEP_cDuJoUWmQsi8XQTagFiaWg2AkMmNtAdSIin-MD4bzEB5HUVlnPfDB0e8g9M8IC9CslMRPpXsxPmbQH9Uj51SmswNOAk3iA6jEgrKhJ2oadKmWncSsueitvbEqMy8H9yn8tm_evIFr9EjkHrlUQw_A0lvS_UFQW-kFaVJgcsVIqHsu6UBp0gYSWVuHEQ3G1cN9LQ=w420-h114-no)
+
+
+
+### Restart (in case of new module installations or if you want to start your container app)
 Our solution is based on nodemon which is kind of watcher and it reloads your skill everytime you made code changes. You save a lot time because of that ;) However it can happen that you wish to add more npm modules https://www.npmjs.com/ to your skill. In that case you need to restart your container. Npm modules are installed only at the start of your container.
 
 #### Linux
 `$ sudo docker restart myAssistant && sudo docker container logs  --follow  myAssistant`
 
 #### Windows
-`docker restart myAssistant && sudo docker container logs  --follow  myAssistant`
+`docker restart myAssistant && docker container logs  --follow  myAssistant`
 
 
 ### 4. Dialogflow
@@ -267,3 +273,6 @@ After pushing you will get your heroku app https address. Please copy it and pas
 ## Windows
 the steps are the same. You need only install heroku for windows https://devcenter.heroku.com/articles/heroku-cli#download-and-install
 
+
+Sign up for [Firebase](https://signup.heroku.com/dc) (it's for free).
+https://www.youtube.com/watch?v=LOeioOKUKI8
