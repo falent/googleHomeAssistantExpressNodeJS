@@ -15,10 +15,14 @@ https://store.docker.com/editions/community/docker-ce-desktop-windows
 You need a google account:
 https://accounts.google.com/signup/v2/webcreateaccount?hl=en-GB&flowName=GlifWebSignIn&flowEntry=SignUp
 
+
 We will use dialogFlow and google actions to configure our interaction model and publish it for google assistant.
 
 ### I. Google Actions
-An action is a skill that extends the functionality of the Google Assistant. In the web interface you create a project that bundles all your actions. You will also do the configuration there like what countries your action will be available for or key details about your action like its description or, your contact detailsname for users who will use your action. Each action in the google actions directory has an invocation name. With the invocation name users can start your action. In our case we created a weather action and we can start it for example by saying "Hey google, talk to my bike buddy". After invocation of your action, google will call your fulfillment to start a conversation with the user. The fulfilment is based upon your deployed web application  or it is in total configured with the google web interfaces google actions and dialogflow. The interactions are transformed from audio to text and backward till a conversation between the user and google assistant reaches its end.
+An action is a voics programm (voice skill) that extends the functionality of the Google Assistant. In the web interface you create a project that bundles all your actions.Each action in the google actions directory has an invocation name. With the invocation name users can start your action. In our case we created a weather action (skill) and we can start it by saying "Hey google, talk to my bike buddy". After that google will call your fulfillment to start a conversation with the user. The fulfilment is based upon your deployed web application  or it is in total configured with the google web interfaces google actions and dialogflow. The interactions are transformed from audio to text and backward till a conversation between the user and google assistant reaches its end.
+
+![https://codelabs.developers.google.com/codelabs/actions-1/img/dbd725edb3a93e79.png](https://codelabs.developers.google.com/codelabs/actions-1/img/dbd725edb3a93e79.png)
+Source: https://codelabs.developers.google.com/codelabs/actions-1/img/dbd725edb3a93e79.png
 
 #### I.1 Create a new project
 Open Google Actions page [https://developers.google.com/actions/](https://developers.google.com/actions/) and create a new project. You need a google account to log in. Click a plus button (add / import project) and after that create a project with the given name.
@@ -37,7 +41,7 @@ Congratulations, you created your first project, but the simulator is not active
 [![](https://thecattlecrew.files.wordpress.com/2018/08/googlehome3.png?w=840&h=789)](https://thecattlecrew.files.wordpress.com/2018/08/googlehome3.png)
 
 ## DialogFlow
-Dialogflow (formerly Api.ai, Speaktoit) is a Google-owned developer of human–computer interaction technologies based on natural language conversations. We need it to translate human voice calls into JSON objects that can be consumed by  our backend code and backwards to tranlate the responses from our backend to Voice Phrases.
+Dialogflow (formerly Api.ai, Speaktoit) is a Google-owned developer of human–computer interaction technologies based on natural language conversations. We need it to translate human voice calls into JSON objects that can be consumed by  our backend code and backwards to tranlate the responses from our backend to Voice Phrases.You define how all this works within a Dialogflow agent.
 
 ## How it works?
 
@@ -48,7 +52,7 @@ n the next step open the Dialoglow interface:  [https://console.dialogflow.com](
 
 #### II.1
 
-Create a new agent where you configure your interaction model for your skill.** Please keep in mind to import your created project (GOOGLE PROJECT) from google actions to DialogFlow**. The name how you call your agent in ialogflow is irrelevant
+Create a new agent where you configure your interaction model for your skill.** Please keep in mind to import your created project (GOOGLE PROJECT) from google actions to DialogFlow**. The name how you call your agent in dialogflow is irrelevant
 
 [![](https://thecattlecrew.files.wordpress.com/2018/08/googlehome4.png?w=840&h=346)](https://thecattlecrew.files.wordpress.com/2018/08/googlehome4.png)
 
@@ -57,7 +61,7 @@ Create a new agent where you configure your interaction model for your skill.** 
 
 
 #### II.2 Add your first intent
-Intents are anticipated user intentions about what users might want to talk with the voice assistant in an action. For a weather action possible intents would be questions about the temperature or precipitation. Intents are triggered by predefined utterances and key words from the user. Possible questions about the weather could be "Will it rain today?" or a keyword might be "temperature". Utterances like these are defined as training phrases in an intent of your action.  To  see how its configured click on Intentions in Dialogflow. Select the default welcome intent. Here you have listed several training phrases that invoke the welcome intent. Under Responses you see what the google assistant could  answer to the user utterances. that triggered the welcome intent 
+Intents are anticipated user intentions about what users might want to talk with the voice assistant in an action. For a weather action possible intents would be questions about the temperature or precipitation. Intents are triggered by predefined utterances and key words from the user. Possible questions about the weather could be "Will it rain today?" or a keyword might be "temperature". Utterances like these are defined as training phrases in an intent of your action.  To  see how its configured click on Intentions in Dialogflow. Select the default welcome intent. Here you have listed several training phrases that invoke the welcome intent. Under Responses you see what the google assistant could  answer to the user utterances. that triggered the welcome intent.
 
 [![](https://thecattlecrew.files.wordpress.com/2018/08/googlehome5.png?w=840&h=199)](https://thecattlecrew.files.wordpress.com/2018/08/googlehome5.png)
 
@@ -70,7 +74,9 @@ Swip „Enable webhook call for this intent“ and click „save“  button
 
 #### II.4
 Add a new Intent for example "nameIntent". This intent we will integrate with our code.
-In the traning phases add f.e "My name is Christina". DialogFlow will instantly recognise it as traning phrase that cointains a name parametr, Your parametr name will be called "given-name".  We wont define responses because we want to have more control how google assistent will answer. so we will do it with our code. Please click on enable fulfillment and "Enable webhook call for this intent".
+In the traning phases add f.e "My name is Christina". DialogFlow will instantly recognise it as traning phrase that cointains a name parametr. Your parametr name will be called "given-name" and all entitieties are defined by Google. During our meeting we will show how to build user defined entitites.
+
+We won't define responses in that case because we want to have more control how google assistent answers. so we will do it with our code. Please click on enable fulfillment and "Enable webhook call for this intent".
 
 
 #### II.5
