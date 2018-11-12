@@ -126,8 +126,8 @@ Open a first terminal tab and clone my git repository from Github. Please do all
 
 #### Windows
 
-1. Please add a setting to your git that shell scripts wont be change by windows formattig.
-`git config core.autocrlf true`
+1. Please add a setting to your git that shell scripts won't be changed by windows formattig.
+`git config --global core.autocrlf true`
 2. Clone our repository
 `git clone https://github.com/falent/googleHomeAssistantExpressNodeJS.git  ~/Desktop/Template/Google_Assistant_universal_skill_template `
 
