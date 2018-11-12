@@ -1,9 +1,9 @@
 
 # How to build your first google home skill?
 
-In this short tutorial we will show you how to write a very simple google home skill and develop it on your local machine. We are going to use Docker to avoid any additional installations and ensure that all of us starts with the same code and the same environment (less problems for all of us. Besides it is time for all who don't know how docker works to get it know ;) Don't worry although we use docker you will edit your code only locally because we implemented a mount option.
+In this short tutorial we will show you how to write a very simple google home skill and develop it on your local machine. We are going to use Docker to avoid any additional installations and ensure that all of us starts with the same code in the same environment (less problems for all of us. Besides it is time for all who don't know how docker works to get it know ;) Don't worry although we use docker you will edit your code only locally because we implemented a mount option (shared folder).
 
-When you finish your developing you can easily upload your code to a https server. At the end of this tutorial we will show you how to do it in Heroku. After that you can publish your first skill. Of course our solution will work with any Https node.js server provider (AWS, Azure, Openshift etc. ) :)
+When you finish your developing you can easily upload your code to any https server. At the end of this tutorial we will show you how to do it with Heroku. After that you can publish your first skill. Of course our solution will work with any Https node.js server provider (AWS, Azure, Openshift etc. ) :)
 
 ## Requirements
 ### Docker installation
@@ -15,13 +15,13 @@ https://store.docker.com/editions/community/docker-ce-desktop-windows
 You need a google account:
 https://accounts.google.com/signup/v2/webcreateaccount?hl=en-GB&flowName=GlifWebSignIn&flowEntry=SignUp
 
-We will use dialogFlow and google actions to configure our interaction model and publish it for google assistant. 
+We will use dialogFlow and google actions to configure our interaction model and publish it for google assistant.
 
 ### I. Google Actions
-An action is a skill that extends the functionality of the Google Assistant. In the web interface you create a project that bundles all your actions. You will also do the configuration there like what countries your action will be available for or key details about your action like its description or, your contact detailsname for users who will use your action. Each action in the google actions directory has an invocation name. With the invocation name users can start your action. In our case we created a weather action and we can start it for example by saying "Hey google, talk to my bike buddy". After invocation of your actiom, google will call your fulfillment to start a conversation with the user. The fulfilment is based upon your deployed web application  or it is in total configured with the google web interfaces google actions and dialogflow. The interactions are transformed from audio to text  and backward till a conversation between the user and google assistant reaches its end.
+An action is a skill that extends the functionality of the Google Assistant. In the web interface you create a project that bundles all your actions. You will also do the configuration there like what countries your action will be available for or key details about your action like its description or, your contact detailsname for users who will use your action. Each action in the google actions directory has an invocation name. With the invocation name users can start your action. In our case we created a weather action and we can start it for example by saying "Hey google, talk to my bike buddy". After invocation of your action, google will call your fulfillment to start a conversation with the user. The fulfilment is based upon your deployed web application  or it is in total configured with the google web interfaces google actions and dialogflow. The interactions are transformed from audio to text and backward till a conversation between the user and google assistant reaches its end.
 
 #### I.1 Create a new project
-Open Google Actions page [https://developers.google.com/actions/](https://developers.google.com/actions/) and create a new project. You need a google account to log in. Click a plus button (add / import project) and after that create a project with the given name. 
+Open Google Actions page [https://developers.google.com/actions/](https://developers.google.com/actions/) and create a new project. You need a google account to log in. Click a plus button (add / import project) and after that create a project with the given name.
 
 [![](https://thecattlecrew.files.wordpress.com/2018/08/googlehome.jpg?w=840&h=540)](https://thecattlecrew.files.wordpress.com/2018/08/googlehome.jpg)
 
@@ -148,7 +148,7 @@ Our solution is based on nodemon which is kind of watcher and it reloads your sk
 
 ### 4. Dialogflow
 #### IV.1 Ngrok address
-Please copy **https** address from ngrok docker. 
+Please copy **https** address from ngrok docker.
 
 ![enter image description here](https://lh3.googleusercontent.com/lxynDDtaZzBgyqMiyW5twybVpWpWg5yEJ0Qt0ujyPqUUoh-npvxaTC8qyu2FnIiz_LP7oMEGqWA)
 #### IV.2 Dialogflow endpoint<div id='id-dialogflow-endpoint'/>
@@ -191,9 +191,10 @@ If you configured everything propertly...
 you will get a such output:
 *Hello Thomas For what city do you want to get weather, my dear Thomas*
 
-In your ngrok container will come a query:
+In your ngrok container in your local machine you will get a query:
 
 ![enter image description here](https://lh3.googleusercontent.com/cTrEJQ-2FDM8jYkAgrLYtUH0pEeBRVPH1lzEWsHJfcdFAbEfx1FGVyliuAmO-vC8QlbTAnznYdA)
+
 and in your google assistant container you will see first logs
 
 ![enter image description here](https://lh3.googleusercontent.com/zbdLvOCCRUeWIcRCBnVlOdGbGc5FNw_RTm9DzI-ZOPE4CNAATp_jfaKigyLccg3FkBUW_TlwIqs)
