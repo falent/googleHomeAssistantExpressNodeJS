@@ -2,10 +2,17 @@
 
 const express = require('express');
 const bodyParser = require('body-parser');
-const { dialogflow,   Permission,
-  Suggestions, } = require('actions-on-google');
 
-const app = dialogflow();
+/*
+Our code uses the Actions on Google Node.js client library to respond to HTTP requests that the Assistant sends to your webhook
+*/
+const { dialogflow } = require('actions-on-google');
+
+/*
+the library allows you to create a DialogflowApp object, which acts as a wrapper for the Dialogflow API. 
+*/
+const app = dialogflow({debug: true});
+
 
 const sayMyNameIntent = require('./intents/nameIntent');
 const getWeather = require('./intents/getWeather');
@@ -26,12 +33,8 @@ addIntents(
 );
 
 
-
 app.intent('welcomeIntent', (conv) => {
-  conv.ask(new Permission({
-    context: 'Hi there, to get to know you better',
-    permissions: 'NAME'
-  }));
+    conv.ask('Welcome to Bike weather forcast! For what city should I tell you a weather for the next hour?');
 });
 
 
