@@ -3,7 +3,7 @@
 
 In this short tutorial we will show you how to write a very simple google home skill and develop it on your local machine. We are going to use Docker to avoid any additional installations and ensure that all of us starts with the same code in the same environment (less problems for all of us. Besides it is time for all who don't know how docker works to get it know ;) Don't worry although we use docker you will edit your code only locally because we implemented a mount option (shared folder).
 
-When you finish your developing you can easily upload your code to any https server. At the end of this tutorial we will show you how to do it with Heroku. After that you can publish your first skill. Of course our solution will work with any Https node.js server provider (AWS, Azure, Openshift etc. ) :)
+When you finish your developing you can easily upload your code to any https server. At the end of this tutorial we will show you how to do it with Heroku and Firebase. After that you can publish your first skill. Of course our solution will work with any Https node.js server provider (AWS, Azure, Openshift etc. ) :)
 
 ## Requirements
 As it was mentioned at the beginning we will work with docker. You need also an google account
@@ -17,14 +17,14 @@ https://store.docker.com/editions/community/docker-ce-desktop-windows
 ### Google Account
 https://accounts.google.com/signup/v2/webcreateaccount?hl=en-GB&flowName=GlifWebSignIn&flowEntry=SignUp
 
-## Model Interaction Configuration
+## "Interaction Model" Configuration
 
-We will use dialogFlow and google actions to configure our interaction model and publish it for google assistant.
+We will use dialogFlow and google actions to configure our "interaction model" and publish it for google assistant. Interaction model is a voice logic which needs to be defined in google actions and dialogflow.
 
 ### I. Google Actions
-An action in this case you can imagine as a voice programm (voice skill) that extends the functionality of the Google Assistant .Each has an invocation name. With the invocation name you can start your action. In our case we are creating a weather action (skill) and we can start it by saying "Hey google, talk to <your defined invocation name>". After that google will call your external fulfillment to start a conversation with the user. The fulfilment is based upon your deployed web application  or it can be totally configured with google actions and dialogflow. 
+An action in this case you can imagine as a part of voice programm (voice skill) that extends the functionality of the Google Assistant. To start your voice action you need an invocation name. In our case we will create a weather action (skill) and we can start it by saying "Hey google, talk to <your defined invocation name>". After that google will call your external fulfillment to start a conversation with the user. The fulfilment is based upon your deployed web application.
 
-The interactions voice interactions are transformed from audio to text and backward till a conversation between the user and google assistant reaches its end.
+The voice interactions are transformed from audio to text and backward till a conversation between the user and google assistant reaches its end.
 
 ![https://codelabs.developers.google.com/codelabs/actions-1/img/dbd725edb3a93e79.png](https://codelabs.developers.google.com/codelabs/actions-1/img/dbd725edb3a93e79.png)
 Source: https://codelabs.developers.google.com/codelabs/actions-1/img/dbd725edb3a93e79.png
@@ -51,9 +51,8 @@ Dialogflow (formerly Api.ai, Speaktoit) is a Google-owned developer of human–c
 
 #### II.1 How does dialogFlow work?
 
-![](https://lh3.googleusercontent.com/q0bK_PoG8wyoozW-uUUNT7FUi4BlBb2C-yqBRIm_Pi7Nby3bD4rLvy1vXsr4mVuVrzhUrOuloOI "Google Assistant route")
-1. A user start voice interaction or text interaction saying/texting
-Hey Google, talk to [your definded invocation name]
+1. A user starts voice interaction or text interaction saying/texting
+*Hey Google, talk to [your definded invocation name]*
 
 2. Google calls dialogFlow looking for defined logic. 
 
@@ -66,6 +65,9 @@ Hey Google, talk to [your definded invocation name]
 	b) DialogFlow calls your external code and returns answer comming and proccesed from you code to google actions 	and it to your end user
 	
 In the next step open the Dialoglow interface:  [https://console.dialogflow.com](https://console.dialogflow.com) 
+
+![](https://lh3.googleusercontent.com/q0bK_PoG8wyoozW-uUUNT7FUi4BlBb2C-yqBRIm_Pi7Nby3bD4rLvy1vXsr4mVuVrzhUrOuloOI "Google Assistant route")
+
 
 #### II.2  
 
@@ -314,3 +316,4 @@ the steps are the same. You need only install heroku for windows https://devcent
 TO DO
 Sign up for [Firebase](https://firebase.google.com/) (it's for free).
 https://www.youtube.com/watch?v=LOeioOKUKI8
+
