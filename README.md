@@ -155,7 +155,7 @@ you can do all stepps by yourself :)
 1. Please add a setting to your git that shell scripts won't be changed by windows formattig.
 `git config --global core.autocrlf true`
 2. Clone our repository
-`git clone https://github.com/falent/googleHomeAssistantExpressNodeJS.git  ~/Desktop/Template/Google_Assistant_universal_skill_template `
+`git clone https://github.com/falent/googleHomeAssistantExpressNodeJS.git  C:\Users\%username%\Documents\googleHomeAssistantExpressNodeJS `
 
 3. Go to the cloned git repository:
 `cd C:\Users\%username%\Documents\googleHomeAssistantExpressNodeJS`

@@ -6,7 +6,7 @@ call git config --global core.autocrlf true
 
 :: Cloning our repository
 
-call git clone https://github.com/falent/googleHomeAssistantExpressNodeJS.git ~/Desktop/Template/Google_Assistant_universal_skill_template
+call git clone https://github.com/falent/googleHomeAssistantExpressNodeJS.git  C:\Users\%username%\Documents\googleHomeAssistantExpressNodeJS
 
 :: going to your local repository
 
