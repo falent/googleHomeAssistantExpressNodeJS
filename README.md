@@ -186,7 +186,7 @@ Our solution is based on nodemon which is kind of watcher and it reloads your sk
 `docker restart myAssistant && docker container logs  --follow  myAssistant`
 
 ### Rebuild your image
-In case we change something in our meetup event or you want to have a most current version. After executing this command go to [Project configuration](#id-dialogflow-endpoint)
+In case we change something in our meetup event or you want to have a most current version. After executing this command go to [Project configuration](#id-project-configuration)
 
 #### Linux
 `$ rm -r ~/Desktop/Template/Google_Assistant_universal_skill_template && sudo docker rm myAssistant && sudo docker rmi myAssistant `
