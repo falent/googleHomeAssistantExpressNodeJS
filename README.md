@@ -57,10 +57,13 @@ Hey Google, talk to [your definded invocation name]
 
 2. Google calls dialogFlow looking for defined logic. 
 
-3. Dialoglow looks for a user intent (what user wanted to do). 
-	a) If the whole logic is defined in dialogflow dialogflow calls actions and actions return answer to end user 
+3. Dialoglow looks for a user's intention (what user wanted to do):
+
+	a) If the whole logic is defined in dialogflow, dialogflow calls actions and actions return answer to user
+    
 	or
-	b) DialogFlow calls your external code and return answer comming and proccesed from you code to google actions 	and 	it to your end user
+    
+	b) DialogFlow calls your external code and returns answer comming and proccesed from you code to google actions 	and it to your end user
 	
 In the next step open the Dialoglow interface:  [https://console.dialogflow.com](https://console.dialogflow.com) 
 
