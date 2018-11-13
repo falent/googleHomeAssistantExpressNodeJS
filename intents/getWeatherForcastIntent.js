@@ -11,6 +11,7 @@ function getWeather(city) {
         headers: {
             'User-Agent': 'request',
         },
+        json: true,
     };
     // Return new promise
     return new Promise(function(resolve, reject) {
@@ -19,7 +20,7 @@ function getWeather(city) {
             if (err) {
                 reject(err);
             } else {
-                resolve(JSON.parse(body));
+                resolve(body);
             }
         });
     });
@@ -35,8 +36,7 @@ module.exports = {
         return getWeather(myCity).then(function(result) {
             let temperature= result['data'][0]['app_temp'];
 
-
-            conv.ask('Temperatur in '+ myCity +' is '+ temperature +'temperature');
+            conv.ask('Temperatur in '+ myCity +' is '+ temperature +' degree');
         }, function(err) {
             console.log(err);
         });
