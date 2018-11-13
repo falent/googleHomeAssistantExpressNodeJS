@@ -250,9 +250,8 @@ and in your google assistant container you will see first logs
 
 ![enter image description here](https://lh3.googleusercontent.com/zbdLvOCCRUeWIcRCBnVlOdGbGc5FNw_RTm9DzI-ZOPE4CNAATp_jfaKigyLccg3FkBUW_TlwIqs)
 
-Now if you have alreadyWAfnxThlWu4emdK-Qec_4gdiVJmQGqIEvCWdXxt5aOyEdfO77jpisZBEP5k7j6Z80So5ZRW0vrc)
-"TcTrEJQ-2FDM8jYkAgrLYtUH0pEeBRVPH1lzEWsHJfcdFAbEfx1FGVyliuAmO-vC8QlbTAnznYdA)
- google home device try to test it with it saying:
+You can test your action with your private google home:
+try to test it with it saying:
 Ok google, talk to {your defined in google actions skill invocation name}
 
 # Instructions for a quick deployment to Heroku
