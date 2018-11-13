@@ -229,9 +229,11 @@ You will be taken to Google Actions simulator.
 Just click on you suggested input. In my case it is "Talk to Tomasz skill". In your case will be "Talk to {your defined in google actions skill invocation name}"
 
 ![enter image description here](https://lh3.googleusercontent.com/d1lgHJtXF6o8LOA77GKGP5QQrXvde0DFrc7noDSDUcuWxrc59Sri9UPxWoVBKIP98_VIOQy-QrI)
+
 Your skill will answer:
 *Okay. Let's get the test version of tomasz skill.Hi! What is your name?*
 We defined only one traning phrase in a dialogFlow. It was "my name is {your name}"
+
 
 ![enter image description here](https://lh3.googleusercontent.com/WAfnxThlWu4emdK-Qec_4gdiVJmQGqIEvCWdXxt5aOyEdfO77jpisZBEP5k7j6Z80So5ZRW0vrc)
 So lets answer our assistant and write into input in our simulator:
