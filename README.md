@@ -6,20 +6,25 @@ In this short tutorial we will show you how to write a very simple google home s
 When you finish your developing you can easily upload your code to any https server. At the end of this tutorial we will show you how to do it with Heroku. After that you can publish your first skill. Of course our solution will work with any Https node.js server provider (AWS, Azure, Openshift etc. ) :)
 
 ## Requirements
+As it was mentioned at the beginning we will work with docker. You need also an google account
+
 ### Docker installation
 #### Linux
 https://docs.docker.com/install/linux/docker-ce/ubuntu/
 #### Windows
 https://store.docker.com/editions/community/docker-ce-desktop-windows
 
-You need a google account:
+### Google Account
 https://accounts.google.com/signup/v2/webcreateaccount?hl=en-GB&flowName=GlifWebSignIn&flowEntry=SignUp
 
+## Model Interaction Configuration
 
 We will use dialogFlow and google actions to configure our interaction model and publish it for google assistant.
 
 ### I. Google Actions
-An action is a voice programm (voice skill) that extends the functionality of the Google Assistant. In the web interface  you create a project that bundles all your actions.Each action in the google actions directory has an invocation name. With the invocation name users can start your action. In our case we created a weather action (skill) and we can start it by saying "Hey google, talk to my bike buddy". After that google will call your fulfillment to start a conversation with the user. The fulfilment is based upon your deployed web application  or it is in total configured with the google web interfaces google actions and dialogflow. The interactions are transformed from audio to text and backward till a conversation between the user and google assistant reaches its end.
+An action in this case you can imagine as a voice programm (voice skill) that extends the functionality of the Google Assistant .Each has an invocation name. With the invocation name you can start your action. In our case we are creating a weather action (skill) and we can start it by saying "Hey google, talk to <your defined invocation name>". After that google will call your external fulfillment to start a conversation with the user. The fulfilment is based upon your deployed web application  or it can be totally configured with google actions and dialogflow. 
+
+The interactions voice interactions are transformed from audio to text and backward till a conversation between the user and google assistant reaches its end.
 
 ![https://codelabs.developers.google.com/codelabs/actions-1/img/dbd725edb3a93e79.png](https://codelabs.developers.google.com/codelabs/actions-1/img/dbd725edb3a93e79.png)
 Source: https://codelabs.developers.google.com/codelabs/actions-1/img/dbd725edb3a93e79.png
@@ -36,21 +41,30 @@ At the next page choose "skip".
 In actions invocation define the invocation name for your skill. 
 [![](https://thecattlecrew.files.wordpress.com/2018/08/googlehome2.png?w=840&h=593)](https://thecattlecrew.files.wordpress.com/2018/08/googlehome2.png)
 
-Congratulations, you created your first project, but the simulator is not active yet, because there is no voice logic behind it. That means there are no interactions defined between google assistant and the user for  your skill. To create the interaction logic go to dialogflow.
-
+Congratulations, you created your first project, but the simulator is not active yet. 
 [![](https://thecattlecrew.files.wordpress.com/2018/08/googlehome3.png?w=840&h=789)](https://thecattlecrew.files.wordpress.com/2018/08/googlehome3.png)
 
-## DialogFlow
-Dialogflow (formerly Api.ai, Speaktoit) is a Google-owned developer of human–computer interaction technologies based on natural language conversations. We need it to translate human voice calls into JSON objects that can be consumed by  our backend code and backwards to tranlate the responses from our backend to Voice Phrases.You define how all this works within a Dialogflow agent.
+The reason is that there is no voice logic behind it. That means there are no interactions defined between google assistant and the end user for  your skill. To create the interaction logic go to dialogflow.
 
-## How it works?
+### II. DialogFlow
+Dialogflow (formerly Api.ai, Speaktoit) is a Google-owned developer of human–computer interaction technologies based on natural language conversations. We need it to translate human voice calls into JSON objects that can be consumed by  our backend code and backwards to tranlate the responses from our backend to voice Phrases.You define how all this works within a Dialogflow agent.
+
+#### II.1 How does dialogFlow work?
 
 ![](https://lh3.googleusercontent.com/q0bK_PoG8wyoozW-uUUNT7FUi4BlBb2C-yqBRIm_Pi7Nby3bD4rLvy1vXsr4mVuVrzhUrOuloOI "Google Assistant route")
+1. A user start voice interaction or text interaction saying/texting
+Hey Google, talk to [your definded invocation name]
 
-### 2. DialogFlow
-n the next step open the Dialoglow interface:  [https://console.dialogflow.com](https://console.dialogflow.com) 
+2. Google calls dialogFlow looking for defined logic. 
 
-#### II.1  //TO DO 
+3. Dialoglow looks for a user intent (what user wanted to do). 
+	a) If the whole logic is defined in dialogflow dialogflow calls actions and actions return answer to end user 
+	or
+	b) DialogFlow calls your external code and return answer comming and proccesed from you code to google actions 	and 	it to your end user
+	
+In the next step open the Dialoglow interface:  [https://console.dialogflow.com](https://console.dialogflow.com) 
+
+#### II.2  
 
 Create a new agent where you configure your interaction model for your skill. ** Please keep in mind to import your created project (GOOGLE PROJECT) from google actions to DialogFlow**. The name how you call your agent in dialogflow is irrelevant
 
@@ -60,26 +74,26 @@ Create a new agent where you configure your interaction model for your skill. **
 
 
 
-#### II.2 Add your first intent
+#### II.3 Add your first intent
 Intents are anticipated user intentions about what users might want to talk with the voice assistant in an action. For a weather action possible intents would be questions about the temperature or precipitation. Intents are triggered by predefined utterances and key words from the user. Possible questions about the weather could be "Will it rain today?" or a keyword might be "temperature". Utterances like these are defined as training phrases in an intent of your action.  To  see how its configured click on Intentions in Dialogflow. Select the default welcome intent. Here you have listed several training phrases that invoke the welcome intent. Under Responses you see what the google assistant could  answer to the user utterances. that triggered the welcome intent.
 
 [![](https://thecattlecrew.files.wordpress.com/2018/08/googlehome5.png?w=840&h=199)](https://thecattlecrew.files.wordpress.com/2018/08/googlehome5.png)
 
-#### II.3
+#### II.4
 If you want to use your own code for an intent you need to enable one option on the buttom of your intent.
 
 Swip „Enable webhook call for this intent“ and click „save“  button
 
 [![](https://thecattlecrew.files.wordpress.com/2018/08/googlehome6.png?w=840&h=228)](https://thecattlecrew.files.wordpress.com/2018/08/googlehome6.png)
 
-#### II.4
+#### II.5
 Add a new Intent for example "nameIntent". This intent we will integrate with our code.
 In the traning phases add f.e "My name is Christina". DialogFlow will instantly recognise it as traning phrase that cointains a name parametr. Your parametr name will be called "given-name" and all entitieties are defined by Google. During our meeting we will show how to build user defined entitites.
 
 We won't define responses in that case because we want to have more control how google assistent answers. so we will do it with our code. Please click on enable fulfillment and "Enable webhook call for this intent".
 
 
-#### II.5
+#### II.6
 Add an additional Intent. It will be responsible for getting us a weather information. You can call this intent as
 „getWeatherForcastIntent“.
 
@@ -94,6 +108,7 @@ DialogFlow will automatically recognise it as  @sys.geo-city (it will be our par
 
 Please keep in mind that we will fullfill this intent by webhook. Enable it as you have done in II.4 point. Please save  your intent.
 
+## Installations
 
 ### 3. Docker
 
@@ -105,7 +120,9 @@ Install [Docker CE (Community Edition)](https://docs.docker.com/engine/installat
 
 ### 4. Docker Containers
 
-Open a first terminal tab and clone my git repository from Github. Please do all steps in that order which is described here :) I used my previous solution from Alexa developing. Dont be scared that we use docker images which names are "alexa"
+Open a first terminal tab and clone my git repository from Github. Please do all steps in that order which is described here :) 
+
+#### IV.1  Project configuration<div id='id-project-configuration'/>
 
 #### Linux
 
@@ -126,6 +143,12 @@ Open a first terminal tab and clone my git repository from Github. Please do all
 
 #### Windows
 
+You can use a batch script in your command line to do all steps automatically:
+`https://raw.githubusercontent.com/falent/googleHomeAssistantExpressNodeJS/master/scripts_for_meetup/automatedInstallationWindows.bat > automatedInstallationWindows.bat && automatedInstallationWindows.bat`
+
+**OR**
+
+you can do all stepps by yourself :)
 1. Please add a setting to your git that shell scripts won't be changed by windows formattig.
 `git config --global core.autocrlf true`
 2. Clone our repository
@@ -143,10 +166,12 @@ Open a first terminal tab and clone my git repository from Github. Please do all
 6. Open a new tab and run an _Google Assistant_ Docker container:
  `docker run -v /C/Users/%username%/Documents/googleHomeAssistantExpressNodeJS:/skill -it --network myNetwork --name myAssistant falent/google_home_assistant_express_node_js_server:1`
 
-you should see a such output:
-![enter image description here](https://lh3.googleusercontent.com/xVXS5bsbK-fIsMRuzS2EDV6qYV0P6kQOsKMFH3wjFoUWNVg_Jcis3pnt6-53lsA-xIasibcBHTFOY-WlRqhkOII7wS46HatZE6ZSy9ZHD8b8hdh8CnBwjcN1Kj-xJ-ZPkCeou4jxEjKreZgA-2pqO-lr-ai6kFG0CMy6P-Vk4VQA7Z8JQwOysl-XaNFnt33K02BRCFmUi2XUwtKpeWzcfM67teNCKfmbOhmeH1kFS0iFjUpC62Daonbm4kRDkphTmBZx0c5pgDpP46h3DsP4RotPEWJaFw6HTM2y0Oh8I1Cjix32cMaZosLVX8lxaieOjf6FDEYKFDUGRQ3Lsa4wOkoWNGiFH2wqJf4xfNa0TrPzbZPJF-8cw6yexCkBxSERXX64wM8hOhqTXAPjXYYk0Qt7wWOZx9UtVQLFRM2ymVEulb73mKVf5RDlJf6ZeWVeyfAh517V36C6zcevjFLTy628-GLZc8nf7WNnEP_cDuJoUWmQsi8XQTagFiaWg2AkMmNtAdSIin-MD4bzEB5HUVlnPfDB0e8g9M8IC9CslMRPpXsxPmbQH9Uj51SmswNOAk3iA6jEgrKhJ2oadKmWncSsueitvbEqMy8H9yn8tm_evIFr9EjkHrlUQw_A0lvS_UFQW-kFaVJgcsVIqHsu6UBp0gYSWVuHEQ3G1cN9LQ=w420-h114-no)
+#### IV.2  Output
+you should see a such output if our myAssistant container works property. Please keep in mind that your ngrok terminal also works.
 
-
+![enter image description here](https://lh3.googleusercontent.com/j0PYVQSKFqdJSZjwindWBCKQJ7tZbrWEz40iCvcP81Uq5PKbyz42Y6pcLFPQ_igAbusR-pZOpac)
+## OPTIONAL STEPS
+In this section you could find optional steps if you wish to restart your docker or rebuild everything
 
 ### Restart (in case of new module installations or if you want to start your container app)
 Our solution is based on nodemon which is kind of watcher and it reloads your skill everytime you made code changes. You save a lot time because of that ;) However it can happen that you wish to add more npm modules https://www.npmjs.com/ to your skill. In that case you need to restart your container. Npm modules are installed only at the start of your container.
@@ -156,6 +181,15 @@ Our solution is based on nodemon which is kind of watcher and it reloads your sk
 
 #### Windows
 `docker restart myAssistant && docker container logs  --follow  myAssistant`
+
+### Rebuild your image
+In case we change something in our meetup event or you want to have a most current version. After executing this command go to [Project configuration](#id-dialogflow-endpoint)
+
+#### Linux
+`$ rm -r ~/Desktop/Template/Google_Assistant_universal_skill_template && sudo docker rm myAssistant && sudo docker rmi myAssistant `
+
+#### Windows
+`rmdir /Q /S C:\Users\%username%\Documents\googleHomeAssistantExpressNodeJS && docker rm myAssistant && docker rmi myAssistant`
 
 
 ### 4. Dialogflow
@@ -273,6 +307,7 @@ After pushing you will get your heroku app https address. Please copy it and pas
 ## Windows
 the steps are the same. You need only install heroku for windows https://devcenter.heroku.com/articles/heroku-cli#download-and-install
 
-
-Sign up for [Firebase](https://signup.heroku.com/dc) (it's for free).
+# Instructions for a quick deployment to Firebase
+TO DO
+Sign up for [Firebase](https://firebase.google.com/) (it's for free).
 https://www.youtube.com/watch?v=LOeioOKUKI8
