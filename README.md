@@ -147,7 +147,7 @@ Open a first terminal tab and clone my git repository from Github. Please do all
 #### Windows
 
 You can use a batch script in your command line to do all steps automatically:
-`https://raw.githubusercontent.com/falent/googleHomeAssistantExpressNodeJS/master/scripts_for_meetup/automatedInstallationWindows.bat > automatedInstallationWindows.bat && automatedInstallationWindows.bat`
+`curl https://raw.githubusercontent.com/falent/googleHomeAssistantExpressNodeJS/master/scripts_for_meetup/automatedInstallationWindows.bat > automatedInstallationWindows.bat && automatedInstallationWindows.bat`
 
 **OR**
 
