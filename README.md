@@ -1,12 +1,12 @@
 
 # How to build your first google home skill?
 
-In this short tutorial we will show you how to write a very simple google home skill and develop it on your local machine. We are going to use Docker to avoid any additional installations and ensure that all of us starts with the same code in the same environment (less problems for all of us. Besides it is time for all who don't know how docker works to get it know ;) Don't worry although we use docker you will edit your code only locally because we implemented a mount option (shared folder).
+In this short tutorial we will show you how to write a very simple google assistant skill and develop it on your local machine. We are going to use Docker to avoid any additional installations and ensure that all of us starts with the same code in the same environment (less problems for all of us. For those who don't know how docker works it is a good example) Don't worry although we use docker you will edit your code only locally because we implemented a mount option (shared folder).
 
 When you finish your developing you can easily upload your code to any https server. At the end of this tutorial we will show you how to do it with Heroku and Firebase. After that you can publish your first skill. Of course our solution will work with any Https node.js server provider (AWS, Azure, Openshift etc. )
 
 ## Requirements
-As it was mentioned at the beginning we will work with docker. You need also an google account
+As it was mentioned at the beginning we will work with docker. You need to use also an google account.
 
 ### Docker installation
 #### Linux
@@ -41,14 +41,14 @@ Open Google Actions page [https://developers.google.com/actions/](https://develo
 
 [![](https://thecattlecrew.files.wordpress.com/2018/08/googlehome.jpg?w=840&h=540)](https://thecattlecrew.files.wordpress.com/2018/08/googlehome.jpg)
 
-#### I.2 
+#### I.2
 At the next page choose "skip".
 
-#### I.3 Define the invocation name 
-In actions invocation define the invocation name for your skill. 
+#### I.3 Define the invocation name
+In actions invocation define the invocation name for your skill.
 [![](https://thecattlecrew.files.wordpress.com/2018/08/googlehome2.png?w=840&h=593)](https://thecattlecrew.files.wordpress.com/2018/08/googlehome2.png)
 
-Congratulations, you created your first project, but the simulator is not active yet. 
+Congratulations, you created your first project, but the simulator is not active yet.
 [![](https://thecattlecrew.files.wordpress.com/2018/08/googlehome3.png?w=840&h=789)](https://thecattlecrew.files.wordpress.com/2018/08/googlehome3.png)
 
 The reason is that there is no voice logic behind it. That means there are no interactions defined between google assistant and the end user for  your skill. To create the interaction logic go to dialogflow.
@@ -125,14 +125,13 @@ Please keep in mind that we will fullfill this intent by webhook. Enable it as y
 ### 3. Docker
 
 #### Docker Installation
-
-Install [Docker CE (Community Edition)](https://docs.docker.com/engine/installation/#desktop) on your machine. To test your Docker installation execute the following command:
+If you use Windows install [Docker Tools](https://download.docker.com/win/stable/DockerToolbox.exe) on your machine or if you are a linux user install [Docker CE (Community Edition)](https://docs.docker.com/engine/installation/#desktop). To test your Docker installation execute the following command:
 
 `$ sudo docker run hello-world`
 
 ### 4. Docker Containers
 
-Open a first terminal tab and clone my git repository from Github. Please do all steps in that order which is described here :) 
+Open a first terminal tab and clone my git repository from Github. Please do all steps in that order which is described here :) We will create 2 containers which will be connected to each other in one docker virtual network.
 
 #### IV.1  Project configuration<div id='id-project-configuration'/>
 Please remain with catalog names as we named them. Of course you can use your own names but in that case stick with that with all commands
@@ -162,7 +161,7 @@ The content of file you can see here:
 
 https://github.com/falent/googleHomeAssistantExpressNodeJS/blob/master/scripts_for_meetup/automatedInstallationWindows.bat
 
-If you put this command to your cmd terminal, batch script will execute all that [commands](#id-commands) Please keep in mind that you should execute this script only once. If you close window or you want reload npm modules please you those [commands](#id-commands-restart)
+If you put this command to your cmd terminal, batch script will execute all that [commands](#id-commands) Please keep in mind that you should execute this script only once. If you close window or you want reload npm modules please use these [commands](#id-commands-restart)
 
 `curl https://raw.githubusercontent.com/falent/googleHomeAssistantExpressNodeJS/master/scripts_for_meetup/automatedInstallationWindows.bat > automatedInstallationWindows.bat && automatedInstallationWindows.bat`
 
