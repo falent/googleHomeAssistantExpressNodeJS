@@ -153,7 +153,7 @@ You can use a batch script in your command line to do all steps automatically:
 
 **OR**
 
-you can do all stepps by yourself :)
+you you can do all stepps by yourself in cmd console :)
 1. Please add a setting to your git that shell scripts won't be changed by windows formattig.
 `git config --global core.autocrlf true`
 2. Clone our repository
@@ -191,10 +191,10 @@ Our solution is based on nodemon which is kind of watcher and it reloads your sk
 In case we change something in our meetup event or you want to have a most current version. After executing this command go to [Project configuration](#id-project-configuration)
 
 #### Linux
-`$ rm -r ~/Desktop/Template/Google_Assistant_universal_skill_template && sudo docker rm myAssistant && sudo docker rmi myAssistant `
+`$ rm -r ~/Desktop/Template/Google_Assistant_universal_skill_template && sudo docker rm myAssistant && sudo docker rmi falent/google_home_assistant_express_node_js_server:1 `
 
 #### Windows
-`rmdir /Q /S C:\Users\%username%\Documents\googleHomeAssistantExpressNodeJS && docker rm myAssistant && docker rmi myAssistant`
+`rmdir /Q /S C:\Users\%username%\Documents\googleHomeAssistantExpressNodeJS && docker rm myAssistant && docker rmi falent/google_home_assistant_express_node_js_server:1`
 
 
 ### 4. Dialogflow
@@ -229,11 +229,9 @@ You will be taken to Google Actions simulator.
 Just click on you suggested input. In my case it is "Talk to Tomasz skill". In your case will be "Talk to {your defined in google actions skill invocation name}"
 
 ![enter image description here](https://lh3.googleusercontent.com/d1lgHJtXF6o8LOA77GKGP5QQrXvde0DFrc7noDSDUcuWxrc59Sri9UPxWoVBKIP98_VIOQy-QrI)
-
 Your skill will answer:
 *Okay. Let's get the test version of tomasz skill.Hi! What is your name?*
 We defined only one traning phrase in a dialogFlow. It was "my name is {your name}"
-
 
 ![enter image description here](https://lh3.googleusercontent.com/WAfnxThlWu4emdK-Qec_4gdiVJmQGqIEvCWdXxt5aOyEdfO77jpisZBEP5k7j6Z80So5ZRW0vrc)
 So lets answer our assistant and write into input in our simulator:
