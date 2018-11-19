@@ -18,7 +18,7 @@ call docker network create myNetwork
 
 :: Runing the ngrok Docker container in your terminal and do not close this tab!
 
-call cmd.exe /k "docker run --rm -it --network myNetwork wernight/ngrok ngrok http myAssistant:5000"
+call start cmd.exe @cmd /k  "docker run --rm -it --network myNetwork wernight/ngrok ngrok http myAssistant:5000"
 
 :: Runing a Google Assistant Docker container
 call docker run -v /C/Users/%username%/Documents/googleHomeAssistantExpressNodeJS:/skill -it --network myNetwork --name myAssistant falent/google_home_assistant_express_node_js_server:1
