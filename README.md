@@ -169,7 +169,7 @@ you you can do all stepps by yourself in cmd console :)
 `docker run --rm -it  --network myNetwork wernight/ngrok ngrok http myAssistant:5000`
 
 6. Open a new tab and run an _Google Assistant_ Docker container:
- `docker run -v /C/Users/%username%/Documents/googleHomeAssistantExpressNodeJS:/skill -it --network myNetwork --name myAssistant falent/google_home_assistant_express_node_js_server:1`
+ `docker run -v //c/Users/%username%/Documents/googleHomeAssistantExpressNodeJS:/skill -it --network myNetwork --name myAssistant falent/google_home_assistant_express_node_js_server:1`
 
 #### IV.2  Output
 you should see a such output if our myAssistant container works property. Please keep in mind that your ngrok terminal also works.
