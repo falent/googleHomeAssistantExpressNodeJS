@@ -1,4 +1,4 @@
-
+/* eslint-disable require-jsdoc,no-unused-vars,max-len,no-multiple-empty-lines,no-multiple-empty-lines,no-trailing-spaces,no-tabs */
 module.exports = {
 
 

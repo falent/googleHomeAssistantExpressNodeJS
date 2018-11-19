@@ -1,6 +1,12 @@
 /* eslint-disable require-jsdoc,no-unused-vars,max-len,no-multiple-empty-lines,no-multiple-empty-lines,no-trailing-spaces */
-let request = require('request');
+const request = require('request');
 require('dotenv').config();
+
+/* Create a .env file in the root directory of your project.
+Add environment-specific variables on new lines in the form of NAME=VALUE. For example:
+WEATHER_API_KEY = jkhdsad33nhdsds
+For a right weather api key please register https://www.weatherbit.io/account/create
+*/
 
 
 function getWeather(city) {
