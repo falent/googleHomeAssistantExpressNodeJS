@@ -1,8 +1,7 @@
-:: Setting for your git that shell scripts won't be changed by windows formattig. Our shell script 
-:: was written in Linux. You can always got back to default git setting typing after event
-:: git config --global core.autocrlf false
 
-call git config --global core.autocrlf true
+:: Deleting local repository if exists
+
+call rmdir /Q /S C:\Users\%username%\Documents\googleHomeAssistantExpressNodeJS
 
 :: Cloning our repository
 
