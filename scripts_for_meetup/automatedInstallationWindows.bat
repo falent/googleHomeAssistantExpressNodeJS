@@ -17,7 +17,7 @@ call docker network create myNetwork
 
 :: delete docker image and container
 echo "delete docker image and container"
-docker rm myAssistant && docker rmi falent/google_home_assistant_express_node_js_server:1
+docker rm -f myAssistant && docker rmi -f falent/google_home_assistant_express_node_js_server:1
 
 :: Runing the ngrok Docker container in your terminal and do not close this tab!
 echo "Runing the ngrok Docker container in your terminal and do not close this tab!"
