@@ -274,39 +274,39 @@ Sign up for [Heroku](https://signup.heroku.com/dc) (it's for free).
 
 ## Linux
 
-I. Install heroku client, for example in ubuntu
+1. Install heroku client, for example in ubuntu
 ```bash
   $ (wget -qO- https://cli-assets.heroku.com/install-ubuntu.sh | sh)
   ```
-  3. login to the client
+2. login to the client
 ```bash
   $ heroku login
   ```
-  4. Create your app in heroku server
+3. Create your app in heroku server
 ```bash
   $ heroku apps:create --region eu
   ```
-  5. Set npm config to false
+4. Set npm config to false
 ```bash
   $ heroku config:set NPM_CONFIG_PRODUCTION=false
   ```
-  6. Clean all gits files
+5. Clean all gits files
 ```bash
   $ sudo rm -rf .git
   ```
-   7. Init a clean git repository
+6. Init a clean git repository
 ```bash
   $ sudo rm -rf .git
   ```
-   8. Init a clean git repository
+7. Init a clean git repository
 ```bash
   $ git init
   ```
-   9. Add and commit all files
+8. Add and commit all files
 ```bash
   $ git add . && git commit -m "my first commit"
   ```
-  10. Push your files to heroku
+9. Push your files to heroku
 ```bash
   $ git push heroku master
   ```
