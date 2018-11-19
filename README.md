@@ -3,7 +3,7 @@
 
 In this short tutorial we will show you how to write a very simple google home skill and develop it on your local machine. We are going to use Docker to avoid any additional installations and ensure that all of us starts with the same code in the same environment (less problems for all of us. Besides it is time for all who don't know how docker works to get it know ;) Don't worry although we use docker you will edit your code only locally because we implemented a mount option (shared folder).
 
-When you finish your developing you can easily upload your code to any https server. At the end of this tutorial we will show you how to do it with Heroku and Firebase. After that you can publish your first skill. Of course our solution will work with any Https node.js server provider (AWS, Azure, Openshift etc. ) :)
+When you finish your developing you can easily upload your code to any https server. At the end of this tutorial we will show you how to do it with Heroku and Firebase. After that you can publish your first skill. Of course our solution will work with any Https node.js server provider (AWS, Azure, Openshift etc. )
 
 ## Requirements
 As it was mentioned at the beginning we will work with docker. You need also an google account
@@ -12,17 +12,24 @@ As it was mentioned at the beginning we will work with docker. You need also an 
 #### Linux
 https://docs.docker.com/install/linux/docker-ce/ubuntu/
 #### Windows
-https://store.docker.com/editions/community/docker-ce-desktop-windows
+As new version requires hiperView feature we decided to use docker Toolbox:
+https://download.docker.com/win/stable/DockerToolbox.exe
 
 ### Google Account
+Please create a new google account or use what exists.
 https://accounts.google.com/signup/v2/webcreateaccount?hl=en-GB&flowName=GlifWebSignIn&flowEntry=SignUp
+
+### Node.js IDE
+We will use webstorm
+https://www.jetbrains.com/webstorm/download/
+but you can use any of your favourite JS/Node.js IDE
 
 ## "Interaction Model" Configuration
 
 We will use dialogFlow and google actions to configure our "interaction model" and publish it for google assistant. Interaction model is a voice logic which needs to be defined in google actions and dialogflow.
 
 ### I. Google Actions
-An action in this case you can imagine as a part of voice programm (voice skill) that extends the functionality of the Google Assistant. To start your voice action you need an invocation name. In our case we will create a weather action (skill) and we can start it by saying "Hey google, talk to <your defined invocation name>". After that google will call your external fulfillment to start a conversation with the user. The fulfilment is based upon your deployed web application.
+An action in this case you can imagine as a part of voice programm (voice skill) that extends the functionality of the Google Assistant. To start your voice action you need an invocation name. In our case we will create a weather action (skill) and we can start it by saying "Hey google, talk to [your defined invocation name]". After that google will call your external fulfillment to start a conversation with the user. The fulfilment is based upon your deployed web application.
 
 The voice interactions are transformed from audio to text and backward till a conversation between the user and google assistant reaches its end.
 
@@ -128,8 +135,10 @@ Install [Docker CE (Community Edition)](https://docs.docker.com/engine/installat
 Open a first terminal tab and clone my git repository from Github. Please do all steps in that order which is described here :) 
 
 #### IV.1  Project configuration<div id='id-project-configuration'/>
+Please remain with catalog names as we named them. Of course you can use your own names but in that case stick with that with all commands
 
 #### Linux
+Open your terminal and execute following commands:
 
 1. Clone our repository
 `$ git clone https://github.com/falent/googleHomeAssistantExpressNodeJS.git  ~/Desktop/Template/Google_Assistant_universal_skill_template `
@@ -148,27 +157,32 @@ Open a first terminal tab and clone my git repository from Github. Please do all
 
 #### Windows
 
-You can use a batch script in your command line to do all steps automatically:
+You can use a batch script in your command line to do all steps automatically.
+The content of file you can see here:
+
+https://github.com/falent/googleHomeAssistantExpressNodeJS/blob/master/scripts_for_meetup/automatedInstallationWindows.bat
+
+If you put this command to your cmd terminal, batch script will execute all that [commands](#id-commands) Please keep in mind that you should execute this script only once. If you close window or you want reload npm modules please you those [commands](#id-commands-restart)
+
 `curl https://raw.githubusercontent.com/falent/googleHomeAssistantExpressNodeJS/master/scripts_for_meetup/automatedInstallationWindows.bat > automatedInstallationWindows.bat && automatedInstallationWindows.bat`
 
-**OR**
+**OR**<div id='id-commands'/>
 
-you you can do all stepps by yourself in cmd console :)
-1. Please add a setting to your git that shell scripts won't be changed by windows formattig.
-`git config --global core.autocrlf true`
-2. Clone our repository
+you you can do all stepps by yourself in cmd console. You can understand better what we are going to do :)
+
+1. Clone our repository
 `git clone https://github.com/falent/googleHomeAssistantExpressNodeJS.git  C:\Users\%username%\Documents\googleHomeAssistantExpressNodeJS `
 
-3. Go to the cloned git repository:
+2. Go to the cloned git repository:
 `cd C:\Users\%username%\Documents\googleHomeAssistantExpressNodeJS`
 
-4. Create a new Docker network:
+3. Create a new Docker network:
 `docker network create myNetwork`
 
-5. Run the _ngrok_ Docker container in your terminal **and do not close this tab!**
+4. Run the _ngrok_ Docker container in your terminal **and do not close this tab!**
 `docker run --rm -it  --network myNetwork wernight/ngrok ngrok http myAssistant:5000`
 
-6. Open a new tab and run an _Google Assistant_ Docker container:
+5. Open a new cmd window and run an _Google Assistant_ Docker container:
  `docker run -v //c/Users/%username%/Documents/googleHomeAssistantExpressNodeJS:/skill -it --network myNetwork --name myAssistant falent/google_home_assistant_express_node_js_server:1`
 
 #### IV.2  Output
@@ -178,8 +192,8 @@ you should see a such output if our myAssistant container works property. Please
 ## OPTIONAL STEPS
 In this section you could find optional steps if you wish to restart your docker or rebuild everything
 
-### Restart (in case of new module installations or if you want to start your container app)
-Our solution is based on nodemon which is kind of watcher and it reloads your skill everytime you made code changes. You save a lot time because of that ;) However it can happen that you wish to add more npm modules https://www.npmjs.com/ to your skill. In that case you need to restart your container. Npm modules are installed only at the start of your container.
+### Restart (in case of new module installations or if you want to start your container app)<div id='id-commands-restart'/>
+Our solution is based on nodemon which is kind of watcher and it reloads your skill everytime you made code changes. You save a lot time because of that ;) However it can happen that you wish to add more npm modules https://www.npmjs.com/ to your skill. In that case you need to restart your container. Npm modules are installed only at the start of your container. Of course if you close window with your myAssistant container to start it again you only need that commands below:
 
 #### Linux
 `$ sudo docker restart myAssistant && sudo docker container logs  --follow  myAssistant`
@@ -188,7 +202,7 @@ Our solution is based on nodemon which is kind of watcher and it reloads your sk
 `docker restart myAssistant && docker container logs  --follow  myAssistant`
 
 ### Rebuild your image
-In case we change something in our meetup event or you want to have a most current version. After executing this command go to [Project configuration](#id-project-configuration)
+In case we change something in our meetup event or you want to have a most current version... After executing this command go to [Project configuration](#id-project-configuration)
 
 #### Linux
 `$ rm -r ~/Desktop/Template/Google_Assistant_universal_skill_template && sudo docker rm myAssistant && sudo docker rmi falent/google_home_assistant_express_node_js_server:1 `
@@ -260,7 +274,7 @@ Sign up for [Heroku](https://signup.heroku.com/dc) (it's for free).
 
 ## Linux
 
-2. Install heroku client, for example in ubuntu
+I. Install heroku client, for example in ubuntu
 ```bash
   $ (wget -qO- https://cli-assets.heroku.com/install-ubuntu.sh | sh)
   ```
