@@ -194,24 +194,22 @@ https://github.com/falent/googleHomeAssistantExpressNodeJS/blob/master/scripts_f
 
 We encourage you to do all stepps by yourself in cmd consol because you can understand better what we are going to do :)
 
-1. Clone our repository. Your repository will be saved automatically in your Documents in catalog googleHomeAssistantExpressNodeJS.
+1. Before we start you need to ensure that Git is properly configured to handle line endings.
+`git config --global core.autocrlf true`
 
+2. Clone our repository. Your repository will be saved automatically in your Documents in catalog googleHomeAssistantExpressNodeJS.
 `git clone https://github.com/falent/googleHomeAssistantExpressNodeJS.git  C:\Users\%username%\Documents\googleHomeAssistantExpressNodeJS `
 
-2. Go to the cloned git repository:
-
+3. Go to the cloned git repository:
 `cd C:\Users\%username%\Documents\googleHomeAssistantExpressNodeJS`
 
-3. Create a new Docker network:
-
+4. Create a new Docker network:
 `docker network create myNetwork`
 
 4. Run the _ngrok_ Docker container in your cmd terminal **and do not close this tab!**
-
 `docker run --rm -it  --network myNetwork wernight/ngrok ngrok http myAssistant:5000`
 
 5. Open a new cmd window and run an _Google Assistant_ Docker container:
-
 `docker run -v //c/Users/%username%/Documents/googleHomeAssistantExpressNodeJS:/skill -it --network myNetwork --name myAssistant falent/google_home_assistant_express_node_js_server:1`
 
 The last docker command means: please run me a container and share with it my local catalog where googleHomeAssistantExpressNodeJS app is. It is sharing your local app (:/) to skill catalog with your docker container, catalog named skill. Please do not change any path because it is right. After that we add created network so that all containers can talk to each other and we define a name of our container: "myAssistant". The docker image is downloaded from docker hub falent/google_home_assistant_express_node_js_server:1 (https://hub.docker.com/r/falent/google_home_assistant_express_node_js_server/)
