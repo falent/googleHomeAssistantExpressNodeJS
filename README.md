@@ -151,18 +151,23 @@ Please do all steps in that order which is described below :) We will create 2 c
 Open your terminal and execute following commands:
 
 1. Clone our repository
+
 `$ git clone https://github.com/falent/googleHomeAssistantExpressNodeJS.git  ~/Desktop/Template/Google_Assistant_universal_skill_template `
 
 2. Go to the cloned git repository:
+
 `$ cd ~/Desktop/Template/Google_Assistant_universal_skill_template`
 
 3. Create a new Docker network in a terminal tab:
+
 `$ sudo docker network create myNetwork`
 
 4. Run the _ngrok_ Docker container in your terminal **and do not close this tab!**
+
 `$ sudo docker run --rm -it  --network myNetwork wernight/ngrok ngrok http myAssistant:5000`
 
 5. Open a new tab and run an _Google Assistant_ Docker container:
+
 `$ sudo docker run -v ~/Desktop/Template/Google_Assistant_universal_skill_template:/skill -it --network myNetwork --name myAssistant falent/google_home_assistant_express_node_js_server:1`
 
 #### Windows
@@ -184,21 +189,26 @@ https://github.com/falent/googleHomeAssistantExpressNodeJS/blob/master/scripts_f
 We encourage you to do all stepps by yourself in cmd consol because you can understand better what we are going to do :)
 
 1. Clone our repository. Your repository will be saved automatically in your Documents in catalog googleHomeAssistantExpressNodeJS.
+
 `git clone https://github.com/falent/googleHomeAssistantExpressNodeJS.git  C:\Users\%username%\Documents\googleHomeAssistantExpressNodeJS `
 
 2. Go to the cloned git repository:
+
 `cd C:\Users\%username%\Documents\googleHomeAssistantExpressNodeJS`
 
 3. Create a new Docker network:
+
 `docker network create myNetwork`
 
 4. Run the _ngrok_ Docker container in your cmd terminal **and do not close this tab!**
+
 `docker run --rm -it  --network myNetwork wernight/ngrok ngrok http myAssistant:5000`
 
 5. Open a new cmd window and run an _Google Assistant_ Docker container:
- `docker run -v //c/Users/%username%/Documents/googleHomeAssistantExpressNodeJS:/skill -it --network myNetwork --name myAssistant falent/google_home_assistant_express_node_js_server:1`
 
-The last docker command means: please run me a container and share with it my local catalog where googleHomeAssistantExpressNodeJS app is. It is sharing (:/) your local app to skill catalog in your docker container catalog named skill. Please do not change any path because it is right ;). After that we add created network so that all containers can talk to each other and we define a name of our container: "myAssistant". The docker image is downloaded from docker hub falent/google_home_assistant_express_node_js_server:1 (https://hub.docker.com/r/falent/google_home_assistant_express_node_js_server/)
+`docker run -v //c/Users/%username%/Documents/googleHomeAssistantExpressNodeJS:/skill -it --network myNetwork --name myAssistant falent/google_home_assistant_express_node_js_server:1`
+
+The last docker command means: please run me a container and share with it my local catalog where googleHomeAssistantExpressNodeJS app is. It is sharing your local app (:/) to skill catalog with your docker container, catalog named skill. Please do not change any path because it is right. After that we add created network so that all containers can talk to each other and we define a name of our container: "myAssistant". The docker image is downloaded from docker hub falent/google_home_assistant_express_node_js_server:1 (https://hub.docker.com/r/falent/google_home_assistant_express_node_js_server/)
 
 #### IV.2  Output
 you should see a such output if our myAssistant container works property.
