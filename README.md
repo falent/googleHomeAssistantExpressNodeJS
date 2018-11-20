@@ -1,5 +1,5 @@
 
-# How to build your first google home skill?
+# How to build your first google Assistant action (skill)?
 
 In this short tutorial we will show you how to write a very simple google assistant skill and develop it on your local machine. We are going to use Docker to avoid any additional installations and ensure that all of us starts with the same code in the same environment (less problems for all of us. For those who don't know how docker works it is a good example) Don't worry although we use docker you will edit your code only locally because we implemented a mount option (shared folder).
 
@@ -73,7 +73,7 @@ Dialogflow (formerly Api.ai, Speaktoit) is a Google-owned developer of human–c
 	
 In the next step open the Dialoglow interface:  [https://console.dialogflow.com](https://console.dialogflow.com) 
 
-![](https://lh3.googleusercontent.com/q0bK_PoG8wyoozW-uUUNT7FUi4BlBb2C-yqBRIm_Pi7Nby3bD4rLvy1vXsr4mVuVrzhUrOuloOI "Google Assistant route")
+![](https://lh3.googleusercontent.com/p-ErkiJR_C8AAppI3qefIA0Oqwdq5ib0NtjgiVhY0Wg7sGzYM9lxUMLEcR1krkag5_pdZIdtR_kpCdF1NQH6EqJQP0vKV9WemqP_qmkpt3RtYiGBYtN4Bg8Zfwc41GcXtS2IcG7BWbddn8L2bV2sno1xusprTI7uNzHGiBbv1l6EgYtBPJCIl3E_g4U_Vkvn2kqPVoOlJnCBAx1cTc-1dznIwbfDIxcvtfAGY5KmRmq11fAf74qJ3zysdl1YE7bc2i9AIfosIQuvfi7XASiqhnWCgZ5zxOhXd3sy8Gn8Dej1xV4cUY1sacszlDkVYKQEEiscsIzeaSxy-B58S5-sMTvhh7Xg-M4_KjUkyimawULa09OTkfC9lmAzXuG61r7E-nkKSOe0Iqompr1PjhV1d5Td6_p29MK5jra9zECaafM9DPdqhaKg_IWIiAvD-LuRe_d9o79D-dAJjMOXJW1ItaKlhbp7ctDsrVlF_gnqFSweNffF8oGJRGlOkSYVip-6gFDMnzK7cwFzezXS9BO8_xyfsAYAwNvwIJr5AH319dDh_pysXJbCjHJ4nhfDkzCqlVGpXXAlg3GcTPxepfNgcnFzqxFIXnvC1Wim3NaGYgYEKOKsXpH7KNLBzJjGcCrOGQg_W4J7EB3y99zLsBi2l9F1vquIrNOlYlwrtHPpMYYwrh-xgXgmzsqPmNkUJsce6kR9XLgx3DzRA9CH=w1188-h591-no)
 
 
 #### II.2  
