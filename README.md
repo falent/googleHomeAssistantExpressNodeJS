@@ -157,23 +157,18 @@ Ngrok is a gateway which communicates in Internet with Goole Assistant requests/
 Open your terminal and execute following commands:
 
 1. Clone our repository
-
 `$ git clone https://github.com/falent/googleHomeAssistantExpressNodeJS.git  ~/Desktop/Template/Google_Assistant_universal_skill_template `
 
 2. Go to the cloned git repository:
-
 `$ cd ~/Desktop/Template/Google_Assistant_universal_skill_template`
 
 3. Create a new Docker network in a terminal tab:
-
 `$ sudo docker network create myNetwork`
 
 4. Run the _ngrok_ Docker container in your terminal **and do not close this tab!**
-
 `$ sudo docker run --rm -it  --network myNetwork wernight/ngrok ngrok http myAssistant:5000`
 
 5. Open a new tab and run an _Google Assistant_ Docker container:
-
 `$ sudo docker run -v ~/Desktop/Template/Google_Assistant_universal_skill_template:/skill -it --network myNetwork --name myAssistant falent/google_home_assistant_express_node_js_server:1`
 
 #### Windows
