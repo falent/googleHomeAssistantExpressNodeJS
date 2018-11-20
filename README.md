@@ -29,7 +29,7 @@ but you can use any of your favourite JS/Node.js IDE
 We will use dialogFlow and google actions to configure our "interaction model" and publish it for google assistant. Interaction model is a voice logic which needs to be defined in google actions and dialogflow.
 
 ### I. Google Actions
-An action in this case you can imagine as a part of voice programm (voice skill) that extends the functionality of the Google Assistant. To start your voice action you need an invocation name. In our case we will create a weather action (skill) and we can start it by saying "Hey google, talk to [your defined invocation name]". After that google will call your external fulfillment to start a conversation with the user. The fulfilment is based upon your deployed web application.
+An action in this case you can imagine as a part of voice programm (voice skill) that extends the functionality of the Google Assistant. To start your voice action you need an invocation name. In our case we will create a weather action (skill) and we can start it by saying "OK google, talk to [your defined invocation name]". After that google will call your external fulfillment to start a conversation with the user. The fulfilment is based upon your deployed web application.
 
 The voice interactions are transformed from audio to text and backward till a conversation between the user and google assistant reaches its end.
 
@@ -45,21 +45,21 @@ Open Google Actions page [https://developers.google.com/actions/](https://develo
 At the next page choose "skip".
 
 #### I.3 Define the invocation name
-In actions invocation define the invocation name for your skill.
+In actions invocation define the invocation name for your skill. Click on save.
 [![](https://thecattlecrew.files.wordpress.com/2018/08/googlehome2.png?w=840&h=593)](https://thecattlecrew.files.wordpress.com/2018/08/googlehome2.png)
 
 Congratulations, you created your first project, but the simulator is not active yet.
 [![](https://thecattlecrew.files.wordpress.com/2018/08/googlehome3.png?w=840&h=789)](https://thecattlecrew.files.wordpress.com/2018/08/googlehome3.png)
 
-The reason is that there is no voice logic behind it. That means there are no interactions defined between google assistant and the end user for  your skill. To create the interaction logic go to dialogflow.
+The reason is that there is no voice logic behind it. That means there are no interactions defined between google assistant and the end user for  your skill. To create the interaction logic we will go to the dialogflow which we described in the next step.
 
 ### II. DialogFlow
-Dialogflow (formerly Api.ai, Speaktoit) is a Google-owned developer of human–computer interaction technologies based on natural language conversations. We need it to translate human voice calls into JSON objects that can be consumed by  our backend code and backwards to tranlate the responses from our backend to voice Phrases.You define how all this works within a Dialogflow agent.
+Dialogflow (formerly Api.ai, Speaktoit) is a Google-owned developer of human–computer interaction technologies based on natural language conversations. We need it to translate human voice calls into JSON objects that can be consumed by  our backend code and backwards to tranlate the responses from our backend to voice Phrases. You define how all this works within a Dialogflow agent.
 
 #### II.1 How does dialogFlow work?
 
 1. A user starts voice interaction or text interaction saying/texting
-*Hey Google, talk to [your definded invocation name]*
+*OK Google, talk to [your definded invocation name]*
 
 2. Google calls dialogFlow looking for defined logic. 
 
@@ -217,7 +217,7 @@ The last docker command means: please run me a container and share with it my lo
 #### IV.2  Output
 you should see a such output if our myAssistant container works property.
 
-![enter image description here](https://lh3.googleusercontent.com/rdsjldnSUa752tp4AsDd3sWvB2shuaPNmm4zp0uk2zHS_N-sjgl4hptctkCuqAfubioQiaXLyZR-OmuXzZOpjjmrSfXR1MQxJq-cdQY-3LNz6haKjzLapcLthjmyl_LFDL-EaE9L5_NhbPg0aFm1_XLV-cQIoB8tyd4gSBiQccCFRbz0FogPljrM8xqb06PUlC-rSAxr41P-a_Avr-gg4apnkkljRYPB20XR1dspD2sgsVa3pLmQAAa2QQp0fLRPp1HTOjGhdECRZl8g4UccnHMRaj_UhIVWsbquaqC7Bq5TN2vW8cFOCmTPXsl2jI0ejHIS8l07chtc6_SLAZIULv8a1rLkdJ70uoJUvo_5gNeSLLfKbxgZbtU7YQTzuB6MYp9n8ovclAIdNFVsje-X1Jo40bBiTkm7DYzjR46OwAoLwTCCcGibZ-Oh3Q0Hoa1qx-IXJt2etGkHUH4FtfJBrEhtEl1Q9tfRwb2k_vUV1ARfD34F89aBaUrvNEbqGIG9JIOwaIuNvyzfFNUX29EZtW6bPXrPhjr-IVo9_FmHnbFH6_4yjtt2gyxVQBuzWtDjpgcAuK-CGgEr-35HpA_f75_nL3dfsoXVs-zafqvnvu7Y9nrYmZwb4K9Lys94NYnrBnT9nOXH_2V-dsbAV0iMyZc=w1916-h446-no)
+![enter image description here](https://lh3.googleusercontent.com/5V5vOys_GXe4zhktu61BtRz9Avm9HQhu5-V01z4xTL6pqU2FKdi3bW9lidgpakwRjeWTMkYUHKM3jK2plhqBTkaAZ0bjKIfdpHQZsxYx5drrR7g9bHOqhDy5f1XmicWXOMigPRim5Wh6N1bezZGgXYvztdCwUvVrxgkrOg6ejwnE5f-jiwWU7lFpf2ZLeRhBZfkKdFq5ZsoZ9CFjSMUwxrMaHxefsGEZ4peLuUXJrzvlKd5d5NOmjbVKI652F_Q3UQwqFIbzKMO00FPrdHXN6P9e3v_ysseJK9jBZIW_ZJ0sugpHrKG15y8COJr4VGIbob8ZAUSeQc2_yACTSomqz_7jub035dtzDiI6ed66uqiNBMEsf69XTXXzAJF-OawtzJg3GzGAIwKaftZllOURCF5sFEI75KUozU-P5y-44N3LWm9JeCyAdCMJ8vSnmeLa7m5t229K8r7-mnc4-cKtY0fuUMI5zGJalrZUZMA7imn1NRnOldWmGUhcFcPSr4awqYLXckvwTXOSOoAN0lHOM36hKV-sndD15nWdzI-_CLMAydSaiQxBACdE-hsnvxX0vX-me8L3yrcRZdO1UYycIznafp4cevYmdWK0fYm9NwMqGKlmAWV4TY4Je7FTYuDcoSKOIqeHy2RrDAFwQ4oK1w0mWq14S4sHYiWfvLgIzTSXCuYDeKDV_RrK8KYfmOV3DeB5ZnfbEEX22bAQ=w1916-h446-no)
 ## OPTIONAL STEPS
 In this section you could find optional steps if you wish to restart your docker or rebuild everything
 
