@@ -1,5 +1,5 @@
 
-# How to build your first google Assistant action (skill)?
+# How to build your first Google Assistant action (skill)?
 
 In this short tutorial we will show you how to write a very simple google assistant skill and develop it on your local machine. We are going to use Docker to avoid any additional installations and ensure that all of us starts with the same code in the same environment (less problems for all of us. For those who don't know how docker works it is a good example) Don't worry although we use docker you will edit your code only locally because we implemented a mount option (shared folder).
 
