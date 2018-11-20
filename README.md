@@ -125,16 +125,27 @@ Please keep in mind that we will fullfill this intent by webhook. Enable it as y
 ### 3. Docker
 
 #### Docker Installation
-If you use Windows install [Docker Tools](https://download.docker.com/win/stable/DockerToolbox.exe) on your machine or if you are a linux user install [Docker CE (Community Edition)](https://docs.docker.com/engine/installation/#desktop). To test your Docker installation execute the following command:
+If you use Windows install [Docker Tools](https://download.docker.com/win/stable/DockerToolbox.exe) on your machine or if you use docker under linux [Docker CE (Community Edition)](https://docs.docker.com/engine/installation/#desktop) to test your Docker installation execute the following command:
+
+linux:
 
 `$ sudo docker run hello-world`
 
+windows:
+
+`docker run hello-world`
+
+If you don't see in windows this output:
+
+`Hello from Docker! This message shows that your installation appears to be working correctly.`
+
+Please be sure that you started "docker quickstart terminal". All Docker commands you can execute in cmd terminal.
+
 ### 4. Docker Containers
 
-Open a first terminal tab and clone my git repository from Github. Please do all steps in that order which is described here :) We will create 2 containers which will be connected to each other in one docker virtual network.
+Please do all steps in that order which is described below :) We will create 2 containers which will be connected to each other in one docker virtual network.
 
 #### IV.1  Project configuration<div id='id-project-configuration'/>
-Please remain with catalog names as we named them. Of course you can use your own names but in that case stick with that with all commands
 
 #### Linux
 Open your terminal and execute following commands:
@@ -157,19 +168,22 @@ Open your terminal and execute following commands:
 #### Windows
 
 You can use a batch script in your command line to do all steps automatically.
-The content of file you can see here:
 
+If you put this curl command to your cmd terminal, batch script will execute all [commands](#id-commands) that you could do manually ;)
+`curl https://raw.githubusercontent.com/falent/googleHomeAssistantExpressNodeJS/master/scripts_for_meetup/automatedInstallationWindows.bat > automatedInstallationWindows.bat && automatedInstallationWindows.bat`
+
+Please keep in mind that you should execute this script only once. If you close window or you want reload npm modules please use these [commands](#id-commands-restart)
+
+The content of the batch script file you can see here. I put comments what they are doing.
 https://github.com/falent/googleHomeAssistantExpressNodeJS/blob/master/scripts_for_meetup/automatedInstallationWindows.bat
 
-If you put this command to your cmd terminal, batch script will execute all that [commands](#id-commands) Please keep in mind that you should execute this script only once. If you close window or you want reload npm modules please use these [commands](#id-commands-restart)
 
-`curl https://raw.githubusercontent.com/falent/googleHomeAssistantExpressNodeJS/master/scripts_for_meetup/automatedInstallationWindows.bat > automatedInstallationWindows.bat && automatedInstallationWindows.bat`
 
 **OR**<div id='id-commands'/>
 
-you you can do all stepps by yourself in cmd console. You can understand better what we are going to do :)
+We encourage you to do all stepps by yourself in cmd consol because you can understand better what we are going to do :)
 
-1. Clone our repository
+1. Clone our repository. Your repository will be saved automatically in your Documents in catalog googleHomeAssistantExpressNodeJS.
 `git clone https://github.com/falent/googleHomeAssistantExpressNodeJS.git  C:\Users\%username%\Documents\googleHomeAssistantExpressNodeJS `
 
 2. Go to the cloned git repository:
@@ -178,16 +192,18 @@ you you can do all stepps by yourself in cmd console. You can understand better 
 3. Create a new Docker network:
 `docker network create myNetwork`
 
-4. Run the _ngrok_ Docker container in your terminal **and do not close this tab!**
+4. Run the _ngrok_ Docker container in your cmd terminal **and do not close this tab!**
 `docker run --rm -it  --network myNetwork wernight/ngrok ngrok http myAssistant:5000`
 
 5. Open a new cmd window and run an _Google Assistant_ Docker container:
  `docker run -v //c/Users/%username%/Documents/googleHomeAssistantExpressNodeJS:/skill -it --network myNetwork --name myAssistant falent/google_home_assistant_express_node_js_server:1`
 
-#### IV.2  Output
-you should see a such output if our myAssistant container works property. Please keep in mind that your ngrok terminal also works.
+The last docker command means: please run me a container and share with it my local catalog where googleHomeAssistantExpressNodeJS app is. It is sharing (:/) your local app to skill catalog in your docker container catalog named skill. Please do not change any path because it is right ;). After that we add created network so that all containers can talk to each other and we define a name of our container: "myAssistant". The docker image is downloaded from docker hub falent/google_home_assistant_express_node_js_server:1 (https://hub.docker.com/r/falent/google_home_assistant_express_node_js_server/)
 
-![enter image description here](https://lh3.googleusercontent.com/j0PYVQSKFqdJSZjwindWBCKQJ7tZbrWEz40iCvcP81Uq5PKbyz42Y6pcLFPQ_igAbusR-pZOpac)
+#### IV.2  Output
+you should see a such output if our myAssistant container works property.
+
+![enter image description here](https://lh3.googleusercontent.com/rdsjldnSUa752tp4AsDd3sWvB2shuaPNmm4zp0uk2zHS_N-sjgl4hptctkCuqAfubioQiaXLyZR-OmuXzZOpjjmrSfXR1MQxJq-cdQY-3LNz6haKjzLapcLthjmyl_LFDL-EaE9L5_NhbPg0aFm1_XLV-cQIoB8tyd4gSBiQccCFRbz0FogPljrM8xqb06PUlC-rSAxr41P-a_Avr-gg4apnkkljRYPB20XR1dspD2sgsVa3pLmQAAa2QQp0fLRPp1HTOjGhdECRZl8g4UccnHMRaj_UhIVWsbquaqC7Bq5TN2vW8cFOCmTPXsl2jI0ejHIS8l07chtc6_SLAZIULv8a1rLkdJ70uoJUvo_5gNeSLLfKbxgZbtU7YQTzuB6MYp9n8ovclAIdNFVsje-X1Jo40bBiTkm7DYzjR46OwAoLwTCCcGibZ-Oh3Q0Hoa1qx-IXJt2etGkHUH4FtfJBrEhtEl1Q9tfRwb2k_vUV1ARfD34F89aBaUrvNEbqGIG9JIOwaIuNvyzfFNUX29EZtW6bPXrPhjr-IVo9_FmHnbFH6_4yjtt2gyxVQBuzWtDjpgcAuK-CGgEr-35HpA_f75_nL3dfsoXVs-zafqvnvu7Y9nrYmZwb4K9Lys94NYnrBnT9nOXH_2V-dsbAV0iMyZc=w1916-h446-no)
 ## OPTIONAL STEPS
 In this section you could find optional steps if you wish to restart your docker or rebuild everything
 
