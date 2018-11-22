@@ -90,7 +90,7 @@ Create a new agent where you configure the interaction model for your skill. ** 
 Intents are anticipated user intentions about what users might want to talk with the voice assistant in an action. For a weather action possible intents would be questions about the temperature or precipitation. Intents are triggered by predefined utterances and key words from the user. Possible questions about the weather could be "Will it rain today?" or a keyword might be "temperature". Utterances like these are defined as training phrases in an intent of your action.  To  see how its configured click on Intentions in Dialogflow. Select the default welcome intent. Here you have listed several training phrases that invoke the welcome intent. Under Responses you see what the Google assistant could  answer to the user utterances that triggered the welcome intent.
 
 
-[![](https://thecattlecrew.files.wordpress.com/2018/08/googlehome6.png?w=840&h=228)](https://thecattlecrew.files.wordpress.com/2018/08/googlehome6.png)
+[![](https://thecattlecrew.files.wordpress.com/2018/08/googlehome5.png?w=840&h=199)](https://thecattlecrew.files.wordpress.com/2018/08/googlehome5.png)
 
 #### II.4
 If you want to use your own code for an intent you need to enable one option on the buttom of your intent.
