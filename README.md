@@ -370,3 +370,16 @@ TO DO
 Sign up for [Firebase](https://firebase.google.com/) (it's for free).
 https://www.youtube.com/watch?v=LOeioOKUKI8
 
+# Some References for Google Assistant actions developing
+https://www.npmjs.com/ - npm is the package manager for JavaScript and the world’s largest software registry
+
+https://codelabs.developers.google.com/?cat=Assistant – Google Labs how to build actions (skills) in Node.js for google assistant
+
+https://github.com/falent/googleHomeAssistantExpressNodeJS - Our tutorial for google assistant
+
+https://github.com/falent/GoogleAssistantTutorial - our tutorial and code snippets
+
+https://www.tutorialspoint.com/nodejs/ - Node.js Tutorial
+
+https://dialogflow.com/docs/getting-started - Official DialogFlow documentation
+
