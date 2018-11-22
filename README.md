@@ -232,6 +232,7 @@ Imagine you would like to add to your docker environment a database. With our so
 
 ##### MongoDB
 You need only start a new container:
+
 `sudo docker run -it --name mongo_database --network myNetwork bitnami/mongodb:latest`
 
 your database is listening in port 27017. The name of container is "mongo_database" so to request our database from node.js you need to call this addresse:
@@ -239,10 +240,15 @@ your database is listening in port 27017. The name of container is "mongo_databa
 
 ##### MySQL
 You need only start a new container:
+
 `sudo docker run -it --name=mysql1 --network myNetwork -d mysql/mysql-server:5.7`
+
 check what generated password is:
+
 `docker logs mysql1 2>&1`
+
 and login to shell to create a new table
+
 `docker exec -it mysql1 mysql -uroot -p`
 
 
