@@ -170,7 +170,7 @@ Open your terminal and execute the following commands:
 `$ sudo docker run --rm -it  --network myNetwork wernight/ngrok ngrok http myAssistant:5000`
 
 5. Open a new tab and run an Google Assistant_Docker container:
-`$ sudo docker run -v ~/Desktop/Template/Google_Assistant_universal_skill_template:/skill -it --network myNetwork --name myAssistant falent/google_home_assistant_express_node_js_server:1`
+`$ sudo docker run -v ~/Desktop/Template/Google_Assistant_universal_skill_template:/skill -it --rm --network myNetwork --name myAssistant falent/google_home_assistant_express_node_js_server:1`
 
 #### Windows
 
@@ -206,7 +206,7 @@ We encourage you to do all stepps by yourself in cmd consol because you can unde
 `docker run --rm -it  --network myNetwork wernight/ngrok ngrok http myAssistant:5000`
 
 5. Open a new cmd window and run an _Google Assistant_ Docker container:
-`docker run -v //c/Users/%username%/Documents/googleHomeAssistantExpressNodeJS:/skill -it --network myNetwork --name myAssistant falent/google_home_assistant_express_node_js_server:1`
+`docker run -v //c/Users/%username%/Documents/googleHomeAssistantExpressNodeJS:/skill -it --rm --network myNetwork --name myAssistant falent/google_home_assistant_express_node_js_server:1`
 
 The last Docker command means: Run a container and share it with my local directory where GoogleHomeAssistantExpressNodeJS app is. Your local directory is binded to the skill directory in your Docker container. Please do not change the path. Otherwise it might not work. Our deployed web app to the created network myNetwork is named myAssistant. The Docker image for our container myAssistant will be downloaded from Docker hub falent/Google_home_assistant_express_node_js_server:1. (https://hub.Docker.com/r/falent/Google_home_assistant_express_node_js_server/)
 
@@ -221,19 +221,28 @@ In this section you will  find optional steps if you wish to restart your Docker
 Our solution is based on nodemon which is kind of a watcher and it reloads your skill everytime you made code changes. You save a lot of time because of that ;) However it can happen that you wish to add more npm modules https://www.npmjs.com/ to your skill. In that case you need to restart your container. Npm modules are installed only at the start of your container. To restart  your container type the following in a cmd terminal:
 
 #### Linux
-`$ sudo docker restart myAssistant && sudo docker container logs  --follow  myAssistant`
+`$ sudo docker run -v ~/Desktop/Template/Google_Assistant_universal_skill_template:/skill -it --rm --network myNetwork --name myAssistant falent/google_home_assistant_express_node_js_server:1`
 
 #### Windows
-`docker restart myAssistant && docker container logs  --follow  myAssistant`
+`docker run -v //c/Users/%username%/Documents/googleHomeAssistantExpressNodeJS:/skill -it --rm --network myNetwork --name myAssistant falent/google_home_assistant_express_node_js_server:1`
 
-### Rebuild your image
-In case we change something in our meetup event or you want to have a most current version... After executing this command go to [Project configuration](#id-project-configuration)
+### New docker containers
+Imagine you would like to add to your docker environment a database. With our solution it is very simple! Just start any database docker container and place it in our docker network. For example: 
 
-#### Linux
-`$ rm -r ~/Desktop/Template/Google_Assistant_universal_skill_template && sudo docker rm myAssistant && sudo docker rmi falent/google_home_assistant_express_node_js_server:1 `
+##### MongoDB
+You need only start a new container:
+`sudo docker run -it --name mongo_database --network myNetwork bitnami/mongodb:latest`
 
-#### Windows
-`rmdir /Q /S C:\Users\%username%\Documents\googleHomeAssistantExpressNodeJS && docker rm myAssistant && docker rmi falent/google_home_assistant_express_node_js_server:1`
+your database is listening in port 27017. The name of container is "mongo_database" so to request our database from node.js you need to call this addresse:
+`mongodb://mongo_database:27017`
+
+##### MySQL
+You need only start a new container:
+`sudo docker run -it --name=mysql1 --network myNetwork -d mysql/mysql-server:5.7`
+check what generated password is:
+`docker logs mysql1 2>&1`
+and login to shell to create a new table
+`docker exec -it mysql1 mysql -uroot -p`
 
 
 ### 4. Dialogflow
