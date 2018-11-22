@@ -1,16 +1,10 @@
 echo on
 echo " Before we start you need to ensure that Git is properly configured to handle line endings."
-git config --global core.autocrlf true &
+git config --global core.autocrlf true 
 
-IF EXIST C:\Users\%username%\Documents\googleHomeAssistantExpressNodeJS (
-cd C:\Users\%username%\Documents\googleHomeAssistantExpressNodeJS &
-git pull
-
-) ELSE (
-echo "Cloning our repository"
-git clone https://github.com/falent/googleHomeAssistantExpressNodeJS.git  C:\Users\%username%\Documents\googleHomeAssistantExpressNodeJS &
-)
-
+@echo off
+IF exist C:\Users\%username%\Documents\googleHomeAssistantExpressNodeJS ( cd C:\Users\%username%\Documents\googleHomeAssistantExpressNodeJS & git pull) ELSE ( git clone https://github.com/falent/googleHomeAssistantExpressNodeJS.git  C:\Users\%username%\Documents\googleHomeAssistantExpressNodeJS )
+echo on
 
 echo "going to your local repository"
 cd C:\Users\%username%\Documents\googleHomeAssistantExpressNodeJS &
