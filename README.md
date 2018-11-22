@@ -177,6 +177,7 @@ Open your terminal and execute the following commands:
 You can use a batch script in your command line to do all steps automatically.
 
 If you put this curl command to your cmd terminal, batch script will execute all [commands](#id-commands) that you could do manually ;)
+
 `curl https://raw.githubusercontent.com/falent/googleHomeAssistantExpressNodeJS/master/scripts_for_meetup/automatedInstallationWindows.bat > automatedInstallationWindows.bat && automatedInstallationWindows.bat`
 
 Please keep in mind that you should execute this script only once. If you close the window or you want reload npm modules please use these [commands](#id-commands-restart)
