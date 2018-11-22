@@ -17,8 +17,7 @@ which acts as a wrapper for the Dialogflow API.
 */
 const app = dialogflow({debug: true});
 
-const getWeatherForcastIntent = require('./intents/getWeatherForcastIntent');
-const nameIntent = require('./intents/nameIntent');
+const getWeatherForecastIntent = require('./intents/getWeatherForcastIntent');
 
 /** Adds Intent-name & callback key value pairs to app */
 function addIntents(...args) {
@@ -30,15 +29,14 @@ function addIntents(...args) {
 }
 
 addIntents(
-    getWeatherForcastIntent,
-    nameIntent
+    getWeatherForecastIntent
 );
 
 
 app.intent('welcomeIntent', (conv) => {
     conv.ask(
-        'Welcome to Bike weather forcast! ' +
-        'For what city should I tell you a weather for the next hour?'
+        'Welcome to Weather Forecast! ' +
+        'For what city should I tell you the weather?'
     );
 });
 

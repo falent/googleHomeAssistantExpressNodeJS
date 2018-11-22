@@ -13,14 +13,14 @@ The callback receives two important arguments:
 */
 
 
-    'nameIntent': (conv, parametr) => {
+    'welcomeIntent': (conv, parametr) => {
       let myName = parametr['given-name'];
-      console.log('Hey this is log, nice to see you here');
+      console.log('Voice App is active');
       console.log(myName);
 
 
         conv.ask('Hello '
             + myName +
-            ' For what city do you want to get weather, my dear '+myName);
+            ' For what city do you like to know the weather '+myName);
       },
 };

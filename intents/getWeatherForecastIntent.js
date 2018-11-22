@@ -35,19 +35,17 @@ function getWeather(city) {
 
 module.exports = {
 
-    'getWeatherForcastIntent': (conv, parametr) => {
+    'getWeatherForecastIntent': (conv, parametr) => {
         let myCity = parametr['geo-city'];
         console.log(myCity);
 
         return getWeather(myCity).then(function(result) {
             let temperature= result['data'][0]['app_temp'];
 
-            conv.ask('Temperatur in '+ myCity +' is '+ temperature +' degree');
+            conv.ask('Temperature in '+ myCity +' is '+ temperature +' degree');
         }, function(err) {
             console.log(err);
         });
     },
 
 };
-
-
