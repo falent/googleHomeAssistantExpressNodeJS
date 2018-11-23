@@ -40,7 +40,7 @@ module.exports = {
         console.log(myCity);
 
         return getWeather(myCity).then(function(result) {
-            let temperature= result['data'][0]['app_temp'];
+            let temperature= result['data'][0]['temp'];
 
             conv.ask('Temperature in '+ myCity +' is '+ temperature +' degree');
         }, function(err) {

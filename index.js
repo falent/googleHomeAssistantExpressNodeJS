@@ -1,3 +1,4 @@
+/* eslint-disable indent,no-trailing-spaces */
 'use strict';
 
 const express = require('express');
@@ -15,7 +16,7 @@ const {dialogflow} = require('actions-on-google');
 the library allows you to create a DialogflowApp object,
 which acts as a wrapper for the Dialogflow API.
 */
-const app = dialogflow({debug: true});
+const app = dialogflow({debug: false});
 
 const getWeatherForecastIntent = require('./intents/getWeatherForecastIntent');
 
@@ -23,7 +24,9 @@ const getWeatherForecastIntent = require('./intents/getWeatherForecastIntent');
 function addIntents(...args) {
     for (let i = 0; i < args.length; i++) {
         for (const key in args[i]) {
-            if (args[i].hasOwnProperty(key)) app.intent(key, args[i][key]);
+            if (args[i].hasOwnProperty(key)) {
+                app.intent(key, args[i][key]);
+            }
         }
     }
 }
@@ -35,11 +38,12 @@ addIntents(
 
 app.intent('welcomeIntent', (conv) => {
     conv.ask(
-        'Welcome to Weather Forecast! For what City should I tell you the weather?'
+        'Welcome to Weather Forecast! ' +
+        'For what City should I tell you the weather?'
     );
 });
 
 
-let port = process.env.PORT || 5000;
+const port = process.env.PORT || 5000;
 console.log('Everything works. Im listining on '+port+' port');
 express().use(bodyParser.json(), app).listen(port);
