@@ -38,6 +38,7 @@ addIntents(
 
 
 app.intent('welcomeIntent', (conv) => {
+	console.log("Hello");
     conv.ask(
         'Welcome to Weather Forecast! ' +
         'For what City should I tell you the weather?'
