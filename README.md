@@ -1,6 +1,7 @@
 
 
-# How to build your first Google Assistant action (skill)?
+
+# How to build your first Google Assistant Action?
 
 In this short tutorial we will show you how to write a simple Google assistant action and develop it on your local machine. We are going to use Docker to avoid any additional installations and ensure that all of us starts with the same code in the same environment (less problems for all of us. For those who don't know how Docker works it is a good example) Don't worry although we use Docker you will edit your code only locally because we implemented a mount option (shared folder).
 
@@ -13,8 +14,9 @@ As it was mentioned at the beginning we will work with Docker.  So you just need
 #### Linux
 https://docs.docker.com/install/linux/docker-ce/ubuntu/
 #### Windows
-For Windows we recommend to use Docker Toolbox, because you do not need to activate Hyper-V for it. [^1] :
+For Windows we recommend to use Docker Toolbox, because you do not need to activate Hyper-V for it. [1] :
 https://download.docker.com/win/stable/DockerToolbox.exe
+
 See requirements to install Docker Toolbox:
 https://docs.docker.com/toolbox/toolbox_install_windows/
 
@@ -41,7 +43,7 @@ The voice interactions are transformed from audio to text and backward till a co
 Source: https://codelabs.developers.google.com/codelabs/actions-1/img/dbd725edb3a93e79.png
 
 #### I.1 Create a new project
-Open Google Actions page [https://developers.google.com/actions/](https://developers.google.com/actions/) and create a new project. You need a Google account to log in. Click a plus button (add / import project) and after that create a project and given name.
+Open Google Actions page [https://developers.google.com/actions/](https://developers.google.com/actions/) and create a new project. You need a Google account to log in. Click a plus button (add / import project) and after that create a project and give it a name.
 ![
 ](https://lh3.googleusercontent.com/50jWUNN65ATGNwEusMOjTQiZ2uRYVMtZ_0-8FAo9oqWmngq9JMrTNHpYSJSsh-gKXkkrxRcaO49f "Create Project")
 !
@@ -95,6 +97,7 @@ Intents are anticipated user intentions about what users might want to talk with
 [![](https://thecattlecrew.files.wordpress.com/2018/08/googlehome5.png?w=840&h=199)](https://thecattlecrew.files.wordpress.com/2018/08/googlehome5.png)
 
 To add a new intent click on the plus button. Then define its name, training phrases and entities. Entities are variables for common key words the user says. For example in our change rate voice app these are the currencies. To see how it works add a new intent, name it getChangeRateIntent, add a training phrase and type a currency in the training phrase field. Click enter and you see the currency will be textmarked and is resolved to the entity currency. Now every currency the user might say will be resolved to the currency type. Type in *Change 50 Euro to Dollar*. Now edit the parameter names to adress the currencies as fields in your app. Set 50 as @sys.number entity, name it amount then name the first currency currencyBase and  the second currencyTarget. 
+
 ![
 ](https://lh3.googleusercontent.com/phvNhv8Ngi-HE6pwZOvqQ2feF1o9rP0ZEJYEhLrDGMdFtWZms8Gvz5nik8lv9eXdHjxIvYRMPmMV "GetChangeRateIntent")
 
@@ -196,12 +199,18 @@ We encourage you to do all steps by yourself in a cmd console because you can un
 
 5. Open a new cmd window and run an _Google Assistant_ Docker container in your created network. 
 `docker run -v //c/Users/%username%/Documents/googleHomeAssistantExpressNodeJS:/skill -it --rm --network myNetwork --name myAssistant falent/google_home_assistant_express_node_js_server:1`
+
 To build the container named myAssistant a docker image is downloaded from the dockerhub account *falent/google_home_assistant_express_node_js_server*. 
+
 (https://hub.Docker.com/r/falent/Google_home_assistant_express_node_js_server/)
+
 To build your own container from the dockerfile in your directory run
-`docker build myAssistantImage .` before you run the container myAssistant.
+
+`docker build myAssistantImage .`
+
+before you run the container myAssistant.
 The point locates the dockerfile in your current directory from cmd console. 
-Replace *falent/google_home_assistant_express_node_js_server* with *myAssistantImage* in cmd above to run the *myAssistant* container. 
+Replace *falent/google_home_assistant_express_node_js_server* with *myAssistantImage* in cmd console above to run the *myAssistant* container. 
 
 The last Docker command creates a shared directory, the flag -v means: Create a directory action in the docker container and share my local directory googleHomeAssistantExpressNodeJS with it. With a shared directory we can edit our files locally and share it automatically with our directory in the docker container. 
 
@@ -231,7 +240,7 @@ You only need to start a new container:
 
 `sudo docker run -it --name mongo_database --network myNetwork bitnami/mongodb:latest`
 
-your database is listening on port 27017. The name of the container will be "mongo_database". To request your database from node.js you need to call this address:
+Your database is listening on port 27017. The name of the container will be "mongo_database". To request your database from node.js you need to call this address:
 `mongodb://mongo_database:27017`
 
 ##### MySQL
@@ -255,9 +264,11 @@ Please copy **https** address from ngrok Docker.
 ![enter image description here](https://lh3.googleusercontent.com/lxynDDtaZzBgyqMiyW5twybVpWpWg5yEJ0Qt0ujyPqUUoh-npvxaTC8qyu2FnIiz_LP7oMEGqWA)
 #### IV.2 Dialogflow endpoint<div id='id-dialogflow-endpoint'/>
   Go to Fulfilment and enable Webhook in Dialogflow,  put your copied https address and click „save“.
+  
 [![](https://thecattlecrew.files.wordpress.com/2018/08/googlehome9.png?w=840&h=354)](https://thecattlecrew.files.wordpress.com/2018/08/googlehome9.png)
 
 At the end go to Integrations in Dialogflow and choose Google Assistant integrations. Set up explicit invocation for the welcomeIntent and add "implicit invocation" for your created getChangeRateIntent. 
+
 ![
 ](https://lh3.googleusercontent.com/VHprPXcFV_ckVtjuirPyk2e8r66bPy28kNH30VSMUU0CY_VBeTfW8jST9_cRtWnat0QQXb2yf6ng "Implicit and explicit invocation")
 
@@ -265,9 +276,11 @@ Now you can test your app clicking on the buttom "Test". You will be taken to Go
 
 # How to test your skill?
 
-In the Test Simulator of Google Actions just click on your suggested input. It will be "Talk to {your defined in Google actions skill invocation name}"
+In the Test Simulator of Google Actions just click on your suggested input. It will be "Talk to {your defined Google Actions invocation name}"
+
 ![
 ](https://lh3.googleusercontent.com/oWByVvfLt82FPzho9nocBVjTbTebuf1slIc1ZujM7Op_u9iADmIaXNevOsxYQBCLu9Ed4MAhPB5g "Start of Testsimulator")
+
 Your action will answer:
 *Welcome to Change Rate. What do you like to change?*
 Add the predefined training phrase *Change 50 Euro to Dollar* for the getChangeRateIntent in the text field.
