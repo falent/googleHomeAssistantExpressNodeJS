@@ -179,7 +179,7 @@ To add a new intent click on the plus button. Then define its name, training phr
 Add an additional intent. It will be our starting point. Name this intent
 „welcomeIntent“. Please keep in mind that we wont fulfill this intent by webhook.
 
-<div id='id-docker-environment-foDocker Containersr-our-app'/>
+<div id='id-docker-environment-for-our-app'/>
 
 ## 3. Docker environment for our app
 
