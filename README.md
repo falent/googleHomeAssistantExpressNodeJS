@@ -18,23 +18,41 @@ When you finish your developing you can easily upload your code to any https ser
 	1.3 [Node.js IDE](#id-node)
 
 2. ["Interaction Model" Configuration](#id-model)
+
 	2.1  [Google Actions](#id-google-actions)
+
 	2.2  [Dialogflow](#id-dialogflow)
+
 	2.3  [Create a new agent](#id-agent)
+
 3. [Docker environment for our app](#id-docker-environment-for-our-app)
+
 	3.1  [Docker Containers](#id-docker-containers)
+
 	3.2  [Project configuration](#id-project-configuration)
+
 	3.3  [Output](#id-output)
+
 4. [Optional Steps](#id-optional-steps)
+
 	4.1 [Restart Containers](#id-restart-containers)
+
 	4.2 [Additional docker containers](#id-restart-containers)
+
 5. [Dialogflow fullfilment](#id-dialogflow-fullfilment)
+
 6. [How to test your skill?](#id-how-to-test-your-skill)
+
 7. [Deployment](#id-deployment)
+
 	7.1 [Heroku](#id-heroku)
+
 	7.2 [Firebase](#id-firebase)
+
 	7.3 [Firebase functions](#id-firebase-functions)
+
 	7.4 [AWS lambda](#id-aws-lambda)
+
 8. [References for Google Assistant actions developing](#id-references)
 
 
@@ -71,6 +89,7 @@ https://www.jetbrains.com/webstorm/download/
 but you can use any of your favourite JS/Node.js IDE visual studio or atom or notepad 
 
 <div id='id-model'/>
+
 ## 2. "Interaction Model" Configuration
 
 We will use Dialogflow and Google Actions to configure our interaction model and publish it for the Google assistant. The interaction model is a voice logic which needs to be defined in Google Actions and Dialogflow.
