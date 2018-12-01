@@ -10,9 +10,13 @@ When you finish your developing you can easily upload your code to any https ser
 
 # Table of Contents
 1. [Requirements](#id-requirements)
+
 	1.1 [Docker installation](#id-docker-installation)
+
 	1.2 [Google Account](#id-google-account)
+
 	1.3 [Node.js IDE](#id-node)
+
 2. ["Interaction Model" Configuration](#id-model)
 	2.1  [Google Actions](#id-google-actions)
 	2.2  [Dialogflow](#id-dialogflow)
