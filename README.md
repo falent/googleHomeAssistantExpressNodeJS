@@ -7,34 +7,73 @@ In this short tutorial we will show you how to write a simple Google assistant a
 
 When you finish your developing you can easily upload your code to any https server. At the end of this tutorial we will show you how to do it with Heroku and Firebase. After that you can publish your first action. Of course our solution will also work with any other Https node.js server provider like AWS, Azure or Openshift. 
 
-## Requirements
+
+# Table of Contents
+1. [Requirements](#id-requirements)
+	1.1 [Docker installation](#id-docker-installation)
+	1.2 [Google Account](#id-google-account)
+	1.3 [Node.js IDE](#id-node)
+2. ["Interaction Model" Configuration](#id-model)
+	2.1  [Google Actions](#id-google-actions)
+	2.2  [Dialogflow](#id-dialogflow)
+	2.3  [Create a new agent](#id-agent)
+3. [Docker environment for our app](#id-docker-environment-for-our-app)
+	3.1  [Docker Containers](#id-docker-containers)
+	3.2  [Project configuration](#id-project-configuration)
+	3.3  [Output](#id-output)
+4. [Optional Steps](#id-optional-steps)
+	4.1 [Restart Containers](#id-restart-containers)
+	4.2 [Additional docker containers](#id-restart-containers)
+5. [Dialogflow fullfilment](#id-dialogflow-fullfilment)
+6. [How to test your skill?](#id-how-to-test-your-skill)
+7. [Deployment](#id-deployment)
+	7.1 [Heroku](#id-heroku)
+	7.2 [Firebase](#id-firebase)
+	7.3 [Firebase functions](#id-firebase-functions)
+	7.4 [AWS lambda](#id-aws-lambda)
+8. [References for Google Assistant actions developing](#id-references)
+
+
+
+<div id='id-requirements'/>
+## 1. Requirements
 As it was mentioned at the beginning we will work with Docker.  So you just need the Docker toolbox and a Google account. 
 
-### Docker installation
-#### Linux
+<div id='id-docker-installation'/>
+
+### 1.1 Docker installation
+
+#### 1.1.1 Linux
 https://docs.docker.com/install/linux/docker-ce/ubuntu/
-#### Windows
+
+#### 1.1.2 Windows
 For Windows we recommend to use Docker Toolbox, because you do not need to activate Hyper-V for it. [1] :
 https://download.docker.com/win/stable/DockerToolbox.exe
 
 See requirements to install Docker Toolbox:
 https://docs.docker.com/toolbox/toolbox_install_windows/
 
-### Google Account
+<div id='id-google-account'/>
+
+### 1.2 Google Account
 Please create a new Google account or use an existing one.
 https://accounts.google.com/signup/v2/webcreateaccount?hl=en-GB&flowName=GlifWebSignIn&flowEntry=SignUp
 
-### Node.js IDE
+<div id='id-node'/>
+
+### 1.3 Node.js IDE
 We will use webstorm
 https://www.jetbrains.com/webstorm/download/
-but you can use any of your favourite JS/Node.js IDE
+but you can use any of your favourite JS/Node.js IDE visual studio or atom or notepad 
 
-
-## "Interaction Model" Configuration
+<div id='id-model'/>
+## 2. "Interaction Model" Configuration
 
 We will use Dialogflow and Google Actions to configure our interaction model and publish it for the Google assistant. The interaction model is a voice logic which needs to be defined in Google Actions and Dialogflow.
 
-### I. Google Actions
+<div id='id-google-actions'/>
+
+### 2.1 Google Actions
 You can imagine an action as a part of a voice programm that extends the functionality of the Google Assistant. To start your voice action you need an invocation name. In our case we will create a change rate action and we can start it by saying "OK Google, talk to [your defined invocation name]". After that Google will call your external fulfillment  to start a conversation with the user. The fulfilment is based upon your deployed web application.
 
 The voice interactions are transformed from audio to text and backward till a conversation between the user and Google assistant reaches its end for example by saying stop.
@@ -42,35 +81,36 @@ The voice interactions are transformed from audio to text and backward till a co
 ![https://codelabs.developers.google.com/codelabs/actions-1/img/dbd725edb3a93e79.png](https://codelabs.developers.google.com/codelabs/actions-1/img/dbd725edb3a93e79.png)
 Source: https://codelabs.developers.google.com/codelabs/actions-1/img/dbd725edb3a93e79.png
 
-#### I.1 Create a new project
+#### 2.1.1 Create a new project
 Open Google Actions page [https://developers.google.com/actions/](https://developers.google.com/actions/) and create a new project. You need a Google account to log in. Click a plus button (add / import project) and after that create a project and give it a name.
 ![
 ](https://lh3.googleusercontent.com/50jWUNN65ATGNwEusMOjTQiZ2uRYVMtZ_0-8FAo9oqWmngq9JMrTNHpYSJSsh-gKXkkrxRcaO49f "Create Project")
 !
 
-#### I.2
-At the next page choose "skip".
+**At the next page choose "skip".**
 
-#### I.3 Define the invocation name
+#### 2.1.2 Define the invocation name
 In Actions Invocation define the invocation name for your action. Click on save.
-![
-](https://lh3.googleusercontent.com/AHebkK8ukKOovjRkYzKtiAGCLulPLHhf3ftkcOsCtA43f9la8jMySwz-oo_rFXWiwa5KHmA8_rY1 "Invocation")
+
+![](https://lh3.googleusercontent.com/iJijHse7psQo3gDdU_eUxKq2qnStnwvaGmJgKCJJCpKB9y7_IWgb3YGf6PlgaQ-wiB9V_GKOP5Pv6NqDckNG5h_Z_ij6m9MR3pP4KOTxPiTmxIahFnchO3LpBOW3SLGL8N_yG6FGLmjYcZ7P41oiSaQdmta_gRhxDwXkVNc2SjS4X62nDLsFLje9UCAcxAlfZsfvM_jIeXtzdmtQIEm_W4W4FNnWsTvxA2Jooju6_vgCYaFkPUF51l2IaV-xKr_qxThnybv_rshKksR6GFYPjmyiMGhSV4QvKaHTlz2Hi3yABK7wg11U_Vsv3bMCMtgWyFI7-rvU1b_DhjHgu8ulJoEWhfCvDrIAgPOgilKfyCAQB2OF-j2EbBaclanHqK5hWFRBArXHToG10ICj7ov1TAGfWjgtlyiiijEDij57z9zLAZ_SDRLFAvTPeNfwc-SXT6XcdsZpSBKMSaZtJ56pR1JxvpYXe8A-kw4BibLBSvETMtkLzzbrmovCB2U6dr_6gDMnV2YeukhRBa8AHN2Eklz15-lImIFC7CdAxDRpDR6XKbC70pPpbmtdIZLkGox5RllWljRHAROSIkF9hWFsDIYyNFmeKMFyy2t3dr28PNHjukME6oBD4zIAw7f9O6gJS2ju6PGToKtH7OccObg9nUTM=w1844-h844-no)
 
 Till now there are no interactions defined between Google assistant and the end user of your action. To create the interaction logic we will go to Dialogflow which we will describe in the next step.
 
-### II. Dialogflow
+<div id='id-dialogflow'/>
+
+### 2.2 Dialogflow
 Dialogflow (formerly Api.ai, Speaktoit) is a Google-owned developer of human–computer interaction technologies based on natural language conversations. We need it to translate human voice calls into JSON objects that can be consumed by  our backend code and backwards to tranlate the responses from our backend to voice phrases. You define how all this works within a Dialogflow agent.
 
-#### II.1 How does Dialogflow work?
+#### 2.2.1 How does Dialogflow work?
 
 1. A user starts voice interaction or text interaction saying/texting
 *OK Google, talk to [your definded invocation name]*
 
-2. Google calls Dialogflow looking for a defined agent to the invocation name. 
+2. Google calls Dialogflow using google actions looking for a defined agent to the invocation name. 
 
 3. Dialoglow checks its defined intents and the correponding training phrases that meets what the user has said. If Dialogflow detects a suitable intent there are two ways to call the logic behind the intent:
 
-	a) If the whole logic is defined in Dialogflow, Dialogflow calls Actions and Actions returns the answer to the user
+	a) If the whole logic is defined in Dialogflow, Dialogflow sends output returns the answer to the user
     
 	or
     
@@ -81,7 +121,9 @@ Dialogflow (formerly Api.ai, Speaktoit) is a Google-owned developer of human–c
 
 In the next step open the Dialoglow interface:  [https://console.dialogflow.com](https://console.dialogflow.com) 
 
-#### II.2  Create a new agent
+<div id='id-agent'/>
+
+### 2.3  Create a new agent
 
 Create a new agent where you configure the interaction model for your action. ** Please keep in mind to import your created project (Google PROJECT) from Google actions to DialogFlow**. The name how you call your agent in dialogflow is irrelevant
 
@@ -91,32 +133,31 @@ Create a new agent where you configure the interaction model for your action. **
 
 
 
-#### II.3 Add your first intent
+#### 2.3.1 Add your first intent
 Intents are anticipated user intentions about what users might want to talk with the voice assistant in an action. For a change rate action possible intents would be questions about the change rate from a source currency like Euro to a target currency like Dollar. Intents are triggered by predefined training phrases and key words from the user. Possible questions about change rates could be "What is 50 Euro in Dollar?". To  see how its configured click on Intentions in Dialogflow. Select the default welcome intent. Here you have listed several training phrases that invoke the default welcome intent. Under Responses you see what the Google assistant could  answer to the user utterances that triggered the default welcome intent. 
 
 [![](https://thecattlecrew.files.wordpress.com/2018/08/googlehome5.png?w=840&h=199)](https://thecattlecrew.files.wordpress.com/2018/08/googlehome5.png)
 
-To add a new intent click on the plus button. Then define its name, training phrases and entities. Entities are variables for common key words the user says. For example in our change rate voice app these are the currencies. To see how it works add a new intent, name it getChangeRateIntent, add a training phrase and type a currency in the training phrase field. Click enter and you see the currency will be textmarked and is resolved to the entity currency. Now every currency the user might say will be resolved to the currency type. Type in *Change 50 Euro to Dollar*. Now edit the parameter names to adress the currencies as fields in your app. Set 50 as @sys.number entity, name it amount then name the first currency currencyBase and  the second currencyTarget. 
+To add a new intent click on the plus button. Then define its name, training phrases and entities. Entities are variables for common key words the user says. For example in our change rate voice app these are the currencies. To see how it works add a new intent, name it getChangeRateIntent, add a training phrase and type a currency in the training phrase field. Click enter and you see the currency will be textmarked and is resolved to the entity currency. Now every currency the user might say will be resolved to the currency type. Type in *Change 50 Euro to Dollar*. Now edit the parameter names to adress the currencies as fields in your app. Set 50 as @sys.number entity, name it amount then name the first currency currencyBase and  the second currencyTarget.
 
-![
-](https://lh3.googleusercontent.com/phvNhv8Ngi-HE6pwZOvqQ2feF1o9rP0ZEJYEhLrDGMdFtWZms8Gvz5nik8lv9eXdHjxIvYRMPmMV "GetChangeRateIntent")
-
+![](https://lh3.googleusercontent.com/9Xg3_LX03zuoaWEce0xceVwDNvqClPZHON1c_nAwGjHI3Zzlhq_KpWCe5_H7XFLGuzs_VH5MQtaZgD6aiRAXGektDc0dIEDfq8lOOgBu8WFDFoBf18CfiOnS9sCX2lm1HgfIEKMij7U5jMcMmC06ZovmRK5Q2_ZsfmNEKCUrQK0TlzHPdOpaUs4Q7v7bSHA8k9LcIhY-knFsNwr5Gf_hVW70JCkoEisyWlCFr28ng7lvbWuAWtT71xz4zC5sJfzPNabXrJQtK118-KHlKCP7jVtxuahX8J45gJgqdrVw-_ZYp8-1t11WYOPLCW-BaHnbYZc8juXfiYwJ97NcZpdykjfzli4wNxmqvQTTC1D2BeVezKFuqhyQwNHBTh-J1pC_xjKwvASVIkF0VOwQJN7_Y1N4UmLiFkSeaJOnTn7DkhIztm_dHkHq5cc1fzopshqgV6cEeSdWl-QJGe3hMXnoXe9Sj2Rc3feWm3Vbqt3ooA7sFrCtQaJ1CIW1kSqQ-TCgjkBvDCFVl90XyBXZkFoZRFoGDQJ0tv0V-G_i20JKGZDxcuDNwLrHFeF2AHiDjAhQEyTWWPtz3Tc7g6660k18pEztyMUO-Gu86wB3vYMmUNbHP-MGewRZVrXK-6u0DiDZ1zFfvgiZS-7QteXBnU0a7wDC=w1443-h657-no)
 
 
-#### II.4
+
+
+#### 2.3.2 Add traning phrases
  You can define responses to the traning phrases in an intent in Dialogflow. But we use  our own code so we will define the responses in our web application code. For that we need to enable one option on the buttom of our intent. Swipe „Enable webhook call for this intent“ and click the „save“  button.
 
 [![](https://thecattlecrew.files.wordpress.com/2018/08/googlehome6.png?w=840&h=228)](https://thecattlecrew.files.wordpress.com/2018/08/googlehome6.png)
 
-#### II.5
+#### 2.3.3
 Add an additional intent. It will be our starting point. Name this intent
-„welcomeIntent“. Please keep in mind that we will fulfill this intent by webhook. Enable it as you have done in II.4 point. Save your intent. 
+„welcomeIntent“. Please keep in mind that we wont fulfill this intent by webhook.
 
-## Installations
+<div id='id-docker-environment-foDocker Containersr-our-app'/>
 
-### 3. Docker
+## 3. Docker environment for our app
 
-#### Docker Installation
 If you use Windows install [Docker Tools](https://download.docker.com/win/stable/DockerToolbox.exe) on your machine or if you use docker under linux [Docker CE (Community Edition)](https://docs.docker.com/engine/installation/#desktop) to test your Docker installation execute the following command:
 
 linux:
@@ -131,9 +172,11 @@ If you don't see his output  in windows:
 
 `Hello from Docker! This message shows that your installation appears to be working correctly.`
 
-Please be sure that you started "Docker quickstart terminal". You can  execute all Docker commands in a cmd terminal.
+Please be sure that you started "Docker quickstart terminal". You can  execute all Docker commands in a windows cmd terminal.
 
-### 4. Docker Containers
+<div id='id-docker-containers'/>
+
+### 3.1 Docker Containers
 
 Please do all steps in the order they are described below :) We will create 2 containers which will be connected to each other in one Docker virtual network.
 
@@ -141,11 +184,13 @@ Our simplified architecture looks like that:
 
 ![](https://lh3.googleusercontent.com/-K-UcRiRJgzjwR2b8v4sE2h3TZyhPznsM8cB86G37KGJdBKz3KUB2L6hG_UJclx0irdxsGzog0gOpkgE-5nNogmkVImDqgcB7vUnoo6bfhjeEQwNKxjZOm43J33u9sLBWUmVwteZNYDiZ2su3PvJ9D7-UNWsOronF4WBGCBoK4A5RriYA-0r46Jru6OcAxgnX0QDiOG78j9l0g4r3AR-DdOSVrqxPWdOMdL3EfNDO-M5W1fDtpynYuySaffC-ADorUOYDZVNsRGBnSxRuIurYLABdIGxs5-KYn0Gs2Qc_syYO35Sxn7DSTdiiVvyY7Neqa3FRr1Yu5AXWdLh0y1WBfNQicXF7cx5FvCUU-0clalgXM8XB18jp8evF3-d79UWDLNT43-2QYri1OmRSK72MygtrkFETsMMT6r-dsjQpwIgjQQublTmGfN4HcDmzTUjqO_vcMR6C4EOk5bavZUzv-3YMWVkSk2vDtjPSjnHtfRezNHguwSERvQhiwV2KDxw3XIq67xVbfkGdORIKTEzwNyapl55lnOwc_8TNJkgtlXJ02qOFjq7uF9mzCi-gW3saHQnkXjXLEQl1vmktVij5MreGlIfnPO99hMSspf5BGM7R7MqoPaTvI_aIkJGKlHSYd5DuFqhobgYNUSMcx3ioep99fGxJP2WVNOGlVxoXtJ9GCR4fYiMTgMDJufmkE0KoqcVi_qtBqbcfkaK=w1175-h387-no)
 
-Ngrok is a gateway that communicates with Google Assistants requests/responses via https. Our node.js action (skill) app is deployed in a Docker container and is shared with our javascript files in our local directory. Thus we can change the code locally and the deployed app reacts instantly to the changes. 
+Ngrok is a gateway that communicates with Google Assistants requests/responses via https. Our node.js action (skill) app is deployed in a Docker container and is shared with our javascript files in our local directory. Thus we can change the code locally and the deployed app reacts instantly to the changes.
 
-#### IV.1  Project configuration<div id='id-project-configuration'/>
+<div id='id-project-configuration'/>
 
-#### Linux
+### 3.2  Project configuration
+
+#### 3.2.1 Linux
 Open your terminal and execute the following commands. (See Windows for further explanations to the last command):
 
 1. Clone our repository from github
@@ -163,7 +208,7 @@ Open your terminal and execute the following commands. (See Windows for further 
 5. Open a new tab and run an Google Assistant_Docker container:
 `$ sudo docker run -v ~/Desktop/Template/Google_Assistant_universal_skill_template:/skill -it --rm --network myNetwork --name myAssistant falent/google_home_assistant_express_node_js_server:1`
 
-#### Windows
+#### 3.2.2 Windows
 
 You can use a batch script in your command line to do all steps automatically.
 
@@ -204,6 +249,8 @@ To build the container named myAssistant a docker image is downloaded from the d
 
 (https://hub.Docker.com/r/falent/Google_home_assistant_express_node_js_server/)
 
+**OR**
+
 To build your own container from the dockerfile in your directory run
 
 `docker build myAssistantImage .`
@@ -214,28 +261,35 @@ Replace *falent/google_home_assistant_express_node_js_server* with *myAssistantI
 
 The last Docker command creates a shared directory, the flag -v means: Create a directory action in the docker container and share my local directory googleHomeAssistantExpressNodeJS with it. With a shared directory we can edit our files locally and share it automatically with our directory in the docker container. 
 
-#### IV.2  Output
+<div id='id-output'/>
+
+#### 3.3  Output
 You will see the following output if your created myAssistant container works properly.
 
 ![enter image description here](https://lh3.googleusercontent.com/5V5vOys_GXe4zhktu61BtRz9Avm9HQhu5-V01z4xTL6pqU2FKdi3bW9lidgpakwRjeWTMkYUHKM3jK2plhqBTkaAZ0bjKIfdpHQZsxYx5drrR7g9bHOqhDy5f1XmicWXOMigPRim5Wh6N1bezZGgXYvztdCwUvVrxgkrOg6ejwnE5f-jiwWU7lFpf2ZLeRhBZfkKdFq5ZsoZ9CFjSMUwxrMaHxefsGEZ4peLuUXJrzvlKd5d5NOmjbVKI652F_Q3UQwqFIbzKMO00FPrdHXN6P9e3v_ysseJK9jBZIW_ZJ0sugpHrKG15y8COJr4VGIbob8ZAUSeQc2_yACTSomqz_7jub035dtzDiI6ed66uqiNBMEsf69XTXXzAJF-OawtzJg3GzGAIwKaftZllOURCF5sFEI75KUozU-P5y-44N3LWm9JeCyAdCMJ8vSnmeLa7m5t229K8r7-mnc4-cKtY0fuUMI5zGJalrZUZMA7imn1NRnOldWmGUhcFcPSr4awqYLXckvwTXOSOoAN0lHOM36hKV-sndD15nWdzI-_CLMAydSaiQxBACdE-hsnvxX0vX-me8L3yrcRZdO1UYycIznafp4cevYmdWK0fYm9NwMqGKlmAWV4TY4Je7FTYuDcoSKOIqeHy2RrDAFwQ4oK1w0mWq14S4sHYiWfvLgIzTSXCuYDeKDV_RrK8KYfmOV3DeB5ZnfbEEX22bAQ=w1916-h446-no)
-## OPTIONAL STEPS
-In this section you will  find optional steps if you wish to restart your Docker or rebuild everything
 
-### Restart (in case of new module installations or if you want to start your container app)<div id='id-commands-restart'/>
+<div id='id-optional-steps'/>
+
+## 4 OPTIONAL STEPS
+In this section you will find optional steps if you wish to restart your Docker or rebuild everything
+
+<div id='id-restart-containers'/>
+
+### 4.1 Restart (in case of new module installations or if you want to start your container app)<div id='id-commands-restart'/>
 Our solution is based on nodemon which is kind of a watcher and it reloads your skill everytime you made code changes. You save a lot of time because of that ;) However it can happen that you wish to add more npm modules https://www.npmjs.com/ to your skill. In that case you need to restart your container. Npm modules are installed only at the start of your container. To restart  your container type the following in a cmd terminal:
 
-#### Linux
-`$ sudo docker stop myAssistant
-$ sudo docker run -v ~/Desktop/Template/Google_Assistant_universal_skill_template:/skill -it --rm --network myNetwork --name myAssistant falent/google_home_assistant_express_node_js_server:1`
+#### 4.1.1 Linux
+`$ sudo docker run -v ~/Desktop/Template/Google_Assistant_universal_skill_template:/skill -it --rm --network myNetwork --name myAssistant falent/google_home_assistant_express_node_js_server:1`
 
-#### Windows
-` docker stop myAssistant
-docker run -v //c/Users/%username%/Documents/googleHomeAssistantExpressNodeJS:/skill -it --rm --network myNetwork --name myAssistant falent/google_home_assistant_express_node_js_server:1`
+#### 4.1.2 Windows
+`docker run -v //c/Users/%username%/Documents/googleHomeAssistantExpressNodeJS:/skill -it --rm --network myNetwork --name myAssistant falent/google_home_assistant_express_node_js_server:1`
 
-### Additional docker containers
+<div id='id-additional-docker-containers'/>
+
+### 4.2 Additional docker containers
 Imagine you would like to add a database to your docker environment. With our solution it is very simple! Just start any database docker container and place it in our docker network. For example: 
 
-##### MongoDB
+#### 4.2.1 MongoDB
 You only need to start a new container:
 
 `sudo docker run -it --name mongo_database --network myNetwork bitnami/mongodb:latest`
@@ -243,7 +297,7 @@ You only need to start a new container:
 Your database is listening on port 27017. The name of the container will be "mongo_database". To request your database from node.js you need to call this address:
 `mongodb://mongo_database:27017`
 
-##### MySQL
+#### 4.2.2 MySQL
 You only need to start a new container:
 
 `sudo docker run -it --name=mysql1 --network myNetwork -d mysql/mysql-server:5.7`
@@ -256,37 +310,49 @@ and login to shell to create a new table
 
 `docker exec -it mysql1 mysql -uroot -p`
 
+<div id='id-dialogflow-fullfilment'/>
 
-### 4. Dialogflow
-#### IV.1 Ngrok address
+### 5. Dialogflow fullfilment
+
+We need to add a ngrok address that our local server can communicate with dialogFlow
+
+#### 5.1 Ngrok address
 Please copy **https** address from ngrok Docker.
 
 ![enter image description here](https://lh3.googleusercontent.com/lxynDDtaZzBgyqMiyW5twybVpWpWg5yEJ0Qt0ujyPqUUoh-npvxaTC8qyu2FnIiz_LP7oMEGqWA)
-#### IV.2 Dialogflow endpoint<div id='id-dialogflow-endpoint'/>
+
+#### 5.2 Dialogflow endpoint<div id='id-dialogflow-endpoint'/>
   Go to Fulfilment and enable Webhook in Dialogflow,  put your copied https address and click „save“.
   
 [![](https://thecattlecrew.files.wordpress.com/2018/08/googlehome9.png?w=840&h=354)](https://thecattlecrew.files.wordpress.com/2018/08/googlehome9.png)
 
 At the end go to Integrations in Dialogflow and choose Google Assistant integrations. Set up explicit invocation for the welcomeIntent and add "implicit invocation" for your created getChangeRateIntent. 
 
-![
-](https://lh3.googleusercontent.com/VHprPXcFV_ckVtjuirPyk2e8r66bPy28kNH30VSMUU0CY_VBeTfW8jST9_cRtWnat0QQXb2yf6ng "Implicit and explicit invocation")
+
+
+[![](https://lh3.googleusercontent.com/iw4lVRUTIipfes59GqWhNqmDbge7inBFH05Pf-uzn4mKpTTNjaGYhOFHfzj24My-r2gzbibY3yGCPSEltVMF30L1FeX6UJg5uOFe-I9UNL1bk12y5t9pb0lHwobcrKathrxFdWjrvwyhmeX8UApASvC4DH12D5TrRnmFIoSLewQJLs2YSR3s2OrXcBDgP40w840jSddOSd6eQbvZQwQKRrGVrg8suvRx3UaTeBxfDr8oYKQJcitTjE1VgUGM03Y7WjL00HSpTADEZVY4vN1JlOypj0JZjBhoaDHguAlmCvMCZtXpukPxXz6VdSIKXB6LZH1laht-hpFvpAftmhinvwxTdthxSgOBg353Mz0wz5t9fSo9r_7sMegrcnmgluzyA2vw_Es62bVotaEQHtgYWb26RGCNBeuQjwY1dmabWP8_Oqzv5kJ2wYopHFnCWQczz90acNAGPhzVHh569bVze2Z2oeqYzSUup3bpSxY5UNvgOyqXjkGqDqkI7mG4SQR4RZusI2t3X7L3H7CaoE6i_La7CT7p7NI0Z3-op70zb9lFd5hwTZfFRi6xAP3ISKaBIclyuw5X2K-7e_8UwcfafNDymD7OlSRgztGgYA1y2e0uVsh5BupVZKihiUteU12BYwhrR5Mj5VaJJSAECq_k5wqO=w1457-h827-no)](https://lh3.googleusercontent.com/iw4lVRUTIipfes59GqWhNqmDbge7inBFH05Pf-uzn4mKpTTNjaGYhOFHfzj24My-r2gzbibY3yGCPSEltVMF30L1FeX6UJg5uOFe-I9UNL1bk12y5t9pb0lHwobcrKathrxFdWjrvwyhmeX8UApASvC4DH12D5TrRnmFIoSLewQJLs2YSR3s2OrXcBDgP40w840jSddOSd6eQbvZQwQKRrGVrg8suvRx3UaTeBxfDr8oYKQJcitTjE1VgUGM03Y7WjL00HSpTADEZVY4vN1JlOypj0JZjBhoaDHguAlmCvMCZtXpukPxXz6VdSIKXB6LZH1laht-hpFvpAftmhinvwxTdthxSgOBg353Mz0wz5t9fSo9r_7sMegrcnmgluzyA2vw_Es62bVotaEQHtgYWb26RGCNBeuQjwY1dmabWP8_Oqzv5kJ2wYopHFnCWQczz90acNAGPhzVHh569bVze2Z2oeqYzSUup3bpSxY5UNvgOyqXjkGqDqkI7mG4SQR4RZusI2t3X7L3H7CaoE6i_La7CT7p7NI0Z3-op70zb9lFd5hwTZfFRi6xAP3ISKaBIclyuw5X2K-7e_8UwcfafNDymD7OlSRgztGgYA1y2e0uVsh5BupVZKihiUteU12BYwhrR5Mj5VaJJSAECq_k5wqO=w1457-h827-no)
+
+
 
 Now you can test your app clicking on the buttom "Test". You will be taken to Google Actions simulator.
 
-# How to test your skill?
+<div id='id-how-to-test-your-skill'/>
+
+# 6. How to test your skill?
 
 In the Test Simulator of Google Actions just click on your suggested input. It will be "Talk to {your defined Google Actions invocation name}"
 
-![
-](https://lh3.googleusercontent.com/oWByVvfLt82FPzho9nocBVjTbTebuf1slIc1ZujM7Op_u9iADmIaXNevOsxYQBCLu9Ed4MAhPB5g "Start of Testsimulator")
+[![](https://lh3.googleusercontent.com/OTlcq-I_EJsBiGzrHXElGu-it9p4cSKrSqXdvtuixpEf8oaJHICF4wWWJsolskVANysrP9y31-Qb0j3luQYDzRwsjsKKQmF89YIusbShiBqDWCCZB5_Q3a8mKjmsHe6IfxjZVPZ5kbv3D2hwoH78kPZpNEDnetBhBx4eHSebl_D45CfiSGEuCYKYJ3Ixr4471wUah0zU402XwMa1GvOW7dqBP-AaEZ5dCaSsG010nYweFo-fHxe1M3p3NyzZwVAZ8q8fgqAh-G3dHvnPXuQRgASiMivv91rVj1x896zllrcUuSYLC5EaFks438t9p4joAv54K3vXtHNDQMXSgbWNlym_dqjdWC9BtSAeCQ5GCZ_-1wRybIXsqd7VvnTrcIgw2fVoaRi9K77f0PDToYyZluB9cuOZJBhnKo6nc3oAOdAS1R2GUl1oXwpklbhpEG1IEd7bnDEf3ltPEeHpmpUFiVw4RuTLPQB_JXMERqu7NkrauTmTPb2KedCMWg4jSSwsFNEamgjkOAlXrxQ_fqxQdDNQ97T_5u-RTpBg4cBTr697BjHwjPvVclcmi_J6zi6q8K9ZVWWp_nYnctN7cOEzUlqJLICSqD7qtZkVoilKtaFvzwKgANLS8ElyjERWTsejbzch7DPxpC7gxF6Xm4xsst1q=w1641-h869-no)]()
+
+
+
+
 
 Your action will answer:
 *Welcome to Change Rate. What do you like to change?*
 Add the predefined training phrase *Change 50 Euro to Dollar* for the getChangeRateIntent in the text field.
 
-![
-](https://lh3.googleusercontent.com/UT51veWUKycjvJwAHeRg4OJy-EZoxq_dsopPgKPUuC-Lo5FDrdr13-8fEVPyejk2MIrPoOXcoGQ9 "Conversation in Testsimulator")
+[![](https://lh3.googleusercontent.com/2sG9MF4wzIQoRaRrffUBnJgk0DRxrgGhjuZmuU6wud3XemwDeUK8ZrKxm8Bf-tC4YHCfIbIUqLfFfZ3GVuaLVOSTkhD8MxZIBdSYYeif28SJZPApqF-tzIgZN-UqYDNdGmXs9boxlLBhtKIzGkWG_lcYVLwrNcR1nh56yAKnXKn90iCGtGaGKRwTMbu5u0zGHw7X_PL3Zsa1gu4Xk8zY0Ki2Mh8qFlFjiLtCwgHR4RGxKJK22PXxU0Rinv1t_E5GyVXVgj0odL5g6qF3Jhm0SRpfKTpjesUsqCYWKex-qJON_i1wh24SXU8K3uF4t8qwBSPG7p7vjnGnlBIQdF3WWdKINOM05SHYkUFgN3uQZhH85bWPgLJSSVQO0W2-RcD64c3dQHD9bgwWQg3SrO9Q5RJZL8R5ZqTNrmoa9zGFDWt8nrWv4jvzLYSSYH0FgtySBCg9zlUuXjvRRbVL0NrIvp_8oI81giAZ7ZxCS-9NQ3bP6zpWxog_2fiDT_C4ycosqlK4UaUeICtjo_rpsFO8FG6Kf5mPVg3w-HsHld-UoRtbFrFLGK9LAZ1ki9uOtwsEX9XNePWNIaysM_1xLwARBUtGSLBClNCxee2IwP6GyH5BHGUDImsF7oGsEyQWfZXcefv8AEaVgCNRMKMSjGKc-ccZ=w1636-h853-no)]()
 
 If everything works, you will get the following answer to your request. (amount is up to actual change rate ;))
 *You will get 57.105 USD*
@@ -304,11 +370,19 @@ and in your Google assistant container you will see first logs
 Beside the test simulator you can test your action with your private Google home or Smartphone Google assistant app. You do not need further installation or activation. Just test it by saying:
 Ok Google, talk to {your defined in Google actions skill invocation name}
 
-# Instructions for a quick deployment to Heroku
+<div id='id-deployment'/>
+
+# 7. Instructions for a quick deployment Heroku
+
+We described in this section how can you deploy your app in heroku, firebase, aws lambda or firebase functions
+
+<div id='id-heroku'/>
+
+## 7.1 Heroku
 
 Sign up for [Heroku](https://signup.heroku.com/dc) (it's for free).
 
-## Linux
+### 7.1.1 Linux
 
 1. Install heroku client, for example in ubuntu
 ```bash
@@ -348,25 +422,38 @@ Sign up for [Heroku](https://signup.heroku.com/dc) (it's for free).
   ```
 
 After pushing you will get your heroku app https address. Please copy it and paste it to [endpoint](#id-dialogflow-endpoint) 
-
-   11. Start webapplication in heroku
+11. Start webapplication in heroku
 ```bash
   $ heroku ps:scale web=1
   ```
-   12. You can see logs output
+12. You can see logs output
 ```bash
   $ heroku logs --tail
   ```
 
-## Windows
+### 7.1.2 Windows
 The steps are the same. You only need to install heroku for windows. https://devcenter.heroku.com/articles/heroku-cli#download-and-install
 
-# Instructions for a quick deployment to Firebase
+<div id='id-firebase'/>
+
+## 7.2 Firebase
 TO DO
 Sign up for [Firebase](https://firebase.google.com/) (it's for free).
 https://www.youtube.com/watch?v=LOeioOKUKI8
 
-# Some References for Google Assistant actions developing
+<div id='id-firebase-functions'/>
+
+## 7.3 Firebase as functions
+TO DO
+
+<div id='id-aws-lambda'/>
+
+## 7.4 AWS Lambda
+TO DO
+
+<div id='id-references'/>
+
+# 8. References for Google Assistant actions developing
 https://www.npmjs.com/ - npm is the package manager for JavaScript and the world’s largest software registry
 
 https://codelabs.developers.google.com/?cat=Assistant – Google Labs how to build actions (skills) in Node.js for google assistant
