@@ -1,5 +1,5 @@
 #!/bin/sh
 
-cd /skill
+cd /skill/functions
 npm install
 nodemon start.js -L 
