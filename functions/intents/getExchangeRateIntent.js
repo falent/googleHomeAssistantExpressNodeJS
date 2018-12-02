@@ -27,8 +27,8 @@ function getRate(base) {
 
 module.exports = {
 
-    'getChangeRateIntent': (conv, parameter) => {
-        let currencyBase = (parameter['currencyBase']);
+    'getExchangeRateIntent': (conv, parameter) => {
+        let currencyBase = (parameter['currencySource']);
         let currencyTarget = (parameter['currencyTarget']);
         let amount = (parameter['amount']);
         console.log(currencyBase);
@@ -42,7 +42,7 @@ module.exports = {
 
             let myValue = amount * rate;
 
-            conv.ask('You will get ' + myValue + ' ' + currencyTarget);
+            conv.ask('You will get ' + myValue + ' ' + currencyTarget + '. Do you like to change more?');
 
         }, function (err) {
             console.log(err);
