@@ -5,7 +5,7 @@
 
 In this short tutorial we will show you how to write a simple Google assistant action and develop it on your local machine. We are going to use Docker to avoid any additional installations and ensure that all of us starts with the same code in the same environment (less problems for all of us. For those who don't know how Docker works it is a good example) Don't worry although we use Docker you will edit your code only locally because we implemented a mount option (shared folder).
 
-When you finish your developing you can easily upload your code to any https server. At the end of this tutorial we will show you how to do it with Heroku and Firebase. After that you can publish your first action. Of course our solution will also work with any other Https node.js server provider like AWS, Azure or Openshift. 
+When you finish your developing you can easily upload your code to any https server. At the end of this tutorial we will show you how to do it with Heroku and Firebase. After that you can publish your first action. Of course our solution will also work with any other Https node.js server provider like AWS, Azure or Openshift.
 
 
 # Table of Contents
@@ -60,7 +60,7 @@ When you finish your developing you can easily upload your code to any https ser
 <div id='id-requirements'/>
 
 ## 1. Requirements
-As it was mentioned at the beginning we will work with Docker.  So you just need the Docker toolbox and a Google account. 
+As it was mentioned at the beginning we will work with Docker.  So you just need the Docker toolbox and a Google account.
 
 <div id='id-docker-installation'/>
 
@@ -87,7 +87,7 @@ https://accounts.google.com/signup/v2/webcreateaccount?hl=en-GB&flowName=GlifWeb
 ### 1.3 Node.js IDE
 We will use webstorm
 https://www.jetbrains.com/webstorm/download/
-but you can use any of your favourite JS/Node.js IDE visual studio or atom or notepad 
+but you can use any of your favourite JS/Node.js IDE visual studio or atom or notepad
 
 <div id='id-model'/>
 
@@ -116,7 +116,7 @@ Open Google Actions page [https://developers.google.com/actions/](https://develo
 #### 2.1.2 Define the invocation name
 In Actions Invocation define the invocation name for your action. Click on save.
 
-![](https://lh3.googleusercontent.com/iJijHse7psQo3gDdU_eUxKq2qnStnwvaGmJgKCJJCpKB9y7_IWgb3YGf6PlgaQ-wiB9V_GKOP5Pv6NqDckNG5h_Z_ij6m9MR3pP4KOTxPiTmxIahFnchO3LpBOW3SLGL8N_yG6FGLmjYcZ7P41oiSaQdmta_gRhxDwXkVNc2SjS4X62nDLsFLje9UCAcxAlfZsfvM_jIeXtzdmtQIEm_W4W4FNnWsTvxA2Jooju6_vgCYaFkPUF51l2IaV-xKr_qxThnybv_rshKksR6GFYPjmyiMGhSV4QvKaHTlz2Hi3yABK7wg11U_Vsv3bMCMtgWyFI7-rvU1b_DhjHgu8ulJoEWhfCvDrIAgPOgilKfyCAQB2OF-j2EbBaclanHqK5hWFRBArXHToG10ICj7ov1TAGfWjgtlyiiijEDij57z9zLAZ_SDRLFAvTPeNfwc-SXT6XcdsZpSBKMSaZtJ56pR1JxvpYXe8A-kw4BibLBSvETMtkLzzbrmovCB2U6dr_6gDMnV2YeukhRBa8AHN2Eklz15-lImIFC7CdAxDRpDR6XKbC70pPpbmtdIZLkGox5RllWljRHAROSIkF9hWFsDIYyNFmeKMFyy2t3dr28PNHjukME6oBD4zIAw7f9O6gJS2ju6PGToKtH7OccObg9nUTM=w1844-h844-no)
+![](https://lh3.googleusercontent.com/DUdzsfa41qj69G-HsM3_h_xrZ1G3zZlmDWLENS6-TaOCNqFF_21DqUJk7wip1oMGYpeGTq-_CYdeRwnh8wBLbpvpxJo1sW5ErAboc9L1ufrzmX28WAyKqpRpBpmGLtsccLsLhZ4xwbZX8xgwl78B_6DO0_gD8566NcPr82ge0KqyzDSzz4-RASkLiPAaHfsciRsPplNulW4yhYU0NxGjUTKruoRw0kBfp-cD9B1K_OA34ijO4oYFnnWA2yqOe7Ebgsjo6GOtfdODPZqHjl-eKmtzQ8wEqkBJf-_aebRKCjJhhOoCH0UEDAIU65co29WRlnTYZq3T6uhUaoafs4h5Nn2rKO6lppcN3_8CL8DlHqChMX_eO_8uDD39ufJV3EiAh_TwQJOP64gPcMYo5LsyIs2azwQParRBvBHw7xMTVeZvJpzSJV9T8EgmWB0a60PbtIg96JrE-Mg6ATbv8UFVeqmcYh-WtMapcqWwaVnyCW2YkqdUVe0fNLTNzzRl1jJpa2uteav8uTbGY2PPw5vDcAsTr6R-nybvnS26ZBgYHh0LIkLs1zok22p9sudxBat0bEjqu3cgC-5a3XX3bGkjJoWjrjm8lQv-7tnqF7TdK2kdzSi6PAMoTjSbpd0yn3bNRqw8JO9Xmg07PWCIRAFKTDLg869Qsh9fbW91ykoF2-yHqpSM40oqwPo64PsXHnoZ5VKC3be7l0-hC4Nynw=w1442-h741-no)
 
 Till now there are no interactions defined between Google assistant and the end user of your action. To create the interaction logic we will go to Dialogflow which we will describe in the next step.
 
@@ -130,21 +130,21 @@ Dialogflow (formerly Api.ai, Speaktoit) is a Google-owned developer of human–c
 1. A user starts voice interaction or text interaction saying/texting
 *OK Google, talk to [your definded invocation name]*
 
-2. Google calls Dialogflow using google actions looking for a defined agent to the invocation name. 
+2. Google calls Dialogflow using google actions looking for a defined agent to the invocation name.
 
 3. Dialoglow checks its defined intents and the correponding training phrases that meets what the user has said. If Dialogflow detects a suitable intent there are two ways to call the logic behind the intent:
 
 	a) If the whole logic is defined in Dialogflow, Dialogflow sends output returns the answer to the user
-    
+
 	or
-    
+
 	b) DialogFlow calls your external code and returns an answer processed from your code to Google Actions which returns it to your end user
 
 
-[![](https://lh3.googleusercontent.com/-5ILQEKA74K6NcehMD5BCCd3MG098RPqj0SRl5luNjh1V-FvMiWP5Vgkb4yvmBHVJED4NgdE2_CRPrfjgq0SRPb4SB8wOHjsGjUlof5YROnWUUOsDSB5qq10mxekZlXE-XltwGyI0xaBWBHUKp8C5nWqCwTk6bXWkGXwu2seIMoi1sqZzTPwhGB-vrrDXVsdRozVsZLVmEU-8ISHSv3Ey458AXSE9Ea1mGM5GENh_I2wVkCa2hnqa9iAzibLZ2RGKANYAKwT73pc8uGTMJPlYwm21oS5fsOmiwoAO8HcPtLqbJ6UZxSzAG6YA_dDPpGLG6xTBjWeHaAc0FYmMc7oakfbU1Cv3Y3pO1HwUg9THkcmTC2WiJNw7Aq7iTDBbdW5ZM1yz8MYlFzmfuZVwPrPtu6k3FRMKwoi7uBCgYUZJGLerT808k1pfe-EJ6UXGrLZW0yMBCRMv8xqg-Us3pZTmaM0FTcxZ0rXMTar1iEuIlHsKvARvUrWTuebF8D5S7OGkVbsWZlj_m3JFYNZO44njXnoekV6vueZPV_zjzPE8CkqQ2kYmAkvpDZ0s4w-cCp33exOD9fO_88goT9jNEzIKc1OdGqdAJGZ5hFzAn4OxVH-LDKnLbnhg_mjZgz23p6-Ce_Ldzd-lK3T6tbXOSELw36i=w1231-h612-no)](https://lh3.googleusercontent.com/-5ILQEKA74K6NcehMD5BCCd3MG098RPqj0SRl5luNjh1V-FvMiWP5Vgkb4yvmBHVJED4NgdE2_CRPrfjgq0SRPb4SB8wOHjsGjUlof5YROnWUUOsDSB5qq10mxekZlXE-XltwGyI0xaBWBHUKp8C5nWqCwTk6bXWkGXwu2seIMoi1sqZzTPwhGB-vrrDXVsdRozVsZLVmEU-8ISHSv3Ey458AXSE9Ea1mGM5GENh_I2wVkCa2hnqa9iAzibLZ2RGKANYAKwT73pc8uGTMJPlYwm21oS5fsOmiwoAO8HcPtLqbJ6UZxSzAG6YA_dDPpGLG6xTBjWeHaAc0FYmMc7oakfbU1Cv3Y3pO1HwUg9THkcmTC2WiJNw7Aq7iTDBbdW5ZM1yz8MYlFzmfuZVwPrPtu6k3FRMKwoi7uBCgYUZJGLerT808k1pfe-EJ6UXGrLZW0yMBCRMv8xqg-Us3pZTmaM0FTcxZ0rXMTar1iEuIlHsKvARvUrWTuebF8D5S7OGkVbsWZlj_m3JFYNZO44njXnoekV6vueZPV_zjzPE8CkqQ2kYmAkvpDZ0s4w-cCp33exOD9fO_88goT9jNEzIKc1OdGqdAJGZ5hFzAn4OxVH-LDKnLbnhg_mjZgz23p6-Ce_Ldzd-lK3T6tbXOSELw36i=w1231-h612-no)
+[![](https://lh3.googleusercontent.com/cl0A2laq_UEcrg1d4lMTpUmRNauWVgKZM_qVurP-Z1ptZY53ZUR9TOBtFZghAU2SLwL5x7YTdu6IwMvdmjIb30pyg40DRO2aJ4NDaCDM2bogmL9Y5vWhEySeTG7U45uOez9nkOieoUQKClwT6vfT4F9zwBHbwR2lghxexRBqZTXk2cm57cZq1X4NNZXaFNIwZ2bh2_m2FfWvQMnEL4lQ6tttQ3KqPHzkhzvXV7SYRhTH42AItqNS5HEoRKsIQ2s1pCNRe52wz4YIqZZpaIKWWzI_D4Hyx_dTxIomstMzaOJY97oR5Vfq6Bhx8z6DPmwRRRSYgN62FoIRQAjc8UB0ADOrJHEW-SV0S75jlth5d8sjiUBaxf8OgZjfxEDlc63k4tFTnH5iaISuzMSx8RPDg0XkhCwhxKHLhjbF_bZ23mWwsh2FFi2qYut9lIxnozeFo13ufvQkytQvjzM5u4x-MQlv3F1c3ljO-bIttJFkg1WekCq8X1G_KHZ5bJb51oykaqf_5yRV79xPOYVUUSbhqKR0Ff-R7YDitdQioKCARa9QByZ75VomxIgow2F2bAXgsSxx2Lc4QrjASYEmAr-WpYnED6by0fxyYuHAXDaCFDhFhw08NvdA7n8C_Vn7Nb0_eu2k298SI5yKbpXRM5Jf8XZ1NOf7iBzJQJyAYVlHtv2Jl5SFGkEJ3Pgo48Qb6LjqIgb83lPOD02FTe9bPw=w1231-h612-no)](https://lh3.googleusercontent.com/cl0A2laq_UEcrg1d4lMTpUmRNauWVgKZM_qVurP-Z1ptZY53ZUR9TOBtFZghAU2SLwL5x7YTdu6IwMvdmjIb30pyg40DRO2aJ4NDaCDM2bogmL9Y5vWhEySeTG7U45uOez9nkOieoUQKClwT6vfT4F9zwBHbwR2lghxexRBqZTXk2cm57cZq1X4NNZXaFNIwZ2bh2_m2FfWvQMnEL4lQ6tttQ3KqPHzkhzvXV7SYRhTH42AItqNS5HEoRKsIQ2s1pCNRe52wz4YIqZZpaIKWWzI_D4Hyx_dTxIomstMzaOJY97oR5Vfq6Bhx8z6DPmwRRRSYgN62FoIRQAjc8UB0ADOrJHEW-SV0S75jlth5d8sjiUBaxf8OgZjfxEDlc63k4tFTnH5iaISuzMSx8RPDg0XkhCwhxKHLhjbF_bZ23mWwsh2FFi2qYut9lIxnozeFo13ufvQkytQvjzM5u4x-MQlv3F1c3ljO-bIttJFkg1WekCq8X1G_KHZ5bJb51oykaqf_5yRV79xPOYVUUSbhqKR0Ff-R7YDitdQioKCARa9QByZ75VomxIgow2F2bAXgsSxx2Lc4QrjASYEmAr-WpYnED6by0fxyYuHAXDaCFDhFhw08NvdA7n8C_Vn7Nb0_eu2k298SI5yKbpXRM5Jf8XZ1NOf7iBzJQJyAYVlHtv2Jl5SFGkEJ3Pgo48Qb6LjqIgb83lPOD02FTe9bPw=w1231-h612-no)
 
 
-In the next step open the Dialoglow interface:  [https://console.dialogflow.com](https://console.dialogflow.com) 
+In the next step open the Dialoglow interface:  [https://console.dialogflow.com](https://console.dialogflow.com)
 
 <div id='id-agent'/>
 
@@ -159,15 +159,13 @@ Create a new agent where you configure the interaction model for your action. **
 
 
 #### 2.3.1 Add your first intent
-Intents are anticipated user intentions about what users might want to talk with the voice assistant in an action. For a change rate action possible intents would be questions about the change rate from a source currency like Euro to a target currency like Dollar. Intents are triggered by predefined training phrases and key words from the user. Possible questions about change rates could be "What is 50 Euro in Dollar?". To  see how its configured click on Intentions in Dialogflow. Select the default welcome intent. Here you have listed several training phrases that invoke the default welcome intent. Under Responses you see what the Google assistant could  answer to the user utterances that triggered the default welcome intent. 
+Intents are anticipated user intentions about what users might want to talk with the voice assistant in an action. For a change rate action possible intents would be questions about the change rate from a source currency like Euro to a target currency like Dollar. Intents are triggered by predefined training phrases and key words from the user. Possible questions about change rates could be "What is 50 Euro in Dollar?". To  see how its configured click on Intentions in Dialogflow. Select the default welcome intent. Here you have listed several training phrases that invoke the default welcome intent. Under Responses you see what the Google assistant could  answer to the user utterances that triggered the default welcome intent.
 
 [![](https://thecattlecrew.files.wordpress.com/2018/08/googlehome5.png?w=840&h=199)](https://thecattlecrew.files.wordpress.com/2018/08/googlehome5.png)
 
 To add a new intent click on the plus button. Then define its name, training phrases and entities. Entities are variables for common key words the user says. For example in our change rate voice app these are the currencies. To see how it works add a new intent, name it getChangeRateIntent, add a training phrase and type a currency in the training phrase field. Click enter and you see the currency will be textmarked and is resolved to the entity currency. Now every currency the user might say will be resolved to the currency type. Type in *Change 50 Euro to Dollar*. Now edit the parameter names to adress the currencies as fields in your app. Set 50 as @sys.number entity, name it amount then name the first currency currencyBase and  the second currencyTarget.
 
-![](https://lh3.googleusercontent.com/9Xg3_LX03zuoaWEce0xceVwDNvqClPZHON1c_nAwGjHI3Zzlhq_KpWCe5_H7XFLGuzs_VH5MQtaZgD6aiRAXGektDc0dIEDfq8lOOgBu8WFDFoBf18CfiOnS9sCX2lm1HgfIEKMij7U5jMcMmC06ZovmRK5Q2_ZsfmNEKCUrQK0TlzHPdOpaUs4Q7v7bSHA8k9LcIhY-knFsNwr5Gf_hVW70JCkoEisyWlCFr28ng7lvbWuAWtT71xz4zC5sJfzPNabXrJQtK118-KHlKCP7jVtxuahX8J45gJgqdrVw-_ZYp8-1t11WYOPLCW-BaHnbYZc8juXfiYwJ97NcZpdykjfzli4wNxmqvQTTC1D2BeVezKFuqhyQwNHBTh-J1pC_xjKwvASVIkF0VOwQJN7_Y1N4UmLiFkSeaJOnTn7DkhIztm_dHkHq5cc1fzopshqgV6cEeSdWl-QJGe3hMXnoXe9Sj2Rc3feWm3Vbqt3ooA7sFrCtQaJ1CIW1kSqQ-TCgjkBvDCFVl90XyBXZkFoZRFoGDQJ0tv0V-G_i20JKGZDxcuDNwLrHFeF2AHiDjAhQEyTWWPtz3Tc7g6660k18pEztyMUO-Gu86wB3vYMmUNbHP-MGewRZVrXK-6u0DiDZ1zFfvgiZS-7QteXBnU0a7wDC=w1443-h657-no)
-
-
+![](https://lh3.googleusercontent.com/QUptFmlJdJBleXA2NzfdE3PtDhDD2eFLpI-aCBarWigGeC00_-nEvD_ryDqVLFWOwrqCMiGd0MOHD27uslFaEvwCmINFHRImCHQQgiGdxS937YW8Apf9K0zcpkVK5ItAxO33T99dlUfkGsEfHDepY4TBUmBLO5IPCwbrvG0L2RKn6WxiUjl5eJw0zLvU9-wL3L5X7Ikx8wmr_87zSBaESQ4zEy-bih48etAfAoSXjtZ6mapomMIMZFYQuazMyEWUUVm7CEdy5FTf8il-WudAno60UbpXjQ6i5CGMnH5jg9WatjSQOlZHhk8WYGaU3wXLKA82Z0VXmB6f6ocI7tdDz-agcJmhdgFlcuZuvA48EriBFcCclwAgQNaCv2058KLVJfMuMWNvxTZke1BkWSodkUlEeTG1OXWU12HNICWjQLr4ZctZxCHjxQJlojtNOxIGJx3VjdO44-7zcUi59E2zVOD1AYs0-N8e4U0hTHYCevWBNqfrhnUcJpT8I1jCRgXNOZp86n8NFp80BUF5fKdvGuFTBaUKG8KheF8fDx4eNlsL4b-clH7UZb8EwEPCVW7Fpy4m26azlFspHgpscQpq9Ciga3snTk5lJb9csR6v3Ih4fzsxTDchBZH4DOs4nblWJhJ-JaEu1p_fR3jz7JP5S-TgZ1jObYbexWSfiMp4xQc_MdSlq0_RMGFVFicWW9mtVqAopE0RnN0uJR6lKQ=w1448-h799-no)
 
 
 #### 2.3.2 Add traning phrases
@@ -267,10 +265,10 @@ We encourage you to do all steps by yourself in a cmd console because you can un
 4. Run the _ngrok_ Docker container in your cmd terminal **and do not close this tab!**
 `docker run --rm -it  --network myNetwork wernight/ngrok ngrok http myAssistant:5000`
 
-5. Open a new cmd window and run an _Google Assistant_ Docker container in your created network. 
+5. Open a new cmd window and run an _Google Assistant_ Docker container in your created network.
 `docker run -v //c/Users/%username%/Documents/googleHomeAssistantExpressNodeJS:/skill -it --rm --network myNetwork --name myAssistant falent/google_home_assistant_express_node_js_server:1`
 
-To build the container named myAssistant a docker image is downloaded from the dockerhub account *falent/google_home_assistant_express_node_js_server*. 
+To build the container named myAssistant a docker image is downloaded from the dockerhub account *falent/google_home_assistant_express_node_js_server*.
 
 (https://hub.Docker.com/r/falent/Google_home_assistant_express_node_js_server/)
 
@@ -281,10 +279,10 @@ To build your own container from the dockerfile in your directory run
 `docker build myAssistantImage .`
 
 before you run the container myAssistant.
-The point locates the dockerfile in your current directory from cmd console. 
-Replace *falent/google_home_assistant_express_node_js_server* with *myAssistantImage* in cmd console above to run the *myAssistant* container. 
+The point locates the dockerfile in your current directory from cmd console.
+Replace *falent/google_home_assistant_express_node_js_server* with *myAssistantImage* in cmd console above to run the *myAssistant* container.
 
-The last Docker command creates a shared directory, the flag -v means: Create a directory action in the docker container and share my local directory googleHomeAssistantExpressNodeJS with it. With a shared directory we can edit our files locally and share it automatically with our directory in the docker container. 
+The last Docker command creates a shared directory, the flag -v means: Create a directory action in the docker container and share my local directory googleHomeAssistantExpressNodeJS with it. With a shared directory we can edit our files locally and share it automatically with our directory in the docker container.
 
 <div id='id-output'/>
 
@@ -312,7 +310,7 @@ Our solution is based on nodemon which is kind of a watcher and it reloads your 
 <div id='id-additional-docker-containers'/>
 
 ### 4.2 Additional docker containers
-Imagine you would like to add a database to your docker environment. With our solution it is very simple! Just start any database docker container and place it in our docker network. For example: 
+Imagine you would like to add a database to your docker environment. With our solution it is very simple! Just start any database docker container and place it in our docker network. For example:
 
 #### 4.2.1 MongoDB
 You only need to start a new container:
@@ -348,14 +346,16 @@ Please copy **https** address from ngrok Docker.
 
 #### 5.2 Dialogflow endpoint<div id='id-dialogflow-endpoint'/>
   Go to Fulfilment and enable Webhook in Dialogflow,  put your copied https address and click „save“.
-  
+
 [![](https://thecattlecrew.files.wordpress.com/2018/08/googlehome9.png?w=840&h=354)](https://thecattlecrew.files.wordpress.com/2018/08/googlehome9.png)
 
-At the end go to Integrations in Dialogflow and choose Google Assistant integrations. Set up explicit invocation for the welcomeIntent and add "implicit invocation" for your created getChangeRateIntent. 
+At the end go to Integrations in Dialogflow and choose Google Assistant integrations. Set up explicit invocation for the welcomeIntent and add "implicit invocation" for your created getChangeRateIntent.
 
 
 
-[![](https://lh3.googleusercontent.com/iw4lVRUTIipfes59GqWhNqmDbge7inBFH05Pf-uzn4mKpTTNjaGYhOFHfzj24My-r2gzbibY3yGCPSEltVMF30L1FeX6UJg5uOFe-I9UNL1bk12y5t9pb0lHwobcrKathrxFdWjrvwyhmeX8UApASvC4DH12D5TrRnmFIoSLewQJLs2YSR3s2OrXcBDgP40w840jSddOSd6eQbvZQwQKRrGVrg8suvRx3UaTeBxfDr8oYKQJcitTjE1VgUGM03Y7WjL00HSpTADEZVY4vN1JlOypj0JZjBhoaDHguAlmCvMCZtXpukPxXz6VdSIKXB6LZH1laht-hpFvpAftmhinvwxTdthxSgOBg353Mz0wz5t9fSo9r_7sMegrcnmgluzyA2vw_Es62bVotaEQHtgYWb26RGCNBeuQjwY1dmabWP8_Oqzv5kJ2wYopHFnCWQczz90acNAGPhzVHh569bVze2Z2oeqYzSUup3bpSxY5UNvgOyqXjkGqDqkI7mG4SQR4RZusI2t3X7L3H7CaoE6i_La7CT7p7NI0Z3-op70zb9lFd5hwTZfFRi6xAP3ISKaBIclyuw5X2K-7e_8UwcfafNDymD7OlSRgztGgYA1y2e0uVsh5BupVZKihiUteU12BYwhrR5Mj5VaJJSAECq_k5wqO=w1457-h827-no)](https://lh3.googleusercontent.com/iw4lVRUTIipfes59GqWhNqmDbge7inBFH05Pf-uzn4mKpTTNjaGYhOFHfzj24My-r2gzbibY3yGCPSEltVMF30L1FeX6UJg5uOFe-I9UNL1bk12y5t9pb0lHwobcrKathrxFdWjrvwyhmeX8UApASvC4DH12D5TrRnmFIoSLewQJLs2YSR3s2OrXcBDgP40w840jSddOSd6eQbvZQwQKRrGVrg8suvRx3UaTeBxfDr8oYKQJcitTjE1VgUGM03Y7WjL00HSpTADEZVY4vN1JlOypj0JZjBhoaDHguAlmCvMCZtXpukPxXz6VdSIKXB6LZH1laht-hpFvpAftmhinvwxTdthxSgOBg353Mz0wz5t9fSo9r_7sMegrcnmgluzyA2vw_Es62bVotaEQHtgYWb26RGCNBeuQjwY1dmabWP8_Oqzv5kJ2wYopHFnCWQczz90acNAGPhzVHh569bVze2Z2oeqYzSUup3bpSxY5UNvgOyqXjkGqDqkI7mG4SQR4RZusI2t3X7L3H7CaoE6i_La7CT7p7NI0Z3-op70zb9lFd5hwTZfFRi6xAP3ISKaBIclyuw5X2K-7e_8UwcfafNDymD7OlSRgztGgYA1y2e0uVsh5BupVZKihiUteU12BYwhrR5Mj5VaJJSAECq_k5wqO=w1457-h827-no)
+[![](https://lh3.googleusercontent.com/BejwhgBtOz8aVntrLp5gx3HJ97UIigEYcBBjakMnaU-zmBb6QRiDOHTo8pKVIQsPZ-eQQZfsDDMhMfWp8QosPwnLYDzMHT7Mh0QXkxH991uP0eAwylyStQAAGAz-d-ZEM_1zWMMDMOuOLg3BloYULrt7nlhaSCUvX0m1xrldIps1KOOo6rC-j1X47DqN2a1YEC8623beoJmuIqae3iDDc3aCSZSOwCR5WN0gRZnS_TCg5e-5GN0OTiVpzRMCr1VxBs64xyemXZsQWXMFbbIXC9EN_voEZU8ZzY_0ux6FpWp-rHhzL3TToS1Evj72wpDVSAsCu4h1gZV_hnhBcCnKqSKp1c2GnaVXFku3HjfPlZbJILTMi2mFBRms-qmWTOLO4TWUt7R0oPteJBJPuuaNHfcV2oR8ElmtqrbHh7h1nHW0SV0LyEFnrZ_8rzitFFB0qERMIe7JsXKSpCb3VFL51wkt3l3THH0CwC5M3SpozQjiyqJWasYnwCH_3HnRTZp99PtKb_Bwdq-gqm4bST8gjqlNhsRbizzuqCkDzCHTRqw6z_84UeKG7VCEVDGenImN1bRLBd2URiwMO_ZFWthDg4fKENrWakJw2nx7tY94L22C1EbWXRz8t6GOHKL_6raJM04MyuKjI4vIeOAqCUkxYUg=w1916-h446-no
+)](https://lh3.googleusercontent.com/BejwhgBtOz8aVntrLp5gx3HJ97UIigEYcBBjakMnaU-zmBb6QRiDOHTo8pKVIQsPZ-eQQZfsDDMhMfWp8QosPwnLYDzMHT7Mh0QXkxH991uP0eAwylyStQAAGAz-d-ZEM_1zWMMDMOuOLg3BloYULrt7nlhaSCUvX0m1xrldIps1KOOo6rC-j1X47DqN2a1YEC8623beoJmuIqae3iDDc3aCSZSOwCR5WN0gRZnS_TCg5e-5GN0OTiVpzRMCr1VxBs64xyemXZsQWXMFbbIXC9EN_voEZU8ZzY_0ux6FpWp-rHhzL3TToS1Evj72wpDVSAsCu4h1gZV_hnhBcCnKqSKp1c2GnaVXFku3HjfPlZbJILTMi2mFBRms-qmWTOLO4TWUt7R0oPteJBJPuuaNHfcV2oR8ElmtqrbHh7h1nHW0SV0LyEFnrZ_8rzitFFB0qERMIe7JsXKSpCb3VFL51wkt3l3THH0CwC5M3SpozQjiyqJWasYnwCH_3HnRTZp99PtKb_Bwdq-gqm4bST8gjqlNhsRbizzuqCkDzCHTRqw6z_84UeKG7VCEVDGenImN1bRLBd2URiwMO_ZFWthDg4fKENrWakJw2nx7tY94L22C1EbWXRz8t6GOHKL_6raJM04MyuKjI4vIeOAqCUkxYUg=w1916-h446-no
+)
 
 
 
@@ -367,7 +367,7 @@ Now you can test your app clicking on the buttom "Test". You will be taken to Go
 
 In the Test Simulator of Google Actions just click on your suggested input. It will be "Talk to {your defined Google Actions invocation name}"
 
-[![](https://lh3.googleusercontent.com/OTlcq-I_EJsBiGzrHXElGu-it9p4cSKrSqXdvtuixpEf8oaJHICF4wWWJsolskVANysrP9y31-Qb0j3luQYDzRwsjsKKQmF89YIusbShiBqDWCCZB5_Q3a8mKjmsHe6IfxjZVPZ5kbv3D2hwoH78kPZpNEDnetBhBx4eHSebl_D45CfiSGEuCYKYJ3Ixr4471wUah0zU402XwMa1GvOW7dqBP-AaEZ5dCaSsG010nYweFo-fHxe1M3p3NyzZwVAZ8q8fgqAh-G3dHvnPXuQRgASiMivv91rVj1x896zllrcUuSYLC5EaFks438t9p4joAv54K3vXtHNDQMXSgbWNlym_dqjdWC9BtSAeCQ5GCZ_-1wRybIXsqd7VvnTrcIgw2fVoaRi9K77f0PDToYyZluB9cuOZJBhnKo6nc3oAOdAS1R2GUl1oXwpklbhpEG1IEd7bnDEf3ltPEeHpmpUFiVw4RuTLPQB_JXMERqu7NkrauTmTPb2KedCMWg4jSSwsFNEamgjkOAlXrxQ_fqxQdDNQ97T_5u-RTpBg4cBTr697BjHwjPvVclcmi_J6zi6q8K9ZVWWp_nYnctN7cOEzUlqJLICSqD7qtZkVoilKtaFvzwKgANLS8ElyjERWTsejbzch7DPxpC7gxF6Xm4xsst1q=w1641-h869-no)]()
+[![](https://lh3.googleusercontent.com/VzmdSdo5WoC-rukAtOb1cHAG-HHkr_L5tU0nB7jF3-2Le9hXDZACMw8_JAL_R53ryWO_OvoIYN3G-9L9IcxBkO2JdBVCNbxVeSBj8nAPlWBGaqK7b_yBroUii-6Uuv0WlfOnxo7IoEvE-xkbzCb_yvxYAQhcRq3Jk9uLHEofKJZmjYme8OKJQLc-IAF-TKi0L8gXi5eZET8brzdvm7BYDVMikEiZTj8nuY3jQRyIdNUoPdDLSrAqMFbFlz-vny5VhUtq4qf48T76FBbWMsPmwEO0mVNznPtb77cSfAj8WBYHSHzZtzmbAC2JbZz2JK_6SxB61ZE7cPwqVwUR7NQGguKI_EV3RZzf5YafynyfyKh3LukPsCLFTStixQURObs1Ih39C5B_NAC_pbFZJSkzuGzzBsK_iI5967slFXuUg12V0GqeTPqIyUCjWZmibJ-Dsu56WMm23p5wHgx9S1kmB2ueP_oduQcseJ4Rh5b4bkrxhuJS6Am4bsVhfOAaZOUndMX7re8X0nJJwflNDrIBnFTGWwVAQLUVjIw1QcztnpTL0hMYF_kZpFPlp95ur2l8XcgIFAnaVaoZDT8qPEoB8vC75HDBxcNOqsF8XvMtjtZdSaKPcKxC0b0U9nfxzTM0uzLg2NmMUxLZH5S7hIQsh7aS_XS9mXPkFpY06c73q0hP4p6Ynyzvy_1qjPTG37vwB3hjCZunVFDzCA9RWw=w1641-h869-no)]()
 
 
 
@@ -377,7 +377,7 @@ Your action will answer:
 *Welcome to Change Rate. What do you like to change?*
 Add the predefined training phrase *Change 50 Euro to Dollar* for the getChangeRateIntent in the text field.
 
-[![](https://lh3.googleusercontent.com/2sG9MF4wzIQoRaRrffUBnJgk0DRxrgGhjuZmuU6wud3XemwDeUK8ZrKxm8Bf-tC4YHCfIbIUqLfFfZ3GVuaLVOSTkhD8MxZIBdSYYeif28SJZPApqF-tzIgZN-UqYDNdGmXs9boxlLBhtKIzGkWG_lcYVLwrNcR1nh56yAKnXKn90iCGtGaGKRwTMbu5u0zGHw7X_PL3Zsa1gu4Xk8zY0Ki2Mh8qFlFjiLtCwgHR4RGxKJK22PXxU0Rinv1t_E5GyVXVgj0odL5g6qF3Jhm0SRpfKTpjesUsqCYWKex-qJON_i1wh24SXU8K3uF4t8qwBSPG7p7vjnGnlBIQdF3WWdKINOM05SHYkUFgN3uQZhH85bWPgLJSSVQO0W2-RcD64c3dQHD9bgwWQg3SrO9Q5RJZL8R5ZqTNrmoa9zGFDWt8nrWv4jvzLYSSYH0FgtySBCg9zlUuXjvRRbVL0NrIvp_8oI81giAZ7ZxCS-9NQ3bP6zpWxog_2fiDT_C4ycosqlK4UaUeICtjo_rpsFO8FG6Kf5mPVg3w-HsHld-UoRtbFrFLGK9LAZ1ki9uOtwsEX9XNePWNIaysM_1xLwARBUtGSLBClNCxee2IwP6GyH5BHGUDImsF7oGsEyQWfZXcefv8AEaVgCNRMKMSjGKc-ccZ=w1636-h853-no)]()
+[![](https://lh3.googleusercontent.com/P7vDhB6gP6sepTHss_zRP108XaDscYYEkpdNVZYK9TP-wq-HJMuDr2zCVFbk6UqMEWCNnKkZmHZs7AR-f0algBq7CmMRCyFoT7FSil-JPTMWT7S32Z-ltjOZiC0AO7Q4vzl8fp_NFXULzl-wrlf5iyMuaqfZ2Ti7QzD4IX_djlQqPyAochciglJCP-w6LzKNHSsjS2q7GhE9SiQEqwPDOIJdU_8rduQquDs9zOHtCQx1_YYgSeXo3zHWPKEbVSr3RFDFqkvrnL8t4KXylE8gYv2FxtMXFG3tt0F2901NJTtbbB0DlSWT3CKop7Azr7qCVgSWsBxo7F-Y0yfcNIsM1dSPprRAONAwOsSpqe1o3wZDvWva8MReSMiFPH6Kr46CbOsbR1hdhCY7Dk71dAg2ckZ_OzEZSpjpHzQYQ2RImikwnY-SJTb19Aw9i8Q_TR0ZFX5Im7N2QOKxGiNSDF60DWrDJg7Ae93zlu7Oo3dsqi1Boo1rOsXxNp52bW_wu-wfqRKL24-Qk7PaFC8gIDY8Yzi_7DzUmjFnldMEUansNI2bNMUL7qbqF6A4DLxhLFP7t-ZpX5vbylL78HZLBS24ZDZ1Jz0Ajc97bJ3da1AbMP63FxMj0z5tVwcuopKj0IB5EQSdjiLg0wKhNM0iPCfDgvFqmMiSfiY54u2zbl7NHyZUBOcVudqU-OUfnM7r_U0gD8LZE6e0ix_K5b7NzA=w1636-h853-no)]()
 
 If everything works, you will get the following answer to your request. (amount is up to actual change rate ;))
 *You will get 57.105 USD*
@@ -446,7 +446,7 @@ Sign up for [Heroku](https://signup.heroku.com/dc) (it's for free).
   $ git push heroku master
   ```
 
-After pushing you will get your heroku app https address. Please copy it and paste it to [endpoint](#id-dialogflow-endpoint) 
+After pushing you will get your heroku app https address. Please copy it and paste it to [endpoint](#id-dialogflow-endpoint)
 11. Start webapplication in heroku
 ```bash
   $ heroku ps:scale web=1
@@ -492,4 +492,3 @@ https://www.tutorialspoint.com/nodejs/ - Node.js Tutorial
 https://dialogflow.com/docs/getting-started - Official DialogFlow documentation
 
 [^1] Hyper-V is not compatible with virtual box or vmware. So in case you use VM in these it prevents you from switching Hyper-V on and off.
-
