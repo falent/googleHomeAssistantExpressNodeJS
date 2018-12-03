@@ -63,7 +63,7 @@ We will work with Docker. So you need the Docker and a Google account.
 https://docs.docker.com/install/linux/docker-ce/ubuntu/
 
 #### 1.1.2 Windows
-For Windows we recommend to use Docker Toolbox, because you do not need to activate Hyper-V for it <sup>[1]</sup>
+For Windows we recommend to use Docker Toolbox, because you do not need to activate Hyper-V for it <sup>[1](#id-hyper)</sup>
 https://download.docker.com/win/stable/DockerToolbox.exe
 
 See requirements to install Docker Toolbox:
@@ -378,11 +378,8 @@ Ok Google, talk to {your defined in Google actions skill invocation name}
 We described in this section how can you deploy your app in heroku and firebase functions
 To deploy you can use a new instance of our image because we installed there heroku and firebase clients.
 
-sudo docker run -v ~/Desktop/Template/Google_Assistant_universal_skill_template:/skill -it  --network myNetwork --name myAssistantDeployment falent/google_home_assistant_express_node_js_server:1
+`sudo docker run -v ~/Desktop/Template/Google_Assistant_universal_skill_template:/skill -itd  --network myNetwork --name myAssistantDeployment falent/google_home_assistant_express_node_js_server:1`
 
-sudo docker run -v ~/Desktop/Template/Google_Assistant_universal_skill_template:/skill -itd  --network myNetwork --name myAssistantDeployment falent/google_home_assistant_express_node_js_server:1
-
-sudo docker exec -it  myAssistantDeployment /bin/sh
 
 <div id='id-heroku'/>
 
@@ -486,5 +483,6 @@ https://github.com/falent/GoogleAssistantTutorial - our tutorial and code snippe
 https://www.tutorialspoint.com/nodejs/ - Node.js Tutorial
 
 https://dialogflow.com/docs/getting-started - Official DialogFlow documentation
+<div id='id-hyper'/>
 
-[^1] Hyper-V is not compatible with virtual box or vmware. So in case you use VM in these it prevents you from switching Hyper-V on and off.
+<sub>1. Hyper-V is not compatible with virtual box or vmware. So in case you use VM in these it prevents you from switching Hyper-V on and off.<sub>
