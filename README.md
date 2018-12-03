@@ -34,7 +34,7 @@ When you finish your developing you can easily upload your code to any https .js
 
 	4.1 [Restart Containers](#id-restart-containers)
 
-	4.2 [Additional docker containers](#id-restart-containers)
+	4.2 [Additional docker containers](#id-additional-docker-containers)
 
 5. [Dialogflow fullfilment](#id-dialogflow-fullfilment)
 
@@ -373,7 +373,7 @@ Ok Google, talk to {your defined in Google actions skill invocation name}
 
 <div id='id-deployment'/>
 
-# 7. Instructions for a quick deployment Heroku
+# 7. Instructions for a quick deployment
 
 We described in this section how can you deploy your app in heroku and firebase functions
 To deploy you can use a new instance of our image because we installed there heroku and firebase clients.
