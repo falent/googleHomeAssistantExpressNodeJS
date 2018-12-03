@@ -1,5 +1,9 @@
 FROM node:10-alpine
 
+RUN apk update && \
+    apk upgrade && \
+    apk add git
+
 RUN npm install -g nodemon@1.14.7
 RUN npm install -g heroku
 RUN npm install -g firebase-tools

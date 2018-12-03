@@ -44,11 +44,7 @@ When you finish your developing you can easily upload your code to any https .js
 
 	7.1 [Heroku](#id-heroku)
 
-	7.2 [Firebase](#id-firebase)
-
-	7.3 [Firebase functions](#id-firebase-functions)
-
-	7.4 [AWS lambda](#id-aws-lambda)
+	7.2 [Firebase functions](#id-firebase-functions)
 
 8. [References for Google Assistant actions developing](#id-references)
 
@@ -379,7 +375,14 @@ Ok Google, talk to {your defined in Google actions skill invocation name}
 
 # 7. Instructions for a quick deployment Heroku
 
-We described in this section how can you deploy your app in heroku, firebase, aws lambda or firebase functions
+We described in this section how can you deploy your app in heroku and firebase functions
+To deploy you can use a new instance of our image because we installed there heroku and firebase clients.
+
+sudo docker run -v ~/Desktop/Template/Google_Assistant_universal_skill_template:/skill -it  --network myNetwork --name myAssistantDeployment falent/google_home_assistant_express_node_js_server:1
+
+sudo docker run -v ~/Desktop/Template/Google_Assistant_universal_skill_template:/skill -itd  --network myNetwork --name myAssistantDeployment falent/google_home_assistant_express_node_js_server:1
+
+sudo docker exec -it  myAssistantDeployment /bin/sh
 
 <div id='id-heroku'/>
 
@@ -389,44 +392,49 @@ Sign up for [Heroku](https://signup.heroku.com/dc) (it's for free).
 
 ### 7.1.1 Linux
 
-1. Install heroku client, for example in ubuntu
+
+1. Open shell in your docker container
 ```bash
-  $ (wget -qO- https://cli-assets.heroku.com/install-ubuntu.sh | sh)
+  $ sudo docker exec -it  myAssistantDeployment /bin/sh
   ```
-2. login to the client
+2. login to the client with your account
 ```bash
-  $ heroku login
+  $ heroku login --interactive
   ```
-3. Create your app in heroku server
+3. Create your app in heroku server. The app name will be showed in a pink color. Save it please in your notepad that use it later 
 ```bash
   $ heroku apps:create --region eu
   ```
 4. Set npm config to false
 ```bash
-  $ heroku config:set NPM_CONFIG_PRODUCTION=false
+  $ heroku config:set NPM_CONFIG_PRODUCTION=false -a <your app name>
   ```
-5. Clean all gits files
+5. In your myAssistantDeployment container go to functions catalog
 ```bash
-  $ sudo rm -rf .git
+  $ cd /skill/functions
   ```
-6. Init a clean git repository
+6. Clear all git repositories files
 ```bash
-  $ sudo rm -rf .git
+  $ rm -rf .git
   ```
 7. Init a clean git repository
 ```bash
-  $ git init
+  $ git init && git config --global user.email "you@example.com" && git config --global user.name "Your Name"
   ```
 8. Add and commit all files
 ```bash
-  $ git add . && git commit -m "my first commit"
+  $ touch readme.md && git add . && git commit -m "my first commit"
   ```
-9. Push your files to heroku
+9. Link your app to git 
+```bash
+  $ heroku git:remote -a <your app name>
+  ```
+10. Push your files to heroku
 ```bash
   $ git push heroku master
   ```
+After pushing you will get your heroku app https address https://<yourAppName>.herokuapp.com/ something like I got https://secret-reef-17554.herokuapp.com/. Please copy it and paste it to [endpoint](#id-dialogflow-endpoint)
 
-After pushing you will get your heroku app https address. Please copy it and paste it to [endpoint](#id-dialogflow-endpoint)
 11. Start webapplication in heroku
 ```bash
   $ heroku ps:scale web=1
@@ -436,27 +444,35 @@ After pushing you will get your heroku app https address. Please copy it and pas
   $ heroku logs --tail
   ```
 
-### 7.1.2 Windows
-The steps are the same. You only need to install heroku for windows. https://devcenter.heroku.com/articles/heroku-cli#download-and-install
-
-<div id='id-firebase'/>
-
-## 7.2 Firebase
-TO DO
-Sign up for [Firebase](https://firebase.google.com/) (it's for free).
-https://www.youtube.com/watch?v=LOeioOKUKI8
-
 <div id='id-firebase-functions'/>
 
-## 7.3 Firebase as functions
-TO DO
+## 7.2 Firebase as functions
 
-<div id='id-aws-lambda'/>
+1. Open shell in your docker container
+```bash
+  $ sudo docker exec -it  myAssistantDeployment /bin/sh
+  ```
+2. login to the client with your account
+```bash
+  $ firebase login --no-localhost
+  ```
+3. Please copy URL from the terminal and log in in your google account where you want to host your app. After login Paste authorization code.
 
-## 7.4 AWS Lambda
-TO DO
+4. run firebase init functions
+```bash
+  $ firebase init functions
+  ```
+5. Choose Javascript and answer n for all questions about overwriting files but y for npm install
 
-<div id='id-references'/>
+6. Deploy your functions
+```bash
+  $ firebase deploy --only functions
+  ```
+7. Go to https://console.firebase.google.com/project/<yourAppName>/functions/list to see your app address. In my case it was https://us-central1-fir-5c548.cloudfunctions.net/myFirstAction 
+
+Please keep in mind that to call extern API you need activate **Blaze Plan** in some condition it will remain for free https://firebase.google.com/pricing/
+
+
 
 # 8. References for Google Assistant actions developing
 https://www.npmjs.com/ - npm is the package manager for JavaScript and the world’s largest software registry
