@@ -378,7 +378,7 @@ Ok Google, talk to {your defined in Google actions skill invocation name}
 We described in this section how can you deploy your app in heroku and firebase functions
 To deploy you can use a new instance of our image because we installed there heroku and firebase clients.
 
-`sudo docker run -v ~/Desktop/Template/Google_Assistant_universal_skill_template:/skill -itd  --network myNetwork --name myAssistantDeployment falent/google_home_assistant_express_node_js_server`
+`sudo docker run -v ~/Desktop/Template/Google_Assistant_universal_skill_template:/skill -itd  --network myNetwork --name myAssistantDeployment falent/google_home_assistant_express_node_js_server:deploying`
 
 you are in shell of your container and you can deploy your programmed skill.
 
