@@ -260,7 +260,7 @@ We encourage you to do all steps by yourself in a windows cmd console because yo
 
 To build the container named myAssistant a docker image is downloaded from the dockerhub account *falent/google_home_assistant_express_node_js_server*.
 
-(https://hub.Docker.com/r/falent/Google_home_assistant_express_node_js_server/)
+(https://hub.docker.com/r/falent/google_home_assistant_express_node_js_server/)
 
 The Docker command -v creates a shared directory, the flag -v means: Create a directory in the docker container and share my local directory googleHomeAssistantExpressNodeJS with it. With a shared directory we can edit our files locally and share it automatically with our directory in the docker container.
 
@@ -378,7 +378,7 @@ Ok Google, talk to {your defined in Google actions skill invocation name}
 We described in this section how can you deploy your app in heroku and firebase functions
 To deploy you can use a new instance of our image because we installed there heroku and firebase clients.
 
-`sudo docker run -v ~/Desktop/Template/Google_Assistant_universal_skill_template:/skill -itd  --network myNetwork --name myAssistantDeployment falent/google_home_assistant_express_node_js_server /bin/sh`
+`sudo docker run -v ~/Desktop/Template/Google_Assistant_universal_skill_template:/skill -itd  --network myNetwork --name myAssistantDeployment falent/google_home_assistant_express_node_js_server`
 
 you are in shell of your container and you can deploy your programmed skill.
 
