@@ -222,7 +222,7 @@ Open your terminal and execute the following commands:
 `$ sudo docker run --rm -it  --network myNetwork wernight/ngrok ngrok http myAssistant:5000`
 
 4. Open a new tab and run an Google Assistant_Docker container:
-`$ sudo docker run -v ~/Desktop/Template/Google_Assistant_universal_skill_template:/skill -it --rm --network myNetwork --name myAssistant falent/google_home_assistant_express_node_js_server:1`
+`$ sudo docker run -v ~/Desktop/Template/Google_Assistant_universal_skill_template:/skill -it --rm --network myNetwork --name myAssistant falent/google_home_assistant_express_node_js_server`
 
 #### 3.2.2 Windows
 
@@ -256,7 +256,7 @@ We encourage you to do all steps by yourself in a windows cmd console because yo
 `docker run --rm -it  --network myNetwork wernight/ngrok ngrok http myAssistant:5000`
 
 5. Open a new cmd window and run an _Google Assistant_ Docker container in your created network.
-`docker run -v //c/Users/%username%/Documents/googleHomeAssistantExpressNodeJS:/skill -it --rm --network myNetwork --name myAssistant falent/google_home_assistant_express_node_js_server:1`
+`docker run -v //c/Users/%username%/Documents/googleHomeAssistantExpressNodeJS:/skill -it --rm --network myNetwork --name myAssistant falent/google_home_assistant_express_node_js_server`
 
 To build the container named myAssistant a docker image is downloaded from the dockerhub account *falent/google_home_assistant_express_node_js_server*.
 
@@ -282,10 +282,10 @@ In this section you will find optional steps if you wish to restart your Docker 
 Our solution is based on nodemon which is kind of a watcher and it reloads your skill everytime you made code changes. You save a lot of time because of that ;) However it can happen that you wish to add more npm modules https://www.npmjs.com/ to your skill. In that case you need to restart your container. Npm modules are installed only at the start of your container. To restart  your container type the following in a cmd terminal:
 
 #### 4.1.1 Linux
-`$ sudo docker run -v ~/Desktop/Template/Google_Assistant_universal_skill_template:/skill -it --rm --network myNetwork --name myAssistant falent/google_home_assistant_express_node_js_server:1`
+`$ sudo docker run -v ~/Desktop/Template/Google_Assistant_universal_skill_template:/skill -it --rm --network myNetwork --name myAssistant falent/google_home_assistant_express_node_js_server`
 
 #### 4.1.2 Windows
-`docker run -v //c/Users/%username%/Documents/googleHomeAssistantExpressNodeJS:/skill -it --rm --network myNetwork --name myAssistant falent/google_home_assistant_express_node_js_server:1`
+`docker run -v //c/Users/%username%/Documents/googleHomeAssistantExpressNodeJS:/skill -it --rm --network myNetwork --name myAssistant falent/google_home_assistant_express_node_js_server`
 
 <div id='id-additional-docker-containers'/>
 
@@ -378,8 +378,9 @@ Ok Google, talk to {your defined in Google actions skill invocation name}
 We described in this section how can you deploy your app in heroku and firebase functions
 To deploy you can use a new instance of our image because we installed there heroku and firebase clients.
 
-`sudo docker run -v ~/Desktop/Template/Google_Assistant_universal_skill_template:/skill -itd  --network myNetwork --name myAssistantDeployment falent/google_home_assistant_express_node_js_server:1`
+`sudo docker run -v ~/Desktop/Template/Google_Assistant_universal_skill_template:/skill -itd  --network myNetwork --name myAssistantDeployment falent/google_home_assistant_express_node_js_server /bin/sh`
 
+you are in shell of your container and you can deploy your programmed skill.
 
 <div id='id-heroku'/>
 
