@@ -350,9 +350,11 @@ Open for example WebStorm and connect to debugger
 In Webstorm click Run-->Edit Configurations
 
 ![enter image description here](https://lh3.googleusercontent.com/rsrGcHoz_nV3LK1MsJm56s8g89x_x1x5MIZ7j7t61XGBo27P58vb_lGAqVq9SwmUQMHcwvpjHpBZ)
+
 Please choose from templates: "Attach to Node.js/Chrome"
 In the host add ip address of your docker-machine. In my case **192.168.99.101**
 and click apply and + button in left button corner
+
 ![enter image description here](https://lh3.googleusercontent.com/umhGFDHQdzqWrO-7q2Bvfw8o2PiuZyfAArE7sru7_KzD1kod0KpNpog8GVi96LbFrmXVIxtzqoCq)
 
 Now if you click now Run-->You can run your defined process
