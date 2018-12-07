@@ -36,6 +36,8 @@ When you finish your developing you can easily upload your code to any https .js
 
 	4.2 [Additional docker containers](#id-additional-docker-containers)
 
+	4.3 [Debugging your app](#id-debug)
+
 5. [Dialogflow fullfilment](#id-dialogflow-fullfilment)
 
 6. [How to test your skill?](#id-how-to-test-your-skill)
@@ -313,8 +315,51 @@ and login to shell to create a new table
 
 `docker exec -it mysql1 mysql -uroot -p`
 
-<div id='id-dialogflow-fullfilment'/>
 
+<div id='id-debug'/>
+### 4.3 Debugging
+
+You can dubug our node.js app. 
+
+#### 4.3.1 Windows
+In cmd terminal write:
+
+`docker-machine ip default`
+
+You will get an ip address. In my case it was: **192.168.99.101**
+
+open your docker container using:
+
+`docker run -v //c/Users/%username%/Documents/googleHomeAssistantExpressNodeJS:/skill -it -p 9229:9229 --rm --network myNetwork --name myAssistant falent/google_home_assistant_express_node_js_server /bin/sh`
+
+and in the opened bash terminal:
+`cd skill/functions && npm i`
+
+We are installing npm modules
+and after installation:
+`nodemon --inspect=0.0.0.0:9229 start.js`
+
+you should see that debugger is listening
+
+![enter image description here](https://lh3.googleusercontent.com/4QaawDJjYH1UZtxRL88bOsLdtdjUtKdmr0fE7m9yenAVTzQ1vKKUJgRfshqco2RG1rGjOWjfcall)
+Open for example WebStorm and connect to debugger
+
+In Webstorm click Run-->Edit Configurations
+
+![enter image description here](https://lh3.googleusercontent.com/rsrGcHoz_nV3LK1MsJm56s8g89x_x1x5MIZ7j7t61XGBo27P58vb_lGAqVq9SwmUQMHcwvpjHpBZ)
+Please choose from templates: "Attach to Node.js/Chrome"
+In the host add ip address of your docker-machine. In my case **192.168.99.101**
+and click apply and + button in left button corner
+![enter image description here](https://lh3.googleusercontent.com/umhGFDHQdzqWrO-7q2Bvfw8o2PiuZyfAArE7sru7_KzD1kod0KpNpog8GVi96LbFrmXVIxtzqoCq)
+Now if you click now Run-->You can run your defined process
+
+You can add your first breakpoint clicking to choosen line and start conversation from DialogFlow
+
+![enter image description here](https://lh3.googleusercontent.com/hQzODyiV7gZjkNdAytWz4AgbXnn99lBZFXa44GOYANcVFoD4BqO_ZwNBcQpNJsEiZ3W4z1cHVDEQ)
+Now you can see your dubuged code in WebStorm console
+
+
+<div id='id-dialogflow-fullfilment'/>
 ### 5. Dialogflow fullfilment
 
 We need to add a ngrok address that our local server can communicate with dialogFlow
@@ -487,3 +532,4 @@ https://dialogflow.com/docs/getting-started - Official DialogFlow documentation
 <div id='id-hyper'/>
 
 <sub>1. Hyper-V is not compatible with virtual box or vmware. So in case you use VM in these it prevents you from switching Hyper-V on and off.<sub>
+
