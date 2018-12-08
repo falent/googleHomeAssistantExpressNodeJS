@@ -345,25 +345,23 @@ you should see that debugger is listening
 
 ![enter image description here](https://lh3.googleusercontent.com/4QaawDJjYH1UZtxRL88bOsLdtdjUtKdmr0fE7m9yenAVTzQ1vKKUJgRfshqco2RG1rGjOWjfcall)
 
-Open for example WebStorm and connect to debugger
+Open for example WebStorm or any JS IDE supporting debug mode and connect to the debugger
 
-In Webstorm click Run-->Edit Configurations
-
-![enter image description here](https://lh3.googleusercontent.com/rsrGcHoz_nV3LK1MsJm56s8g89x_x1x5MIZ7j7t61XGBo27P58vb_lGAqVq9SwmUQMHcwvpjHpBZ)
-
+In Webstorm click in the buttom toolbar Run-->Edit Configurations
 Please choose from templates: "Attach to Node.js/Chrome"
 In the host add ip address of your docker-machine. In my case **192.168.99.101**
-and click apply and + button in left button corner
 
-![enter image description here](https://lh3.googleusercontent.com/umhGFDHQdzqWrO-7q2Bvfw8o2PiuZyfAArE7sru7_KzD1kod0KpNpog8GVi96LbFrmXVIxtzqoCq)
+![enter image description here](https://lh3.googleusercontent.com/tHxcCnHN6wc4Qg7FM-WqsBrnUpqaXrEpYsRyWY2_eBYy3N3OulflFn_eTtg_ikTJHSbdrFal3Ij7sr84XyTCXsed59h8yDthnsG5olrGG4t78vrcINhxuGEBs9p_62vWZlMstMaEAwh6oo8UEj60UAueE-Z3AJ427lJKXaNhYXVDIDn-XRa0svnhyeqoSfqvOZqZiJGmNVaKQ9JIWvAZsJvCyy2gwWAabP-7BvYCxu5oW4vCn9e6tFlCPxY8qPUhAU7LeJJH4d4wZ1T8kWpvf_G6lkOhheXjMgdaammQYd3PgcUtpCE8XbxaMq45rhknXX8Z-f-XgmKkoSjbTors2BhAq7vWWY2_Nwlwks18Mfvn2nyEUe1cTHqEnoUj3oQCJTeuMH9cPzpwyE67GGM0Pl1QZpnlIZv__HWMPa9O00rwITVflVUr09DcECKaNARjNW8OVM8SMoe9A-QBn49YTUObZ_MSPu1BX_xRpW9GdJ-BzqztrbaMQR9hAMbGxGP6B_n6iD0TWC92QkjeV0zqkVFBX4YKzoOWQxSV15agUYKPCFM2KpG_rJ1YtnWPCNOMR0PjJUzzdz44bdu0vh_60N78ZP1OV6j8BkXymOrdBvtTxv_X7uKtrtpJF1VgcbZzzPE9ahnGTlYRvtUAgJNw0zfNSkoxcvddE8MolHNTYk7b1Hq0BDk2G4bQvfOgPFhm_oGIEavzkz7uGR3hlA=w1346-h841-no)
+and click apply and **+** button in left button corner
 
-Now if you click now Run-->You can run your defined process
+![enter image description here](https://lh3.googleusercontent.com/Bss0hviB3jsPljLWRodBulNb3aOZE0X3SXwf1-Bf5K7VgeQOCh1xwi3yVPmp3_IMKrDIKZgu27_zH3orh3Vlwn-QexQFPzlcamP-zihZpuleaKa-MFy4Or0285VnWtkc1M_9Xj9Xbg6AJY4gnA1vEHPAi8HobQT8X2l13P796INCRhjd7hqNs442qsgJKXwjkLCX1Y04__FRHOE3ywH26rdg8u3-KVefsfAQgE5hcDRWsq5sq-TLM7nSaz0-AsK9_3uNiyHlT_mIsGMSYcqVEO1usyIAhUJe79DEPGHjUM0ONqorHKzaw9L1oXMDgxCkoLVKxnGAj_Ccu-X6mxRxj8cU0ExTHoBQtD5yZ2lVWP-N4R4RuUeLJ_Wo4ZPg0AxU3zP_A5PXHIUqTBptF1d199URQOV7ps68KbeiRhvUffWLwyzcaId--yLsDXn9ID1ZEUSSHiH8W8ztxZlMKx1ENjTTcIKPED8j911t_o-vEiiycjjIU_nq6bkHywFy3oUqjcsb98Hw2LwEIBo7Hb2HyXAwNQbhgXlpzIvcC_6qbogGVr3gxUSf8itbZPP5wffnGJ9T8huAZw-MdVbIPhd_c6A47wft9uu_RCn_Ya1Anrd99fEfkgUH6LLbpfDiDYdEYX31F6j2W5oEGCptzva-0DO24S2YIvwNrsoGa62yy8LfNd5gZ0ebDZMxZ-nrFW1doFTQoyLLprb2mrFtNw=w1145-h299-no)
 
-You can add your first breakpoint clicking to choosen line and start conversation from DialogFlow
+Now if you click now Run-->You can run your defined debug process
 
-![enter image description here](https://lh3.googleusercontent.com/hQzODyiV7gZjkNdAytWz4AgbXnn99lBZFXa44GOYANcVFoD4BqO_ZwNBcQpNJsEiZ3W4z1cHVDEQ)
+You can add your first breakpoint clicking to choosen line and start conversation from DialogFlow.
+You can see your dubuged code in WebStorm console
 
-Now you can see your dubuged code in WebStorm console
+![enter image description here](https://lh3.googleusercontent.com/_RGQbo9Hw3Bk53SgNFH1lZLYbi5eK8TVmbhsf9Le6bQZmJ7AYCCOFPsHgzvzyFWcxLlghsqm0tmvEp2aiakwebuLx-SEW0onBDdr9w96--Fdd5C9Ja-Qx3tu1eLd6REIFdm7robfx2PLEa4jOyyttmlfxyPMx30D2h5EAAt4APUu0rYMKcHMIxNz171Wrqy4iMcoPpSMV-8PuqEwklViBkVZvi0xrsDyyxnFQlghBYqwfyg7go57TwIPTfbxnPYJDJxivy_XHOu-x2HPl1OwgS0kIBPVF0e8HSflw28PqKxVl3YbFdhe3gp8OOdWfE-HQaul8CaJjH77dJ8eliucTBHJIqnyLHuAjemqcG_JTLNAJeKlLng4OuJLRZIPTJbK2h0BYWeOWk7mAnlqSoi-cTcWrODVmReRUAqmNYM8Lk-3zJSDtYi1gHOXaWRTzyV99y0Pfb4ZSsJ9nvAke4evQc94cIaUpdswWCj6BvAi_U0IpEzMbtgw24fvIh72k4nA_4HM_cYAfheXgzjCEJTk9eLYwRA0TwvcuUBCWLGV8J_0pzNN0yMmL_1S3ToTTPKKfMH82nNS-IHD9b92tWXnDpVcrj4R7CNs2Jq4mAk_MTZtQ8wxeDhbjj6woFj0fQI_TYFfn_t79JJA-3d9ulqyM9WjHmYIrXWgNb5oKuKuzKLSqNOOnXi64PU4YQsuvfoXBu_04c2eOriqP7bsCA=w1771-h679-no)
 
 
 <div id='id-dialogflow-fullfilment'/>
@@ -540,4 +538,5 @@ https://dialogflow.com/docs/getting-started - Official DialogFlow documentation
 <div id='id-hyper'/>
 
 <sub>1. Hyper-V is not compatible with virtual box or vmware. So in case you use VM in these it prevents you from switching Hyper-V on and off.<sub>
+
 
