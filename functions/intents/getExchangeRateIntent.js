@@ -2,51 +2,50 @@
 const request = require('request');
 
 function getRate(base) {
-    // Setting URL and headers for request
-    let options = {
-        url: 'https://api.exchangeratesapi.io/latest?base=' + base,
+  // Setting URL and headers for request
+  const options = {
+    url: 'https://api.exchangeratesapi.io/latest?base=' + base,
 
-        headers: {
-            'User-Agent': 'request',
-        },
-        json: true,
-    };
+    headers: {
+      'User-Agent': 'request',
+    },
+    json: true,
+  };
     // Return new promise
-    return new Promise(function (resolve, reject) {
-        // Do async job
-        request.get(options, function (err, resp, body) {
-            if (err) {
-                reject(err);
-            } else {
-                resolve(body);
-            }
-        });
+  return new Promise(function(resolve, reject) {
+    // Do async job
+    request.get(options, function(err, resp, body) {
+      if (err) {
+        reject(err);
+      } else {
+        resolve(body);
+      }
     });
+  });
 }
 
 
 module.exports = {
 
-    'getExchangeRateIntent': (conv, parameter) => {
-        let currencyBase = (parameter['currencySource']);
-        let currencyTarget = (parameter['currencyTarget']);
-        let amount = (parameter['amount']);
-        console.log(currencyBase);
-        console.log(currencyTarget);
-        console.log(amount);
+  'getExchangeRateIntent': (conv, parameter) => {
+    const currencyBase = (parameter['currencyBase']);
+    const currencyTarget = (parameter['currencyTarget']);
+    const amount = (parameter['amount']);
+    console.log(currencyBase);
+    console.log(currencyTarget);
+    console.log(amount);
 
-        return getRate(currencyBase).then(function (result) {
-            console.log(result);
-            let rate = result['rates'][currencyTarget];
-            console.log(rate);
+    return getRate(currencyBase).then(function(result) {
+      console.log(result);
+      const rate = result['rates'][currencyTarget];
+      console.log(rate);
 
-            let myValue = amount * rate;
+      const myValue = amount * rate;
 
-            conv.ask('You will get ' + myValue + ' ' + currencyTarget + '. Do you like to change more?');
-
-        }, function (err) {
-            console.log(err);
-        });
-    },
+      conv.ask('You will get ' + myValue + ' ' + currencyTarget + '. Do you like to change more?');
+    }, function(err) {
+      console.log(err);
+    });
+  },
 
 };
