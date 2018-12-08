@@ -326,7 +326,7 @@ Execute in terminal:
 
 `sudo docker run -v ~/Desktop/Template/Google_Assistant_universal_skill_template:/skill -it -p 9229:9229 -w /skill/functions --rm --network myNetwork --name myAssistant falent/google_home_assistant_express_node_js_server /bin/sh -c 'npm i && nodemon --inspect-brk=0.0.0.0:9229 start.js'`
 
-and connect your debuger to your localhost with port 9229
+and connect your IDE with debug mode with localhost port 9229
 
 #### 4.3.1 Windows
 In cmd terminal write:
