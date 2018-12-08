@@ -420,11 +420,11 @@ Ok Google, talk to {your defined in Google actions skill invocation name}
 
 # 7. Instructions for a quick deployment
 
-We describe in this section how you can deploy your app in heroku and firebase functions. To deploy you can use a new instance of our image which will install heroku and firebase clients.
+We describe in this section how you can deploy your app in Heroku and Firebase functions. To deploy you can use a new instance of our image which will install Heroku and Firebase clients.
 
 `sudo docker run -v ~/Desktop/Template/Google_Assistant_universal_skill_template:/skill -itd  --network myNetwork --name myAssistantDeployment falent/google_home_assistant_express_node_js_server:deploying`
 
-You are in shell of your container and you can deploy your programmed action.
+The following commands for Heroku and Firebase describe how to deploy your programmed action.
 
 <div id='id-heroku'/>
 
@@ -435,7 +435,7 @@ Sign up for [Heroku](https://signup.heroku.com/dc) (it's for free).
 ### 7.1.1 Linux
 
 
-1. Open shell in your docker container
+1. Open shell in your Docker container
 ```bash
   $ sudo docker exec -it  myAssistantDeployment /bin/sh
   ```
@@ -443,7 +443,7 @@ Sign up for [Heroku](https://signup.heroku.com/dc) (it's for free).
 ```bash
   $ heroku login --interactive
   ```
-3. Create your app in heroku server. The app name will be showed in a pink color. Save it in an editor of your choice to use it later 
+3. Create your app in Heroku server. The app name will be showed in a pink color. Save it in an editor of your choice to use it later 
 ```bash
   $ heroku apps:create --region eu
   ```
@@ -471,11 +471,11 @@ Sign up for [Heroku](https://signup.heroku.com/dc) (it's for free).
 ```bash
   $ heroku git:remote -a <your app name>
   ```
-10. Push your files to heroku
+10. Push your files to Heroku
 ```bash
   $ git push heroku master
   ```
-After pushing you will get your heroku app https address https://yourAppName.herokuapp.com/  , for example I got https://secret-reef-17554.herokuapp.com/. Please copy it and paste it to the [endpoint](#id-dialogflow-endpoint)
+After pushing you will get your Heroku app https address https://yourAppName.herokuapp.com/  , for example I got https://secret-reef-17554.herokuapp.com/. Please copy it and paste it to the [endpoint](#id-dialogflow-endpoint)
 
 11. Start the webapplication in heroku
 ```bash
@@ -490,7 +490,7 @@ After pushing you will get your heroku app https address https://yourAppName.her
 
 ## 7.2 Firebase as functions
 
-1. Open the shell in your docker container
+1. Open the shell in your Docker container
 ```bash
   $ sudo docker exec -it  myAssistantDeployment /bin/sh
   ```
@@ -500,7 +500,7 @@ After pushing you will get your heroku app https address https://yourAppName.her
   ```
 3. Please copy URL from the terminal and log into your google account where you want to host your app. After login paste the authorization code.
 
-4. Run firebase init functions
+4. Run Firebase init functions
 ```bash
   $ firebase init functions
   ```
