@@ -321,6 +321,12 @@ and login to shell to create a new table
 ### 4.3 Debugging
 
 You can dubug our node.js app. 
+#### 4.3.2 Linux
+Execute in terminal:
+
+`sudo docker run -v ~/Desktop/Template/Google_Assistant_universal_skill_template:/skill -it -p 9229:9229 -w /skill/functions --rm --network myNetwork --name myAssistant falent/google_home_assistant_express_node_js_server /bin/sh -c 'npm i && nodemon --inspect-brk=0.0.0.0:9229 start.js'`
+
+and connect your debuger to your localhost with port 9229
 
 #### 4.3.1 Windows
 In cmd terminal write:
@@ -331,14 +337,7 @@ You will get an ip address. In my case it was: **192.168.99.101**
 
 open your docker container using:
 
-`docker run -v //c/Users/%username%/Documents/googleHomeAssistantExpressNodeJS:/skill -it -p 9229:9229 --rm --network myNetwork --name myAssistant falent/google_home_assistant_express_node_js_server /bin/sh`
-
-and in the opened bash terminal:
-`cd skill/functions && npm i`
-
-We are installing npm modules
-and after installation:
-`nodemon --inspect=0.0.0.0:9229 start.js`
+`docker run -v //c/Users/%username%/Documents/googleHomeAssistantExpressNodeJS:/skill -it -p 9229:9229 -w /skill/functions  --rm --network myNetwork --name myAssistant falent/google_home_assistant_express_node_js_server /bin/sh -c "npm i && nodemon --inspect-brk=0.0.0.0:9229 start.js"`
 
 you should see that debugger is listening
 
