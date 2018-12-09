@@ -175,10 +175,10 @@ To add a new intent click on the plus button. Then define its name, training phr
 Add a Follow-Up Intent. This will trigger when the user answers *Yes* to the Question "Do you like to change more?" in the assitants response of the getExchangeRateIntent. To do so, click on Intents, hover over the getExchangeRateIntent and click on *follow-up intent*, choose *yes*. Create a *getExchangeRateIntent - yes* Intent. Add just one response. "What do you want to change?". Do not enable webhook call for this intent. This intent will be resolved only in dialogflow. Click *save*. 
 Add a second Follow-Up Intent for the getExchangeRateIntent. This will be triggered, when the User rejects the assitants question. It will mark the end of the conversation and Google Assistant will left the conversation. Add a response like "Bye, till next time". Like the follow-up yes intent it will be resolved only in dialogflow, so do not enable webhook call for this intent. 
 
-#### 2.4 Add the starting point of the conversation
+#### 2.3.4 Add the starting point of the conversation
 Define a starting point of the conversation. Create a new intent and name it *welcomeIntent*. Add *Google Assitant Welcome* to the Events. This defines our welcomeIntent as the starting point of the conversation. Under Fulfilment enable webhook call for this intent. Every content of this intent is defined in our web application. So we do not need training phrases or responses in dialogflow. Do not forget to enable webhook call for this intent. 
 
-#### 2.5
+#### 2.3.5
 Below you see a dialog sample for our action:
 
 ![enter image description here](https://lh3.googleusercontent.com/ErRJFoN4My0YR5NrcqcWvNQ9xKpIuos3N8Lei6ByBbMkM-jQOc2mQur7GaLqryA4ZkE8zlLPZ24A)
