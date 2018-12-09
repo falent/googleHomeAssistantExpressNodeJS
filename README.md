@@ -173,7 +173,9 @@ To add a new intent click on the plus button. Then define its name, training phr
 
 #### 2.3.3
 Add an additional intent. It will be our starting point. Name this intent
-„welcomeIntent“. Please keep in mind that we wont fulfill this intent by webhook.
+„welcomeIntent“. Please keep in mind that we wont fulfill this intent by webhook. Below you see a dialog sample for our action:
+
+![enter image description here](https://lh3.googleusercontent.com/ErRJFoN4My0YR5NrcqcWvNQ9xKpIuos3N8Lei6ByBbMkM-jQOc2mQur7GaLqryA4ZkE8zlLPZ24A)
 
 <div id='id-docker-environment-for-our-app'/>
 
@@ -531,5 +533,6 @@ https://dialogflow.com/docs/getting-started - Official DialogFlow documentation
 <div id='id-hyper'/>
 
 <sub>1. Hyper-V is not compatible with virtual box or vmware. So in case you use VM in these it prevents you from switching Hyper-V on and off.<sub>
+
 
 
