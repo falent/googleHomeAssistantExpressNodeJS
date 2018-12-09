@@ -32,7 +32,7 @@ module.exports = {
 
     // Setting URL and headers for request
     const options = {
-      url: 'https://api.exchangeratesapi.io/latest?base=' + base,
+      url: 'https://api.exchangeratesapi.io/latest?base=' + currencyBase,
       json: true,
     };
 
