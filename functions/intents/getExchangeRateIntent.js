@@ -1,17 +1,12 @@
-/* eslint-disable require-jsdoc,no-unused-vars,max-len,no-multiple-empty-lines,no-multiple-empty-lines,no-trailing-spaces */
 const request = require('request');
 
-function getRate(base) {
-  // Setting URL and headers for request
-  const options = {
-    url: 'https://api.exchangeratesapi.io/latest?base=' + base,
-
-    headers: {
-      'User-Agent': 'request',
-    },
-    json: true,
-  };
-    // Return new promise
+/**
+ * Get
+ * @param {String} options for request call.
+ * @return {Promise} with result of exchange currency API.
+ */
+function getRate(options) {
+  // Return new promise
   return new Promise(function(resolve, reject) {
     // Do async job
     request.get(options, function(err, resp, body) {
@@ -35,14 +30,20 @@ module.exports = {
     console.log(currencyTarget);
     console.log(amount);
 
-    return getRate(currencyBase).then(function(result) {
+    // Setting URL and headers for request
+    const options = {
+      url: 'https://api.exchangeratesapi.io/latest?base=' + base,
+      json: true,
+    };
+
+    return getRate(options).then(function(result) {
       console.log(result);
       const rate = result['rates'][currencyTarget];
       console.log(rate);
 
       const myValue = amount * rate;
 
-      conv.ask('You will get ' + myValue + ' ' + currencyTarget + '. Do you like to change more?');
+      conv.ask(`You will get ${myValue} ${currencyTarget}. Do you like to change more?`);
     }, function(err) {
       console.log(err);
     });

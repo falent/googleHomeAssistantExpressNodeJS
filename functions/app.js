@@ -1,4 +1,3 @@
-/* eslint-disable indent,no-trailing-spaces */
 'use strict';
 
 
@@ -11,21 +10,22 @@ that the Assistant sends to your webhook
 const {dialogflow} = require('actions-on-google');
 
 /*
-the library allows you to create a DialogflowApp object,
+The library allows you to create a DialogflowApp object,
 which acts as a wrapper for the Dialogflow API.
 */
 const app = dialogflow({debug: false});
 
 const getExchangeRateIntent = require('./intents/getExchangeRateIntent');
+
 /** Adds Intent-name & callback key value pairs to app */
 function addIntents(...args) {
-    for (let i = 0; i < args.length; i++) {
-        for (const key in args[i]) {
-            if (args[i].hasOwnProperty(key)) {
-                app.intent(key, args[i][key]);
-            }
-        }
+  for (let i = 0; i < args.length; i++) {
+    for (const key in args[i]) {
+      if (args[i].hasOwnProperty(key)) {
+        app.intent(key, args[i][key]);
+      }
     }
+  }
 }
 
 addIntents(
@@ -34,10 +34,10 @@ addIntents(
 
 
 app.intent('welcomeIntent', (conv) => {
-    conv.ask(
-        'Welcome to Exchange Rate App! ' +
+  conv.ask(
+      'Welcome to Exchange Rate App! ' +
         'What do you like to change?'
-    );
+  );
 });
 
 module.exports = app;
