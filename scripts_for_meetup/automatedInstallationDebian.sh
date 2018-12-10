@@ -86,7 +86,7 @@ rm /home/$USER/Desktop/IDE/WebStorm.tar.gz
 sudo gnome-terminal \
 --tab -e "bash -ic \"sleep 5s; sudo docker network create myNetwork ; exec bash\"" \
 --tab -e "bash -ic \"sleep 10s; sudo docker run --rm -it --network myNetwork wernight/ngrok ngrok http myAssistant:5000; exec bash\"" \
---tab -e "bash -ic \"sleep 6s; sudo docker run -v ~/Desktop/Template/Google_Assistant_universal_skill_template:/skill -it --network myNetwork --name myAssistant falent/google_home_assistant_express_node_js_server:1; exec bash\"" \
+--tab -e "bash -ic \"sleep 6s; sudo docker run -v ~/Desktop/Template/Google_Assistant_universal_skill_template:/skill -it --network myNetwork --name myAssistant falent/google_home_assistant_express_node_js_server; exec bash\"" \
 
 
 
