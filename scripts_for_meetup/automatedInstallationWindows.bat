@@ -2,7 +2,6 @@ echo on
 echo " Before we start you need to ensure that Git is properly configured to handle line endings."
 git config --global core.autocrlf true
 
-
 if exist "C:\Program Files\Docker Toolbox\start.sh" goto ok
 ECHO Press any key to exit
 PAUSE >NUL
@@ -14,13 +13,16 @@ IF exist "C:\Users\%username%\Documents\googleHomeAssistantExpressNodeJS" ( cd C
 
 
 echo "Create a new Docker network:"
-docker network create myNetwork &
+call "C:\Program Files\Git\bin\bash.exe" --login -i "C:\Program Files\Docker Toolbox\start.sh" docker network create myNetwork
 
-echo "delete docker image and container"
-docker rm -f myAssistant && docker rmi -f falent/google_home_assistant_express_node_js_server:1 &
 
 echo "Runing the ngrok Docker container in your terminal and do not close this tab!"
-start cmd.exe @cmd /k  "docker run --rm -it --network myNetwork wernight/ngrok ngrok http myAssistant:5000"
+start cmd.exe @cmd /c call "C:\Program Files\Git\bin\bash.exe" --login -i "C:\Program Files\Docker Toolbox\start.sh" docker run --rm -it --network myNetwork wernight/ngrok ngrok http myAssistant:5000
 
 echo "Runing a Google Assistant Docker container"
-docker run -v //c/Users/%username%/Documents/googleHomeAssistantExpressNodeJS:/skill -it --rm --network myNetwork --name myAssistant falent/google_home_assistant_express_node_js_server
+call "C:\Program Files\Git\bin\bash.exe" --login -i "C:\Program Files\Docker Toolbox\start.sh" docker run -v //c/Users/%username%/Documents/googleHomeAssistantExpressNodeJS:/skill -it --rm --network myNetwork --name myAssistant falent/google_home_assistant_express_node_js_server
+
+
+
+
+
