@@ -9,7 +9,7 @@ EXIT /B
 
 :ok
 call "C:\Program Files\Git\bin\bash.exe" --login -i "C:\Program Files\Docker Toolbox\start.sh" docker run hello-world
-IF exist "C:\Users\%username%\Documents\googleHomeAssistantExpressNodeJS" ( cd C:\Users\%username%\Documents\googleHomeAssistantExpressNodeJS & git pull) ELSE ( git clone https://github.com/falent/googleHomeAssistantExpressNodeJS.git  C:\Users\%username%\Documents\googleHomeAssistantExpressNodeJS )
+IF exist "C:\Users\%username%\Documents\ga\googleHomeAssistantExpressNodeJS" ( cd C:\Users\%username%\Documents\ga\googleHomeAssistantExpressNodeJS & git pull) ELSE ( git clone https://github.com/falent/googleHomeAssistantExpressNodeJS.git  C:\Users\%username%\Documents\googleHomeAssistantExpressNodeJS )
 
 
 echo "Create a new Docker network:"
@@ -20,7 +20,7 @@ echo "Runing the ngrok Docker container in your terminal and do not close this t
 start cmd.exe @cmd /c call "C:\Program Files\Git\bin\bash.exe" --login -i "C:\Program Files\Docker Toolbox\start.sh" docker run --rm -it --network myNetwork wernight/ngrok ngrok http myAssistant:5000
 
 echo "Runing a Google Assistant Docker container"
-call "C:\Program Files\Git\bin\bash.exe" --login -i "C:\Program Files\Docker Toolbox\start.sh" docker run -v //c/Users/%username%/Documents/googleHomeAssistantExpressNodeJS:/skill -it --rm --network myNetwork --name myAssistant falent/google_home_assistant_express_node_js_server
+call "C:\Program Files\Git\bin\bash.exe" --login -i "C:\Program Files\Docker Toolbox\start.sh" docker run -v //c/Users/%username%/Documents/ga/googleHomeAssistantExpressNodeJS:/skill -it --rm --network myNetwork --name myAssistant falent/google_home_assistant_express_node_js_server
 
 
 
