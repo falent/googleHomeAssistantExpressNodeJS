@@ -1,13 +1,16 @@
 
+# Feedback
+Give us a feedback after the meetup here. It is anonymous.
+[feedback formular](https://goo.gl/forms/50s8xC0SMah77JpU2)
+
+# Tutorial
+Our short tutorial https://github.com/falent/GoogleAssistantTutorial
 
 # How to build your first Google Assistant Action?
 
 In this short tutorial we will show you how to write a simple Google assistant action and develop it on your local machine. We are going to use Docker to avoid any additional installation steps and ensure that all of us start with the same code in the same environment (less problems for all of us. For those who don't know how Docker works it is a good introduction) Don't worry although we use Docker you will edit your code only locally because we implemented a mount option (shared folder).
 
 When you finish your developing you can easily upload your code to any https node.js server (Heroku, Firebase, AWS, Azure or Openshift). At the end of this tutorial we will show you how to do it with Heroku and Firebase. Of course our solution will also work with any other Https node.js server provider
-
-Give us a feedback after the meetup here:
-[feedback formular](https://goo.gl/forms/50s8xC0SMah77JpU2)
 
 
 # Table of Contents
