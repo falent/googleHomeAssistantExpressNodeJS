@@ -6,6 +6,9 @@ In this short tutorial we will show you how to write a simple Google assistant a
 
 When you finish your developing you can easily upload your code to any https node.js server (Heroku, Firebase, AWS, Azure or Openshift). At the end of this tutorial we will show you how to do it with Heroku and Firebase. Of course our solution will also work with any other Https node.js server provider
 
+Give us a feedback after the meetup here:
+[feedback formular](https://goo.gl/forms/50s8xC0SMah77JpU2)
+
 
 # Table of Contents
 1. [Requirements](#id-requirements)
@@ -59,6 +62,14 @@ When you finish your developing you can easily upload your code to any https nod
 ## 1. Requirements
 We will work with Docker. So you need Docker and a Google account.
 
+Check permissions in your google account:
+[google permissions](https://myaccount.google.com/activitycontrols)
+The following have to be activated:
+
+ - Web & App Activity
+ - Device Information
+ - Voice & Audio Activity
+ 
 <div id='id-docker-installation'/>
 
 ### 1.1 Docker installation
@@ -539,6 +550,7 @@ https://dialogflow.com/docs/getting-started - Official DialogFlow documentation
 <div id='id-hyper'/>
 
 <sub>1. Hyper-V is not compatible with virtual box or vmware. So in case you use VM in these it prevents you from switching Hyper-V on and off.<sub>
+
 
 
 
