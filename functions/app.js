@@ -16,6 +16,7 @@ which acts as a wrapper for the Dialogflow API.
 const app = dialogflow({debug: false});
 
 const getExchangeRateIntent = require('./intents/getExchangeRateIntent');
+const nameIntent = require('./intents/nameIntent');
 
 /** Adds Intent-name & callback key value pairs to app */
 function addIntents(...args) {
@@ -29,14 +30,15 @@ function addIntents(...args) {
 }
 
 addIntents(
-    getExchangeRateIntent
+    getExchangeRateIntent,
+    nameIntent
 );
 
 
 app.intent('welcomeIntent', (conv) => {
   conv.ask(
-      'Welcome to Exchange Rate App! ' +
-        'What do you like to change?'
+      'Welcome to Exchange Rate App!!! ' +
+        'What is your name?'
   );
 });
 
