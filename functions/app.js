@@ -38,7 +38,7 @@ addIntents(
 app.intent('welcomeIntent', (conv) => {
   conv.ask(
       'Welcome to Exchange Rate App!!! ' +
-        'What is your name, Christina?'
+        'What is your name?'
   );
 });
 

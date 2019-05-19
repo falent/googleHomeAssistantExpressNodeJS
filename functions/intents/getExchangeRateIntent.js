@@ -43,7 +43,7 @@ module.exports = {
 
       const myValue = amount * rate;
 
-      conv.ask(`You will get ${myValue} ${currencyTarget}. Do you like to change more, ${conv.data.username}?`);
+      conv.ask(`You will get ${myValue} ${currencyTarget}. Do you like to change more?`);
     }, function(err) {
       console.log(err);
     });
