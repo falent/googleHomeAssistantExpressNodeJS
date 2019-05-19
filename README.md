@@ -280,7 +280,7 @@ We encourage you to do all steps by yourself in a windows cmd console because yo
 `docker run --rm -it  --network myNetwork wernight/ngrok ngrok http myAssistant:5000`
 
 5. Open a new cmd window and run an _Google Assistant_ Docker container in your created network.
-`docker run -v //c/Users/%username%/Documents/ga/googleHomeAssistantExpressNodeJS:/skill -it --rm --network myNetwork --name myAssistant falent/google_home_assistant_express_node_js_server`
+`docker run -v //c/Users/%username%/Documents/googleHomeAssistantExpressNodeJS:/skill -it --rm --network myNetwork --name myAssistant falent/google_home_assistant_express_node_js_server`
 
 To build the container named myAssistant a docker image is downloaded from the Docker Hub account *falent/google_home_assistant_express_node_js_server*.
 
@@ -553,6 +553,7 @@ https://dialogflow.com/docs/getting-started - Official DialogFlow documentation
 <div id='id-hyper'/>
 
 <sub>1. Hyper-V is not compatible with virtual box or vmware. So in case you use VM in these it prevents you from switching Hyper-V on and off.<sub>
+
 
 
 
