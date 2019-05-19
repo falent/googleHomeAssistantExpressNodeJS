@@ -1,5 +1,13 @@
 const request = require('request');
 
+
+
+function round(x, n)  
+{  
+  var a = Math.pow(10, n);  
+  return (Math.round(x * a) / a);  
+}
+
 /**
  * Get
  * @param {String} options for request call.
@@ -23,12 +31,13 @@ function getRate(options) {
 module.exports = {
 
   'getExchangeRateIntent': (conv, parameter) => {
+    console.log(parameter);
     const currencyBase = (parameter['currencyBase']);
     const currencyTarget = (parameter['currencyTarget']);
     const amount = (parameter['amount']);
-    console.log(currencyBase);
-    console.log(currencyTarget);
-    console.log(amount);
+    console.log('CurrencyBase:' + currencyBase);
+    console.log('CurrencyTarget:' + currencyTarget);
+    console.log('Amount:' +amount);
 
     // Setting URL and headers for request
     const options = {
@@ -41,12 +50,15 @@ module.exports = {
       const rate = result['rates'][currencyTarget];
       console.log(rate);
 
-      const myValue = amount * rate;
+      const myValue = round(amount * rate, 2);
 
-      conv.ask(`You will get ${myValue} ${currencyTarget}. Do you like to change more?`);
+      conv.ask(`You will get ${myValue} ${currencyTarget}. Do you like to change more, ${conv.data.username}?`);
     }, function(err) {
       console.log(err);
     });
   },
+
+
+
 
 };
