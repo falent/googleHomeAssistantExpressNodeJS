@@ -271,7 +271,7 @@ We encourage you to do all steps by yourself in a windows cmd console because yo
 `git config --global core.autocrlf true`
 
 2. Clone our repository. Your repository will be saved automatically in your Documents in the directory googleHomeAssistantExpressNodeJS.
-`git clone https://github.com/falent/googleHomeAssistantExpressNodeJS.git  C:\Users\%username%\Documents\ga\googleHomeAssistantExpressNodeJS`
+`git clone https://github.com/falent/googleHomeAssistantExpressNodeJS.git  C:\Users\%username%\Documents\googleHomeAssistantExpressNodeJS`
 
 3. Create a new Docker network:
 `docker network create myNetwork`
@@ -553,6 +553,7 @@ https://dialogflow.com/docs/getting-started - Official DialogFlow documentation
 <div id='id-hyper'/>
 
 <sub>1. Hyper-V is not compatible with virtual box or vmware. So in case you use VM in these it prevents you from switching Hyper-V on and off.<sub>
+
 
 
 
