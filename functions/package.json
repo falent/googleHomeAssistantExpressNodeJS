@@ -18,8 +18,8 @@
     "heroku-deploy": "git checkout atomic-development && git add ./ && git commit -m \"development increment\" && git push heroku atomic-development:master --force && heroku logs --tail"
   },
   "dependencies": {
-    "firebase-admin": "~6.0.0",
-    "firebase-functions": "^2.1.0",
+    "firebase-admin": "~11.4.1",
+    "firebase-functions": "^4.1.1",
     "actions-on-google": "^2.0.0",
     "express": "^4.16.3",
     "request": "^2.88.0"
